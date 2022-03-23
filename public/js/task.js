@@ -3,6 +3,7 @@
 // -----------------------------------------------------------------------------
 // RUN EXPERIMENT 
 // define global variables 
+import { full_screen, initialinstructions, taskinstructions, takeabreak, end_screen, dur_max } from "./instructions_effort.js";
 var collname = 'task'; 	// under what name to save it 
 
 var writetime = 10; 	// write every x trials 
@@ -25,16 +26,17 @@ if (debugging) {
 	breaktime = 8; 
 	writetime = 2;
 	introspectiontime = 3; 
-    design = {
+    const design = {
         efflevelsl : [3,4,3,4,6,4,3,4,6,4,3,4,6],
         efflevelsr : [4,3,4,2,2,3,4,2,2,3,4,2,2],
         rewlevelsl : [4,4,6,9,4,4,6,9,4,4,6,9,4],
         rewlevelsr : [3,2,4,3,3,2,4,3,3,2,4,3,3]
     };
+    //very confused about the scope of this variable
 }
 console.log('hey now');
 //console.log(design);
-//var nTrials = design.efflevelsl.length;\
+//var nTrials = design.efflevelsl.length;
 var nTrials = 5;
 
 var happinessquery= {
@@ -63,11 +65,17 @@ var timeline = [];  /* list of things to run */
 if (dofullscreen==true) {timeline.push(full_screen);}
 timeline.push(initialinstructions); 
 timeline = timeline.concat(timeline_PHQ);
-timeline = timeline.concat(timeline_AMI);
 timeline = timeline.concat(timeline_TEPS);
 timeline.push(taskinstructions); 
+var trial;
 for (trial=0; trial<nTrials; trial++) {
-	efftrial = { 
+    const design = {
+        efflevelsl : [3,4,3,4,6,4,3,4,6,4,3,4,6],
+        efflevelsr : [4,3,4,2,2,3,4,2,2,3,4,2,2],
+        rewlevelsl : [4,4,6,9,4,4,6,9,4,4,6,9,4],
+        rewlevelsr : [3,2,4,3,3,2,4,3,3,2,4,3,3]
+    };
+	const efftrial = { 
 		type: 'effort', 
 		npl:  design.efflevelsl[trial],
 		npr:  design.efflevelsr[trial],
