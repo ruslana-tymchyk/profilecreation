@@ -6,8 +6,8 @@ var pointtopenny= "0.25";
 var approxtime = "30"; 
 var dur_max = 35000; 
 
-// go into full screen
-console.log('at least im here') 
+// go into full screen 
+console.log('at least im here')
 var full_screen = { 
 	type: 'fullscreen',
 	fullscreen_mode: true
@@ -95,6 +95,4 @@ var end_screen = {
 		window.location = "https://app.prolific.co/submissions/complete?cc=7B779A64"; 
 	}, 
 }; 
-
-export {full_screen, initialinstructions, taskinstructions, takeabreak, end_screen, dur_max};
 
