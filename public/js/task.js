@@ -2,7 +2,6 @@
 //code from effort 6 task
 // -----------------------------------------------------------------------------
 // RUN EXPERIMENT 
-
 // define global variables 
 var collname = 'task'; 	// under what name to save it 
 
@@ -16,6 +15,7 @@ var dur_fix = 1000;
 var max_nonresp = 3; 
 
 var dofullscreen = true; 
+console.log('ola');
 
 var debugging = false; 
 if (debugging) { 
@@ -25,13 +25,17 @@ if (debugging) {
 	breaktime = 8; 
 	writetime = 2;
 	introspectiontime = 3; 
-	design.efflevelsl = [3,4,3,4,6,4,3,4,6,4,3,4,6]; 
-	design.efflevelsr = [4,3,4,2,2,3,4,2,2,3,4,2,2]; 
-	design.rewlevelsl = [4,4,6,9,4,4,6,9,4,4,6,9,4]; 
-	design.rewlevelsr = [3,2,4,3,3,2,4,3,3,2,4,3,3]; 
+    design = {
+        efflevelsl : [3,4,3,4,6,4,3,4,6,4,3,4,6],
+        efflevelsr : [4,3,4,2,2,3,4,2,2,3,4,2,2],
+        rewlevelsl : [4,4,6,9,4,4,6,9,4,4,6,9,4],
+        rewlevelsr : [3,2,4,3,3,2,4,3,3,2,4,3,3]
+    };
 }
-
-var nTrials = design.efflevelsl.length
+console.log('hey now');
+//console.log(design);
+//var nTrials = design.efflevelsl.length;\
+var nTrials = 5;
 
 var happinessquery= {
 	type: 'html-keyboard-response', 
@@ -84,17 +88,18 @@ for (trial=0; trial<nTrials; trial++) {
 	timeline.push(efftrial);
 	timeline.push(fix); 
 	//if ((trial % introspectiontime)==0 & trial > 0) { timeline.push(happinessquery); timeline.push(happinessrating); timeline.push(fix)}; 
-	if ((trial % breaktime)==0 & trial > 0) { timeline.push(takeabreak)}; 
+	if ((trial % breaktime)==0 & trial > 0) {timeline.push(takeabreak)}; 
 };
 timeline.push(end_screen);
 
 // now call jsPsych.init to run experiment 
-function runtask(uid) {
+export function runTask(uid) {
 	saveSetup(timeline);
 	jsPsych.init({
 		timeline: timeline, 
 	}); 
 }
+
 
 
 
