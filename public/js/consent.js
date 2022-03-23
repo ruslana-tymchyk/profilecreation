@@ -336,7 +336,7 @@ document.getElementById('consent').innerHTML = infoConsentText;
 //document.getElementById('start').onclick = //checkConsent;
 
 document.getElementById('startStudy').onclick = runStudy;
-
+// how to redirect to Effort task here?
 //what is uid variable????
 const uid = 1
 // once pre-instructions startStudy button clicked, hide info and run task!
