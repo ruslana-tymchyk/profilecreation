@@ -1,5 +1,6 @@
 // set up variables describing this specific task version
 
+
 // task version
 var version = "rew-eff9";			    // experiment version (used to create data collection in firestore)
 var infoSheet = "../assets/approved-participant-information-sheet-211012-rew-eff-1.pdf";  

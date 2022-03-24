@@ -3,7 +3,7 @@
 // import task-version relevant info and functions
 import { version, infoSheet, briefStudyDescr, approxTime, hourlyRate, baseEarn, bonusRate, maxBonus, allowDevices } from "./versionInfo.js";
 //import { saveConsent } from "./saveData.js";
-import { runTask } from "./task.js";	 	
+import { runTask } from "./task.js";	 
 
 // create task pre-instructions using task-version specific info
 const preInstructions = "<div class=\"row\"> "+ 
@@ -304,7 +304,7 @@ const infoConsentText = "<div class=\"row\"> "+
 	" 		<span class=\"checkmark\"></span> <br><br> " + 
 	" 		</label>  " + 
 	" 		<br>  " + 
-	"		<input type=\"submit\" id=\"start\" value=\"continue\" style=\"margin-left: 40%;\">"+
+	"		<input type=\"submit\" id=\"start\" value=\"Continue\" style=\"margin-left: 40%;\">"+
 	" 		<br><br> " + 
 	" 	</div> " + 
 	" 	<div class=\"col-3\"></div> " + 
@@ -313,38 +313,38 @@ const infoConsentText = "<div class=\"row\"> "+
 // create info sheet and consent form in consent div within consent-container 
 document.getElementById('consent').innerHTML = infoConsentText;
 
+var uid = 1;
 // once consent form start button clicked, check consent form for completeness
-//var checkConsent = function () {
+var checkConsent = function () {
+	console.log('in check consent function');
 	// only proceed if all boxes are ticked
 	//if (consent_checkbox9.checked == true) {	// [for debugging only!]
-	//if (consent_checkbox1.checked == true && consent_checkbox2.checked == true && consent_checkbox3.checked == true && consent_checkbox4.checked == true && consent_checkbox5.checked == true && consent_checkbox6.checked == true && consent_checkbox7.checked == true && consent_checkbox8.checked == true && consent_checkbox9.checked == true){
-		//if (uid) {
+	if (consent_checkbox1.checked == true && consent_checkbox2.checked == true && consent_checkbox3.checked == true && consent_checkbox4.checked == true && consent_checkbox5.checked == true && consent_checkbox6.checked == true && consent_checkbox7.checked == true && consent_checkbox8.checked == true && consent_checkbox9.checked == true){
+		if (uid) {
 			// save consent data
 			//saveConsent(uid, version);
 			// display post-consent 'pre instructions' (what exactly to expect in this version of the experiment)
-			//document.getElementById('consent').innerHTML = preInstructions;
-			//window.scrollTo(0, 0);
-			//document.getElementById('startStudy').onclick = runStudy;
-		//}
-	//} else {
-		//alert("Unfortunately you will not be able to participate in this research study if you do " +
-		//"not consent to the above. Thank you for your time.");
-		//return false;
-	//}
-//};
+			document.getElementById('consent').innerHTML = preInstructions;
+			window.scrollTo(0, 0);
+			document.getElementById('startStudy').onclick = runStudy;
+		}
+	} else {
+		alert("Unfortunately you will not be able to participate in this research study if you do " +
+		"not consent to the above. Thank you for your time.");
+		return false;
+	}
+};
+document.getElementById('start').onclick = checkConsent;
 
-//document.getElementById('start').onclick = //checkConsent;
-
-document.getElementById('startStudy').onclick = runStudy;
-// how to redirect to Effort task here?
 //what is uid variable????
-const uid = 1
+
 // once pre-instructions startStudy button clicked, hide info and run task!
 var runStudy = function () {
+	const uid = 1;
 	if (uid) {
 		// hide consent-container
 		document.getElementById('consent-container').style.display = "none";
-		// run task!
+		// run task
 		runTask(uid);
 	}
-}
+};

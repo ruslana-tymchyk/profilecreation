@@ -1,4 +1,4 @@
-// here write the code for the intervention 
+// here write the code for the task
 //code from effort 6 task
 // -----------------------------------------------------------------------------
 // RUN EXPERIMENT 
@@ -102,7 +102,8 @@ timeline.push(end_screen);
 
 // now call jsPsych.init to run experiment 
 export function runTask(uid) {
-	saveSetup(timeline);
+    //firestore_effort file
+	//saveSetup(timeline);
 	jsPsych.init({
 		timeline: timeline, 
 	}); 
