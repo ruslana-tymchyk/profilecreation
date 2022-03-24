@@ -31,7 +31,8 @@ var initialinstructions = {
 	post_trial_gap: 1000, 
 	on_start: function(){
 		document.querySelector('body').style.backgroundColor = '#c8c8c8';
-		saveStartData()},
+		//saveStartData()
+	},
 };
 
 // INSTRUCTIONS 
@@ -65,7 +66,8 @@ var taskinstructions= {
 	post_trial_gap: 1000, 
 	on_start: function(){
 		document.querySelector('body').style.backgroundColor = '#c8c8c8';
-		saveStartData()},
+		//saveStartData()
+	},
 };
 
 var takeabreak = {
