@@ -18,7 +18,10 @@
       {prompt: "<b>Thoughts that you would be better off dead or of hurting yourself in some way.</b>", name: "PHQ9_9", labels: options, required:true},
       
     ],
-    on_finish:function(){saveQuestionnaireData()},
+    on_finish:function(){
+      console.log('save data');
+      //saveQuestionnaireData()
+    },
   };
 
   var difficulty = ["Not difficult at all", "Somewhat difficult", "Very diffucult", "Extremely difficult"];
@@ -28,7 +31,10 @@
     questions: [
       {prompt: "If you had any of the problems above, how difficult have these problems made it for you to do your work, take care of things at home, or get along with other people?", name: "PHQ9_diff", labels: difficulty, required:true}, 
     ],
-    on_finish:function(){saveQuestionnaireData()},
+    on_finish:function(){
+      console.log('save data');
+      //saveQuestionnaireData();
+    },
   };
   
  var timeline_PHQ = [];

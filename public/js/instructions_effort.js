@@ -13,10 +13,11 @@ var full_screen = {
 	fullscreen_mode: true
 };
 
+
 // INSTRUCTIONS 
 var initialinstructions = {
 	type: "instructions", 
-	pages: ["<h1>Balloon task</h1></br></br>" + 
+	pages: ["<h1>Mindfulness task</h1></br></br>" + 
 	"<p>Welcome to the scientific experiment on happiness.</p>"+ 
 	"<p>Before the main part of the experiment, we need to ask you three sets of questions about your mood and how you feel.</p>" + 
 	"<p>Please answer these as truthfully as possible. It is critical for the scientific questions we are trying to answer.</p>"+
@@ -40,22 +41,18 @@ var taskinstructions= {
 	type: "instructions", 
 	pages: ["<h1>Main experiment</h1></br></br>" + 
 	"<p>Great. Thank you for answering the questionnaires. You are now ready to start the main part of the experiment." + 
-	"</br></br>You will see two balloons - a red and a blue one. " +
-	"</br>On each trial, you will need to choose to 'pop' one of the balloons by pumping it up until it hits the nail at the top.</p>" + 
-	"<ul><li>Press 'd' to CHOOSE the LEFT balloon.</li>" +
-	"    <li>Press 'f' to CHOOSE the RIGHT ballooon.</li>" +
-	"    <li>Press 'j' to PUMP UP the chosen ballooon.</li></ul>" +
-	"<p>So on each trial, you first have to choose one of the two balloons (using keys 'd' and 'f'), and then pump it up (using key 'j').</p>" + 
-	"<p>Once you have chosen one ballooon you can't change your mind on that trial---you'll have to finish pumping up that ballooon until it pops. " + 
-	"</br>You will be able to choose the other ballooon on other trials though.  "+ 
-	"<p>Below the balloon, you will see: </p>" + 
-	"<ul><li>How many pumps are required to pop the balloon</li>" + 
-	"    <li>How many bonus points you get for popping the ballooon.</li></ul>" + 
+	"</br></br>In this experiment you will see an icon identifying the person." +
+	"</br>On each trial, you will need to decide if you think this person liked you based on your profile or not.</p>" + 
+	"<p> <img src='./assets/imgs/naya.jpeg' alt='Naya is so cute' style='width:250px;height:300px;'> <p>" +
+	"<ul><li>Press 'YES' if you think they liked you.</li>" +
+	"    <li>Press 'NO' if you think they did not like you.</li>" +
+	"<p>Once you have chosen one ballooon you can't change your mind on that trial and will move on to the next trial " + 
+	"</br>Every few trials we will also ask you to tell us how you feel about yourself that very moment"+ 
+	"<p>When answering consider how you feel at this very moment and not in general that day </p>" + 
+	"<p>This part is very important for the scientific questions we are trying to answer.</p>" + 
+	"<p>Please do your best to truthfully indicate how much (or how little) happiness you experience in that very moment.</p>" + 
 	"<p>You will earn at least GBP " + baseearn + ". </br>" + 
 	"</br>In addition, each point is worth " + pointtopenny + " pence. " ,
-	//"<p>Every few trials, we will also ask you to tell us how happy you are in that very moment.</p>" +
-	//"<p>This part is very important for the scientific questions we are trying to answer.</p>" + 
-	//"<p>Please do your best to truthfully indicate how much (or how little) happiness you experience in that very moment.</p>", 
 	"</br>Note: pressing the escape key at any point will terminate the experiment." + 
 	"</br></br>[Press j to BEGIN THE TASK]</p>"], 
 	show_clickable_nav: true, 
