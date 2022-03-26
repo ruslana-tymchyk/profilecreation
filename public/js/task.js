@@ -4,6 +4,11 @@
 // RUN EXPERIMENT 
 // define global variables 
 import { full_screen, initialinstructions, taskinstructions, takeabreak, end_screen, dur_max } from "./instructions_effort.js";
+
+import { ask_question, mood_feedback } from "./task_design.js";
+
+import { page1 } from "./intervention.js";
+
 var collname = 'task'; 	// under what name to save it 
 
 var writetime = 10; 	// write every x trials 
@@ -63,6 +68,9 @@ var fix = {
 var timeline = [];  /* list of things to run */
 
 if (dofullscreen==true) {timeline.push(full_screen);}
+timeline.push(ask_question); 
+timeline.push(mood_feedback); 
+timeline.push(page1); 
 timeline.push(initialinstructions); 
 timeline = timeline.concat(timeline_PHQ);
 timeline = timeline.concat(timeline_TEPS);
@@ -92,7 +100,10 @@ for (trial=0; trial<nTrials; trial++) {
 			}
 		}, 
 	}; 
-	if ((trial % writetime)==0 & trial > 0) {efftrial.on_finish = function() {saveTaskData(); saveTaskDataDump();}};
+	if ((trial % writetime)==0 & trial > 0) {efftrial.on_finish = function() {
+        console.log('will save the data here in the future');
+        //saveTaskData(); saveTaskDataDump();
+    }};
 	timeline.push(efftrial);
 	timeline.push(fix); 
 	//if ((trial % introspectiontime)==0 & trial > 0) { timeline.push(happinessquery); timeline.push(happinessrating); timeline.push(fix)}; 

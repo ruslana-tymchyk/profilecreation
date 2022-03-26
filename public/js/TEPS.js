@@ -27,7 +27,10 @@
         {prompt: "<b>When I hear about a new movie starring my favourite actor, I can't wait to see it</b>", name: "TEPS18", labels: scale, required: true}, 
      
       ],
-    on_finish:function(){saveQuestionnaireData()},
+    on_finish:function(){
+      console.log('save data');
+      //saveQuestionnaireData()
+    },
 
   };
 
