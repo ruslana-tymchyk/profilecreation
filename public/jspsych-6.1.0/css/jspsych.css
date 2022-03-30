@@ -71,7 +71,7 @@
   background-image: none;
   border: 1px solid transparent;
   border-radius: 4px;
-  color: #333;
+  color: rgb(3, 109, 136);
   background-color: #fff;
   border-color: #ccc;
 }
@@ -91,7 +91,7 @@
 /* jsPsych progress bar */
 
 #jspsych-progressbar-container {
-  color: #555;
+  color: rgb(160, 224, 240);
   border-bottom: 1px solid #dedede;
   background-color: #f9f9f9;
   margin-bottom: 1em;
