@@ -7,7 +7,6 @@ var approxtime = "30";
 var dur_max = 35000; 
 
 // go into full screen
-console.log('at least im here') 
 var full_screen = { 
 	type: 'fullscreen',
 	fullscreen_mode: true
@@ -31,7 +30,7 @@ var initialinstructions = {
 	button_label_next: 'press j to go forward',
 	post_trial_gap: 1000, 
 	on_start: function(){
-		document.querySelector('body').style.backgroundColor = '#c8c8c8';
+		document.querySelector('body').style.backgroundColor = '#cce3f0fb';
 		//saveStartData()
 	},
 };
@@ -62,7 +61,7 @@ var taskinstructions= {
 	button_label_next: 'press j to go forward',
 	post_trial_gap: 1000, 
 	on_start: function(){
-		document.querySelector('body').style.backgroundColor = '#c8c8c8';
+		document.querySelector('body').style.backgroundColor = '#cce3f0fb';
 		//saveStartData()
 	},
 };
@@ -74,7 +73,7 @@ var takeabreak = {
 	post_trial_gap: 1000, 
 	show_clickable_nav: false, 
 	on_start: function(){
-		document.querySelector('body').style.backgroundColor = '#c8c8c8';
+		document.querySelector('body').style.backgroundColor = '#cce3f0fb';
 		saveTaskData(true); 
 		saveTaskDataDump();
 	},
@@ -88,7 +87,7 @@ var end_screen = {
 	stimulus: 'You have finished the task. <br>Thank you for your contribution to science. <br><br><b> PLEASE CLICK END TASK TO SUBMIT THE TASK TO PROLIFIC </b>.<br></br></br>',
 	on_start: function(){
 		saveEndData();
-		document.querySelector('body').style.backgroundColor = '#c8c8c8';
+		document.querySelector('body').style.backgroundColor = '#cce3f0fb';
 	},
 	on_finish: function(){
 		window.location = "https://app.prolific.co/submissions/complete?cc=7B779A64"; 

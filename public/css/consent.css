@@ -26,16 +26,26 @@
  }
  
  input[type=submit] {
-   font-size: 18px; 
-   font-weight: 500;
-   padding: 5px 15px; 
-   background: powderblue; 
-   -webkit-border-radius: 5px; 
-   border-radius: 5px;
-   border: 3px solid; 
-   border-color: darkgray; 
-   cursor: pointer;
+  display: inline-block;
+  padding: 6px 12px;
+  margin-left: 0px;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: 'Open Sans', 'Arial', sans-serif;
+  cursor: pointer;
+  line-height: 1.4;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: rgb(3, 109, 136);
+  background-color: #fff;
+  border-color: #ccc;
+  cursor: pointer;
  }
+
  
  input[type=checkbox] {
    -ms-transform: scale(1.4); /* IE */
