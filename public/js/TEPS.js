@@ -4,7 +4,7 @@
   var scale = ["very false</br>for me", "mostly false</br>for me", "somewhat false</br>for me", "somewhat true</br>for me", "mostly true</br>for me", "very true</br>for me"];
 
   var TEPS = {
-      type: 'survey-likert',
+      type: jsPsychSurveyLikert,
 	 	preamble: '<p ></br></br></br>Below is a list of items with an event and an attitude.</br> Please indicate how true you find each item by selecting the option that suits you the best.</p>',  
       questions: [
         {prompt: "<b>When something exciting is coming up in my life, I really look forward to it</b>", name: "TEPS1",  labels: scale, required: true}, 

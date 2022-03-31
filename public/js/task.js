@@ -77,9 +77,9 @@ timeline.push(end_screen);
 export function runTask(uid) {
     //firestore_effort file
 	//saveSetup(timeline);
-	jsPsych.init({
-		timeline: timeline, 
-	}); 
+    console.log(timeline);
+	var jsPsych = initJsPsych(); 
+    jsPsych.run(timeline);
 }
 
 

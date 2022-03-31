@@ -1,7 +1,7 @@
 // -----------------------------------------------------------------------------
 // INTERVENTION
 var page1_control = {
-	type: "survey-text", 
+	type: jsPsychSurveyText, 
 	questions: [{prompt: "<b>Read some decentering material and tell us what you think</b>"}], 
 	preamble: "Intervention", 
 	button_label: 'Next',

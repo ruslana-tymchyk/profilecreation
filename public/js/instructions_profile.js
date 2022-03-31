@@ -1,6 +1,6 @@
 // INSTRUCTIONS 
 var initialinstructions_profile = {
-	type: "instructions", 
+	type: jsPsychInstructions, 
 	pages: ["<h1>Create a personal profile</h1></br></br>" + 
 	"<p>You will now create a profile about yourself. </p>" + 
     "<p> You will create your profile via this online platform, so that we can show it to other people taking part in the study. </p>" + 
@@ -24,7 +24,7 @@ var initialinstructions_profile = {
 
 // INSTRUCTIONS 
 var ask_questions_profile= {
-	type: "survey-text", 
+	type: jsPsychSurveyText, 
 	questions: [
         {prompt: "<b>If we asked your friends and family about your best qualities, what might they say?</b>", name: "P1", required:true}, 
         {prompt: "<b>And what would they say were your worst qualities?</b>",  name: "P2", required:true},

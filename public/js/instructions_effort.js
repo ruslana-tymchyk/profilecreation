@@ -8,14 +8,14 @@ var dur_max = 35000;
 
 // go into full screen
 var full_screen = { 
-	type: 'fullscreen',
+	type: jsPsychFullscreen,
 	fullscreen_mode: true
 };
 
 
 // INSTRUCTIONS 
 var initialinstructions = {
-	type: "instructions", 
+	type: jsPsychInstructions, 
 	pages: ["<h1>Mindfulness task</h1></br></br>" + 
 	"<p>Welcome to the scientific experiment on happiness.</p>"+ 
 	"<p>Before the main part of the experiment, we need to ask you three sets of questions about your mood and how you feel.</p>" + 
@@ -37,7 +37,7 @@ var initialinstructions = {
 
 // INSTRUCTIONS 
 var taskinstructions= {
-	type: "instructions", 
+	type: jsPsychInstructions, 
 	pages: ["<h1>Main experiment</h1></br></br>" + 
 	"<p>Great. Thank you for answering the questionnaires. You are now ready to start the main part of the experiment." + 
 	"</br></br>In this experiment you will see an icon identifying the person." +
@@ -67,7 +67,7 @@ var taskinstructions= {
 };
 
 var takeabreak = {
-	type: "instructions", 
+	type: jsPsychInstructions, 
 	pages: ["<h1>Break</h1><p> You can take a break if you wish.</p></br></br><p> [ Press key 'j' to continue. ] </p>"], 
 	key_forward: 'j',
 	post_trial_gap: 1000, 
@@ -80,7 +80,7 @@ var takeabreak = {
 };
 
 var end_screen = {
-	type: 'html-button-response',
+	type: jsPsychHtmlButtonResponse,
 	timing_post_trial: 0,
 	choices: ['End Task'],
 	is_html: true,
