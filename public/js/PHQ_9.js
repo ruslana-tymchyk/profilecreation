@@ -4,7 +4,7 @@
   var options = ["Not at all", "Several days", "More than</br>half the days", "Nearly every day"];
 
   var PHQ = {
-    type: 'survey-likert',
+    type: jsPsychSurveyLikert,
 	 preamble: '<p max-width="500px"></br></br></br><b>Over the last 2 weeks</b>, how often have you been bothered by any of the following problems?</p>',  
     questions: [
       {prompt: "<b>Little interest or pleasure in doing things</b>",         name: "PHQ9_1", labels: options, required:true}, 
@@ -27,7 +27,7 @@
   var difficulty = ["Not difficult at all", "Somewhat difficult", "Very diffucult", "Extremely difficult"];
   //difficulty
   var diff = {
-    type: 'survey-likert',
+    type: jsPsychSurveyLikert,
     questions: [
       {prompt: "If you had any of the problems above, how difficult have these problems made it for you to do your work, take care of things at home, or get along with other people?", name: "PHQ9_diff", labels: difficulty, required:true}, 
     ],
