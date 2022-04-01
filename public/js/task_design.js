@@ -39,7 +39,8 @@ var mood_feedback = {
     labels: ['very bad', 'very good'],
     prompt: ['<p> Please provide response before continuing </p>'],
     button_label: ['Continue'],
-    slider_start: 50,
+    slider_width: 150,
+    slider_start: 50, 
     require_movement: true, //must move slider before clicking?
 	on_start: function(){
 		document.querySelector('body').style.backgroundColor = '#cce3f0fb';

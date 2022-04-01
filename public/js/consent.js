@@ -1,7 +1,7 @@
 // Consent form: first thing to be run, requires full completion before passing on to task and other content
 
 // import task-version relevant info and functions
-import { version, infoSheet, briefStudyDescr, approxTime, hourlyRate, baseEarn, bonusRate, maxBonus, allowDevices } from "./versionInfo.js";
+import { version, infoSheet, briefStudyDescr, approxTime, hourlyRate, baseEarn, bonusRate, maxBonus} from "./versionInfo.js";
 //import { saveConsent } from "./saveData.js";
 import { runTask } from "./task.js";	 
 
@@ -38,10 +38,10 @@ const preInstructions = "<div class=\"row\"> "+
 	"to respond to you as quickly as possible. "+
 	"</p>" + 
 	"<p>" + 
-	"Press the <b>begin study</b> button below when you are ready to start!"+
+	"Press the <b>Begin Study</b> button below when you are ready to start!"+
 	"</p>" + 
 	"<br>"+ 
-	"<input type=\"submit\" id=\"startStudy\" value=\"begin study\" style=\"margin-left: 40%;\">"+
+	"<input type=\"submit\" id=\"startStudy\" value=\"Begin Study\" style=\"margin-left: 40%;\">"+
 	"<br><br>"+
 	"</div>"+ 
 	"<div class=\"col-3\"></div>"+ 
@@ -335,8 +335,6 @@ var checkConsent = function () {
 	}
 };
 document.getElementById('start').onclick = checkConsent;
-
-//what is uid variable????
 
 // once pre-instructions startStudy button clicked, hide info and run task!
 var runStudy = function () {
