@@ -6,175 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Mindfulness</title>
     <link rel="shortcut icon" href="./assets/imgs/favicon.ico">
+    <!-- import css -->
     <link href="./css/consent.css" rel="stylesheet" type="text/css"></link>
-
-    <style>
-      /* css for the consent form*/
-      html,
-      body,
-      #consent-container {
-        font-family: 'Open Sans', 'Arial', sans-serif;
-        font-size: 14px;
-        line-height: 1.6em;
-      }
-      #consent-container h2 {
-        text-align: center;
-        line-height: 1.6em;
-      }
-
-      .jspsych-btn {
-        display: inline-block;
-        padding: 6px 12px;
-        margin-left: 0px;
-        font-size: 14px;
-        font-weight: 400;
-        font-family: 'Open Sans', 'Arial', sans-serif;
-        cursor: pointer;
-        line-height: 1.4;
-        text-align: center;
-        white-space: nowrap;
-        vertical-align: middle;
-        background-image: none;
-        border: 1px solid transparent;
-        border-radius: 4px;
-        color: rgb(3, 109, 136);
-        background-color: #fff;
-        border-color: #ccc;
-      }
-      /* jsPsych progress bar */
-
-      #jspsych-progressbar-container {
-        color: rgb(160, 224, 240);
-        border-bottom: 1px solid #dedede;
-        background-color: #f9f9f9;
-        margin-bottom: 1em;
-        text-align: center;
-        padding: 8px 0px;
-        width: 100%;
-        line-height: 1em;
-      }
-      #jspsych-progressbar-container span {
-        font-size: 14px;
-        padding-right: 14px;
-      }
-      #jspsych-progressbar-outer {
-        background-color: #eee;
-        width: 50%;
-        margin: auto;
-        height: 14px;
-        display: inline-block;
-        vertical-align: middle;
-        box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-      }
-      #jspsych-progressbar-inner {
-        background-color: #aaa;
-        width: 0%;
-        height: 100%;
-      }
-
-      .jspsych-display-element {
-      display: flex;
-      flex-direction: column;
-      overflow-y: auto;
-    }
-
-    .jspsych-display-element:focus {
-      outline: none;
-    }
-
-    .jspsych-content-wrapper {
-      display: flex;
-      margin: auto;
-      flex: 1 1 100%;
-      width: 100%;
-    }
-
-    .jspsych-content {
-      max-width: 95%; /* this is mainly an IE 10-11 fix */
-      text-align: center;
-      margin: auto; /* this is for overflowing content */
-    }
-
-    .jspsych-top {
-      align-items: flex-start;
-    }
-
-    .jspsych-middle {
-      align-items: center;
-    }
-
-      /* Control appearance of jsPsych.data.displayData() */
-      #jspsych-data-display {
-        text-align: center;
-      }
-
-      /* css for the task*/
-      body { background-color: #cce3f0fb;}
-
-			p { color: black;
-			  text-align: center; 
-			}
-
-      h2 { color: black;
-			  text-align: center; 
-			}
-
-			.green { color:#66fb66; }
-			.orange{ color:#ff7f50; }
-
-			li { text-align: center;}
-
-			p.right{ 
-				padding-top: 300px; 
-			}
-			p.left{ 
-				padding-top: 300px; 
-				padding-left: 260px; 
-			}
-			p.wrong { 
-				text-align: center;
-				color: red;
-				font-size: 400%;
-			}
-
-			.jspsych-target {background-color:"#c8c8c8"}
-
-			.container { color:red;}
-
-			* { box-sizing: border-box; }
-
-			.row::after {
-				content: "";
-				clear: both;
-				display: table;
-			}
-
-      .emphasized { font-style: italic; }
-
-			.row {width:100%;}
-
-			.col-1 {width: 8.33%;}
-			.col-2 {width: 16.66%;}
-			.col-3 {width: 25%;}
-			.col-4 {width: 33.33%;}
-			.col-5 {width: 41.66%;}
-			.col-6 {width: 50%;}
-			.col-7 {width: 58.33%;}
-			.col-8 {width: 66.66%;}
-			.col-9 {width: 75%;}
-			.col-10 {width: 83.33%;}
-			.col-11 {width: 91.66%;}
-			.col-12 {width: 100%;}
-
-			.col-300 {width: 20px;}
-			.col-600 {width: 600px;}
-
-			[class*="col-"] {
-				float: left;
-				padding: 15px;
-				border: none; 
-			}
-  </style>
+    <link href="./css/task.css" rel="stylesheet" type="text/css"></link>
 
   </head>
 
@@ -184,16 +18,7 @@
       <header id="header" class="form__header" ><h2 id="header_title" class="form__title"></h2></header>
       <section><div id='consent'></div></section>
     </div>
-     <!-- set up divs to hold the task -->
-    <div id="jspsych-target"></div>
-    <div class="form" id="mainSection">
-       <header class="form__header" id="header"><h2 id="header_title" class="form__title"></h2></header>
-       <section class="mainInstructions" ><div id="consent"></div></section>
-    </div>
 
-	<body>
-
-    
     <!-- some more firebase config may go in here -->
     <!-- Main study components -->
     <script src="./jspsych/plugins/jspsych.js"></script>
@@ -209,21 +34,14 @@
 		<script src="./jspsych/plugins/plugin-survey-multi-choice.js"></script>
 		<script src="./jspsych/plugins/plugin-survey-likert.js"></script>
     <script src="./jspsych/plugins/plugin-survey-text.js"></script>
-  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="https://www.w3schools.com/lib/w3.js"></script>
 
-		<!-- <script src="../plugins/jspsych-effort.js"></script> -->
-
+  <!-- Questionnaires -->
 		<script src="./js/PHQ_9.js"></script>
 		<script src="./js/TEPS.js"></script>
-
+  <!-- Get informed consent and task -->
     <script src="./js/task.js" type="module"></script> 
     <script src="./js/consent.js" type="module"></script>  
-        <!-- get informed consent then -->
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-
   </body>
 </html>

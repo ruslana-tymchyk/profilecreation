@@ -1,0 +1,98 @@
+
+/*
+ * Misc CSS styling for the task .
+ *
+ */
+    /* Control appearance of jsPsych.data.displayData() */
+    #jspsych-data-display {
+    text-align: center;
+    }
+
+    /* Centering the task in the middle of the screen */
+    .jspsych-middle {
+        align-items: center;
+    }
+
+    /* Button design for the whole experiment */
+    .jspsych-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-left: 0px;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Open Sans', 'Arial', sans-serif;
+    cursor: pointer;
+    line-height: 1.4;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: rgb(3, 109, 136);
+    background-color: #fff;
+    border-color: #ccc;
+    }
+
+    /* jsPsych progress bar */
+    #jspsych-progressbar-container {
+    color: rgb(160, 224, 240);
+    border-bottom: 1px solid #dedede;
+    background-color: #f9f9f9;
+    margin-bottom: 1em;
+    text-align: center;
+    padding: 8px 0px;
+    width: 100%;
+    line-height: 1em;
+    }
+
+    #jspsych-progressbar-container span {
+    font-size: 14px;
+    padding-right: 14px;
+    }
+    
+    #jspsych-progressbar-outer {
+    background-color: #eee;
+    width: 50%;
+    margin: auto;
+    height: 14px;
+    display: inline-block;
+    vertical-align: middle;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    }
+    
+    #jspsych-progressbar-inner {
+    background-color: #aaa;
+    width: 0%;
+    height: 100%;
+    }
+
+    .jspsych-display-element {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+/* TEST IF YOU NEED THIS STUFF */
+.jspsych-display-element:focus {
+    outline: none;
+}
+
+.jspsych-content-wrapper {
+    display: flex;
+    margin: auto;
+    flex: 1 1 100%;
+    width: 100%;
+}
+
+.jspsych-content {
+    max-width: 95%; /* this is mainly an IE 10-11 fix */
+    text-align: center;
+    margin: auto; /* this is for overflowing content */
+}
+
+.jspsych-top {
+    align-items: flex-start;
+}
+
+.emphasized { font-style: italic; }

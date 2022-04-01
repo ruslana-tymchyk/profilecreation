@@ -1,24 +1,23 @@
 // Task
-// Need to create variable that is going to contain all images
-
 
 var responses = ['./assets/imgs/yes.jpg ', './assets/imgs/no.jpeg '];
 
 var run_trial = function(person, name, response_correct) {
+    //pass the correct response into this
     var choices = ['f', 'j'];
-    var response_correct = choices[0];
+    var response = choices[response_correct];
+    console.log('doing something here');
+    console.log(response);
     var ask_question = {
         type: jsPsychCategorizeHtml,
         timing_post_trial: 0,
         choices: ['f', 'j'],
         prompt: ['<br> press F to respond YES </br> <br> press J to respond NO </br>'],
-        key_answer: 'f',
+        key_answer: response,
         correct_text: "<p> <img src=" + responses[0] + "alt='Yes icon' style='width:125px;height:150px;'> <p>",
         incorrect_text: "<p> <img src=" + responses[1] + "alt='No icon' style='width:125px;height:150px;'> <p>",
         feedback_duration: 2000,
-        force_correct_button_press: true,
         css_classes: "jspsych-middle",
-        //button_html: ['<button class="jspsych-btn">%choice%</button>', '<button class="jspsych-btn">%choice%</button>'],
         stimulus: "<div class=\"row\"> "+ 
         "<div class=\"col-3\"></div> "+ 
         "<div class=\"col-6\"> "+ "<h1>Did this person like you?</h1>"+ 
@@ -33,7 +32,6 @@ var run_trial = function(person, name, response_correct) {
     }
     return ask_question;
 };
-
 
 var mood_feedback = { 
     type: jsPsychHtmlSliderResponse,
