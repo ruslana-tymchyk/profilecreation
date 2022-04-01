@@ -5,6 +5,18 @@
 
  @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
 
+ html,
+ body,
+ #consent-container {
+   font-family: 'Open Sans', 'Arial', sans-serif;
+   font-size: 14px;
+   line-height: 1.6em;
+ }
+ #consent-container h2 {
+   text-align: center;
+   line-height: 1.6em;
+ }
+
  .row::after {
    content: "";
    clear: both;
@@ -46,7 +58,6 @@
   cursor: pointer;
  }
 
- 
  input[type=checkbox] {
    -ms-transform: scale(1.4); /* IE */
    -moz-transform: scale(1.4); /* FF */
@@ -55,3 +66,39 @@
    transform: scale(1.4);
    padding: 10px;
  }
+ li { text-align: center;}
+
+ p.right{ 
+   padding-top: 300px; 
+ }
+ p.left{ 
+   padding-top: 300px; 
+   padding-left: 260px; 
+ }
+ p.wrong { 
+   text-align: center;
+   color: red;
+   font-size: 400%;
+ }
+
+ p { color: black;
+  text-align: center; 
+}
+
+h2 { color: black;
+  text-align: center; 
+}
+
+body { background-color: #cce3f0fb;}
+
+.jspsych-target {background-color:"#c8c8c8"}
+
+.container { color:red;}
+
+* { box-sizing: border-box; }
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}

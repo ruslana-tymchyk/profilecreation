@@ -12,7 +12,6 @@ var full_screen = {
 	fullscreen_mode: true
 };
 
-
 // INSTRUCTIONS 
 var initialinstructions = {
 	type: jsPsychInstructions, 
@@ -74,8 +73,8 @@ var takeabreak = {
 	show_clickable_nav: false, 
 	on_start: function(){
 		document.querySelector('body').style.backgroundColor = '#cce3f0fb';
-		saveTaskData(true); 
-		saveTaskDataDump();
+		//saveTaskData(true); 
+		//saveTaskDataDump();
 	},
 };
 
