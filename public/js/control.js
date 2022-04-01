@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
 // INTERVENTION
-var page1_control = {
+var control1 = {
 	type: jsPsychSurveyText, 
 	questions: [{prompt: "<b>Read some decentering material and tell us what you think</b>"}], 
 	preamble: "Intervention", 
@@ -12,4 +12,4 @@ var page1_control = {
 	},
 };
 
-export {page1_control};
+export {control1};

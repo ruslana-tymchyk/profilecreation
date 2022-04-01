@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
 // INTERVENTION
-var page1 = {
+var intervention1 = {
 	type: jsPsychSurveyText, 
 	questions: [{prompt: "<p>If possible, find somewhere quiet and take a seat. Get yourself as comfortable </p>" +
     "<p> as possible. Now, close your eyes and focus on your breath. Let&apos;s check in with the things </p>" +
@@ -23,4 +23,4 @@ var page1 = {
 	},
 };
 
-export {page1};
+export {intervention1};

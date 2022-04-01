@@ -1,11 +1,11 @@
 // -----------------------------------------------------------------------------
 // RUN EXPERIMENT 
 // define global variables 
-import { full_screen, initialinstructions, taskinstructions, takeabreak, end_screen} from "./instructions_effort.js";
-import {initialinstructions_profile, ask_questions_profile} from "./instructions_profile.js";
+import { full_screen, initialinstructions, taskinstructions, takeabreak, end_screen, initialinstructions_profile, ask_questions_profile} from "./instructions.js";
 import {run_trial, mood_feedback} from "./task_design.js";
 
-import { page1 } from "./intervention.js";
+import { intervention1 } from "./intervention.js";
+import { control1 } from "./control.js";
 
 var writetime = 10; 	// write every x trials 
 var breaktime = 2;	// break every x trials 
@@ -39,6 +39,14 @@ var trial_response = function(person, probabilities){
 
 if (dofullscreen==true) {timeline.push(full_screen);}
 
+timeline.push(initialinstructions_profile);
+timeline.push(ask_questions_profile);
+timeline.push(initialinstructions); 
+timeline = timeline.concat(timeline_PHQ);
+timeline = timeline.concat(timeline_TEPS);
+timeline.push(taskinstructions); 
+
+//Main task 
 var trial;
 for (trial=0; trial<nTrials; trial++) {
     var response_correct = Math.floor(Math.random() * 2);
@@ -58,15 +66,14 @@ for (trial=0; trial<nTrials; trial++) {
     }
 }
 };
+//randomise intervention and control
+if (Math.random() < 0.5){
+    timeline.push(intervention1); 
+}
+else{
+    timeline.push(control1); 
+};
 
-//};
-timeline.push(initialinstructions_profile);
-timeline.push(ask_questions_profile);
-timeline.push(page1); 
-timeline.push(initialinstructions); 
-timeline = timeline.concat(timeline_PHQ);
-timeline = timeline.concat(timeline_TEPS);
-timeline.push(taskinstructions); 
 timeline.push(end_screen);
 
 // now call jsPsych.init to run experiment 
