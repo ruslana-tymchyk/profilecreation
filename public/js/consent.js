@@ -1,7 +1,7 @@
 // Consent form: first thing to be run, requires full completion before passing on to task and other content
 
 // import task-version relevant info and functions
-import { version, infoSheet, briefStudyDescr, approxTime, hourlyRate, baseEarn, bonusRate, maxBonus} from "./versionInfo.js";
+import {infoSheet} from "./versionInfo.js";
 //import { saveConsent } from "./saveData.js";
 import { runTask } from "./task.js";	 
 
@@ -10,19 +10,18 @@ const preInstructions = "<div class=\"row\"> "+
 	"<div class=\"col-3\"></div> "+ 
 	"<div class=\"col-6\"> "+ 
 	"<p><b>Thank you for agreeing to take part in this study!</b></p>"+
-	"<p>"+briefStudyDescr+"</p>" + 
 	"<p>" + 
-	"We expect this study to take around <b>"+approxTime.toString()+" minutes</b> to complete. "+
-	"Since the hourly payment rate for this study is £"+hourlyRate.toFixed(2)+", "+
-	"you will earn <b>at least £"+baseEarn.toFixed(2)+"if you fully complete the study</b> "+
+	"We expect this study to take around <b> 20 minutes</b> to complete. "+
+	"Since the hourly payment rate for this study is £7.50, "+
+	"you will earn <b> at least £2.13 if you fully complete the study</b> "+
 	"(this includes practice trials, the main game, and some brief post-game questions). "+
 	"</p>" + 
 	"<p>" + 
 	"Everyone who successfully completes the study will also earn a <b>bonus payment</b>. "+
 	"The exact amount will depend on the options you choose during the game. "+
-	"Specifically, you will earn an extra "+bonusRate.toString()+" pence for every coin "+
+	"Specifically, you will earn an extra 0.35 pence for every coin "+
 	"you collect during the game (the maximum possible bonus you can earn during this study is "+
-	"<b>£"+maxBonus.toFixed(2)+"</b>). Your bonus will be calculated at the end of task "+
+	"<b>£0.93</b>). Your bonus will be calculated at the end of task "+
 	"and added to your payment from Prolific."+
 	"</p>" + 
 	"<p>" + 
@@ -34,7 +33,7 @@ const preInstructions = "<div class=\"row\"> "+
 	"<p>" + 
 	"If you experience any technical difficulties, or have any other questions about "+
 	"the study, please get in touch with us at "+
-	"<a href=\"mailto:ion.mpc.cog@ucl.ac.uk\">ion.mpc.cog@ucl.ac.uk</a>, and we will aim "+
+	"<a href=\"mailto:uctvrty@ucl.ac.uk\">uctvrty@ucl.ac.uk</a>, and we will aim "+
 	"to respond to you as quickly as possible. "+
 	"</p>" + 
 	"<p>" + 
@@ -114,9 +113,7 @@ const infoConsentText = "<div class=\"row\"> "+
 	"		the world)."+
 	" 		</p>  " + 
 	" 		<p>  " + 
-	"		Overall, these different tasks should take about <b>"+approxTime.toString()+" minutes</b>. You can take a "+
-	"		break at different points during the tasks, and complete the questionnaires at a pace that suits you."+
-	" 		</p>  " + 
+	"		Overall, these different tasks should take about <b>20 minutes.</b> </p>  " + 
 	"  " + 
 	" 		<p><b>What are the possible disadvantages and risks of taking part?</b></p>"+ 
 	" 		<p>  " + 
@@ -167,7 +164,7 @@ const infoConsentText = "<div class=\"row\"> "+
 	"		study might help us improve the effectiveness of psychological treatments for common mental health problems."+
 	"  " + 
 	"		You will be reimbursed for the time you spend taking part in the study a rate equivalent to "+
-	"		<b>£"+hourlyRate.toFixed(2)+" per hour</b>. "+
+	"		<b>£7.50 per hour</b>. "+
 	"		If you decide to withdraw from the study before the end you will be reimbursed for the parts you completed."+
 	" 		</p>  " + 
 	"  " + 
