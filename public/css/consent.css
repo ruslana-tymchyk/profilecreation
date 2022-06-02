@@ -36,6 +36,13 @@
    border: none;
    background-color: aliceblue;
  }
+ .col-9 {
+  width: 75%;
+  float: left;
+  padding: 15px;
+  border: none;
+  background-color: aliceblue;
+}
  
  input[type=submit] {
   display: inline-block;
@@ -99,6 +106,6 @@ body { background-color: #cce3f0fb;}
 
 .row::after {
   content: "";
-  clear: both;
+  clear: none;
   display: table;
 }
