@@ -1,5 +1,4 @@
 // set up variables describing this specific task version
-
 // task version
 var infoSheet = "../assets/approved-participant-information-sheet-211012-rew-eff-1.pdf";  
 
