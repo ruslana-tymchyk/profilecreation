@@ -20,6 +20,25 @@
     </div>
 
     <!-- some more firebase config may go in here -->
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDeBh2yB4eK8diavdmujXgow8DY2F70MWs",
+        authDomain: "lanamind.firebaseapp.com",
+        projectId: "lanamind",
+        storageBucket: "lanamind.appspot.com",
+        messagingSenderId: "978822178643",
+        appId: "1:978822178643:web:580ef67a5bbe0ff085a3a6"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+    </script>
     <!-- Main study components -->
     <script src="./jspsych/plugins/jspsych.js"></script>
     <script src="./jspsych/plugins/jspsych.css" rel="stylesheet" type="text/css"></script>
@@ -43,4 +62,7 @@
     <script src="./js/task.js" type="module"></script> 
     <script src="./js/consent.js" type="module"></script>  
   </body>
+
+  <!-- use script module by specifying type="module" -->
+
 </html>
