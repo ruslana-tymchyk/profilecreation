@@ -2,7 +2,7 @@
 
 // import task-version relevant info and functions
 import {infoSheet} from "./versionInfo.js";
-import { saveConsent } from "./saveData.js";
+//import { saveConsent } from "./saveData.js";
 import { runTask } from "./task.js";	 
 
 // create task pre-instructions using task-version specific info
@@ -319,7 +319,7 @@ var checkConsent = function () {
 	if (consent_checkbox1.checked == true && consent_checkbox2.checked == true && consent_checkbox3.checked == true && consent_checkbox4.checked == true && consent_checkbox5.checked == true && consent_checkbox6.checked == true && consent_checkbox7.checked == true && consent_checkbox8.checked == true && consent_checkbox9.checked == true){
 		if (uid) {
 			// save consent data
-			saveConsent(uid, version);
+			//saveConsent(uid, version);
 			// display post-consent 'pre instructions' (what exactly to expect in this version of the experiment)
 			document.getElementById('consent').innerHTML = preInstructions;
 			window.scrollTo(0, 0);

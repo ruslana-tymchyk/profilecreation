@@ -1,14 +1,26 @@
-// enable persistence 
-firebase.firestore().enablePersistence()
-.catch(function(err) {
-  if (err.code == 'failed-precondition') {  // multiple tabs open, persistence can only be enabled in one tab at a a time
-  } else if (err.code == 'unimplemented') { // the current browser does not support all of the features required to enable persistence
-  }
-});
+/*
+/import { enableIndexedDbPersistence } from 'firebase/firestore'
+//import { app } from 'public/index.html'
+
+const db = getFirestore(app);
+
+enableIndexedDbPersistence(db)
+  .catch((err) => {
+      if (err.code == 'failed-precondition') {
+          // Multiple tabs open, persistence can only be enabled
+          // in one tab at a a time.
+          // ...
+      } else if (err.code == 'unimplemented') {
+          // The current browser does not support all of the
+          // features required to enable persistence
+          // ...
+      }
+  });
+// Subsequent queries will use persistence, if it was enabled successfully
 
 // initialize db
 var minddata = 'mindata';
-var db = firebase.firestore();
+
 
 // function to save consent 
 var saveConsent = function(){
@@ -89,3 +101,4 @@ var saveEndData = function(endTime, dataBackup){
 
 export { saveConsent, saveStartData, savePracTaskData, saveTaskData, savePostTaskData, saveEndData }
 
+*/
