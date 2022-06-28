@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -13,32 +13,13 @@
   </head>
 
   <body>
+
     <!-- set up divs to hold consent form -->
     <div id='consent-container' class="form">
       <header id="header" class="form__header" ><h2 id="header_title" class="form__title"></h2></header>
       <section><div id='consent'></div></section>
     </div>
 
-    <!-- some more firebase config may go in here -->
-    <script type="module">
-      // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
-    
-      // Your web app's Firebase configuration
-      const firebaseConfig = {
-        apiKey: "AIzaSyDeBh2yB4eK8diavdmujXgow8DY2F70MWs",
-        authDomain: "lanamind.firebaseapp.com",
-        projectId: "lanamind",
-        storageBucket: "lanamind.appspot.com",
-        messagingSenderId: "978822178643",
-        appId: "1:978822178643:web:580ef67a5bbe0ff085a3a6"
-      };
-    
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-    </script>
     <!-- Main study components -->
     <script src="./jspsych/plugins/jspsych.js"></script>
     <script src="./jspsych/plugins/jspsych.css" rel="stylesheet" type="text/css"></script>
@@ -54,7 +35,26 @@
     <script src="./jspsych/plugins/plugin-survey-text.js"></script>
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="https://www.w3schools.com/lib/w3.js"></script>
-
+      <!-- some more firebase config may go in here -->
+      <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyDeBh2yB4eK8diavdmujXgow8DY2F70MWs",
+          authDomain: "lanamind.firebaseapp.com",
+          projectId: "lanamind",
+          storageBucket: "lanamind.appspot.com",
+          messagingSenderId: "978822178643",
+          appId: "1:978822178643:web:580ef67a5bbe0ff085a3a6"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+      </script>
   <!-- Questionnaires -->
 		<script src="./js/PHQ_9.js"></script>
 		<script src="./js/TEPS.js"></script>
@@ -62,7 +62,5 @@
     <script src="./js/task.js" type="module"></script> 
     <script src="./js/consent.js" type="module"></script>  
   </body>
-
-  <!-- use script module by specifying type="module" -->
 
 </html>
