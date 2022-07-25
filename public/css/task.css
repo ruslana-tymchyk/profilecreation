@@ -3,16 +3,32 @@
  * Misc CSS styling for the task .
  *
  */
-    /* Control appearance of jsPsych.data.displayData() */
+    /* Control appearance of jsPsych.data.displayData() 
     #jspsych-data-display {
     text-align: center;
     }
+    */
 
-    /* Centering the task in the middle of the screen */
+    /* Centering the task in the middle of the screen 
     .jspsych-middle {
         align-items: center;
     }
+    */
+    
+    /*
+    #jspsych-progressbar-container {
+        background-color: rgb(255, 255, 255);
+    }
+    */
+    /*
+    #jspsych-progressbar-outer {
+        background-color: rgb(160, 5, 5);
+    }
 
+    #jspsych-progressbar-inner{
+        background-color: rgb(6, 247, 106);
+    }
+     */
     /* Button design for the whole experiment */
     .jspsych-btn {
     display: inline-block;
@@ -33,37 +49,45 @@
     background-color: #fff;
     border-color: #ccc;
     }
-
+    
+    /* CENTERS CONTENT IN THE MIDDLE OF THE PAGE 
     .jspsych-display-element {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
     }
+    */
+    /*
 
     .jspsych-html-slider-response-response.jspsych-slider {
         color: rgb(136, 100, 3);
     }
+    */
 
-/* TEST IF YOU NEED THIS STUFF */
+/* Experiment does not even start without this */
 .jspsych-display-element:focus {
     outline: none;
 }
 
+/* Does not seem to do anything really
 .jspsych-content-wrapper {
     display: flex;
     margin: auto;
     flex: 1 1 100%;
     width: 100%;
 }
+*/
 
 .jspsych-content {
-    max-width: 95%; /* this is mainly an IE 10-11 fix */
+    max-width: 45%; /* this is mainly an IE 10-11 fix */
     text-align: center;
     margin: auto; /* this is for overflowing content */
 }
-
+/* Maybe also helps so content not in the middle 
 .jspsych-top {
     align-items: flex-start;
 }
+*/
+.jspsych-target {background-color:"#cce3f0fb"}
 
 .emphasized { font-style: italic; }
