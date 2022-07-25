@@ -26,13 +26,13 @@ var jsPsychSurveyText = (function (jspsych) {
                   rows: {
                       type: jspsych.ParameterType.INT,
                       pretty_name: "Rows",
-                      default: 1,
+                      default: 3,
                   },
                   /** The number of columns for the response text box. */
                   columns: {
                       type: jspsych.ParameterType.INT,
                       pretty_name: "Columns",
-                      default: 40,
+                      default: 70,
                   },
                   /** Whether or not a response to this question must be given in order to continue. */
                   required: {

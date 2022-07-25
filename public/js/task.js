@@ -1,18 +1,18 @@
 // -----------------------------------------------------------------------------
 // RUN EXPERIMENT 
 // define global variables 
-import { full_screen, initialinstructions, taskinstructions2, taskinstructions, end_screen, initialinstructions_profile, ask_questions_profile} from "./instructions.js";
+import {full_screen, end_screen, dur_max, initialinstructions_profile, ask_questions_profile, rate_profiles_fun, debrief, test_relative_rank, taskinstructions_rank} from "./instructions.js";
 import {run_trial, mood_feedback} from "./task_design.js";
-import { intervention0, intervention1, intervention2, intervention3, intervention4 } from "./intervention.js";
-import { control1, control2, control3, control4 } from "./control.js";
-import {timeline_ps} from "./question_ps.js";
+import { intervention, timeline_comprehension_intervention} from "./intervention.js";
+import { control, timeline_comprehension_control} from "./control.js";
 import {random_ps, response, list_names, image_set, random_ps_test} from './randomisation.js';
-
+import {loop_node, continueText} from "./instructions_quiz.js";
 
 var writetime = 10; 	// write every x trials 
-var introspectiontime = 5; // how often to ask for happiness ratings 
+var introspectiontime = 2; // how often to ask for happiness ratings 
 var nTrials = 10;
 var trial;
+var profile_count;
 var p_retrieved_counter = {
         p15: 0,
         p30: 0,
@@ -22,16 +22,22 @@ var p_retrieved_counter = {
 var dofullscreen = true; 
 var timeline = [];  /* list of things to run */
 
-if (dofullscreen==true) {timeline.push(full_screen);}
+//START OF EXPERIMENTAL TIMELINE
+if (dofullscreen==true) {
+    timeline.push(full_screen);
+}
+timeline.push(control);
 timeline.push(initialinstructions_profile);
-timeline.push(ask_questions_profile);
-timeline.push(initialinstructions); 
-timeline = timeline.concat(timeline_PHQ);
-timeline = timeline.concat(timeline_TEPS);
-timeline.push(taskinstructions); 
-timeline = timeline.concat(timeline_ps)
-timeline.push(taskinstructions2); 
-
+timeline.push(ask_questions_profile)
+timeline.push(loop_node)
+timeline.push(continueText)
+var profiles = 2;
+for(profile_count = 0; profile_count< profiles; profile_count++){
+    timeline.push(rate_profiles_fun(profile_count))
+}
+timeline.push(taskinstructions_rank)
+timeline.push(test_relative_rank)
+//add task instructions comprehension
 //Main task 
 for (trial=0; trial<nTrials; trial++) {
     var p_type = random_ps_test[random_ps[trial] - 1]
@@ -44,49 +50,49 @@ for (trial=0; trial<nTrials; trial++) {
     timeline.push(run_trial(trial_numbers, name_trial, response_trial, image_set)); 
     if (trial == 3) { //at trial 81 provide intervention
         //randomise intervention and control
-        /*
             if (Math.random() < 0.5){
-                timeline.push(intervention0);
-                timeline.push(intervention1); 
-                timeline.push(intervention2); 
-                timeline.push(intervention3); 
-                timeline.push(intervention4); 
+                timeline.push(intervention);
+                timeline = timeline.concat(timeline_comprehension_intervention);
             }
             else{
-                timeline.push(intervention0); 
-                timeline.push(control1); 
-                timeline.push(control2); 
-                timeline.push(control3); 
-                timeline.push(control4); }
-                */
-            timeline.push(intervention0);
-            timeline.push(intervention1); 
-            timeline.push(intervention2); 
-            timeline.push(intervention3); 
-            timeline.push(intervention4); 
-            timeline.push(intervention0); 
-            timeline.push(control1); 
-            timeline.push(control2); 
-            timeline.push(control3); 
-            timeline.push(control4); 
+                timeline.push(control);
+                timeline = timeline.concat(timeline_comprehension_control);
+             }
     }; 
     //ask for happiness rating every once in a while
+    var mood = 0;
 	if ((trial % introspectiontime)==0 & trial > 0) { 
-        timeline.push(mood_feedback);}; 
-	if ((trial % writetime)==0 & trial > 0) {efftrial.on_finish = function() {
+        mood++;
+        if (mood == 0){
+            var previous_answer = 50;
+        }
+            else{
+                var previous_answer = 35;}
+        timeline.push(mood_feedback);
+        //how to save happiness rating here?
+        //also make sure the very first trial is initialised at 0
+    }; 
+    if ((trial % writetime)==0 & trial > 0) {efftrial.on_finish = function() {
         console.log('will save the data here in the future');
         //saveTaskData(); saveTaskDataDump();
     }
+    }
 }
-};
-
+//timeline.push(initialinstructions); //questionnaire instructions 
+timeline = timeline.concat(timeline_PHQ);
+timeline = timeline.concat(timeline_SPIN);
+timeline.push(debrief);
 timeline.push(end_screen);
+
+var jsPsych = initJsPsych({}
+); 
 
 // now call jsPsych.init to run experiment 
 export function runTask(uid) {
     //firestore_effort file
 	//saveSetup(timeline);
     console.log(timeline);
-	var jsPsych = initJsPsych(); 
     jsPsych.run(timeline);
 }
+
+export{previous_answer, jsPsych};

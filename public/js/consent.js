@@ -7,8 +7,8 @@ import { runTask } from "./task.js";
 
 // create task pre-instructions using task-version specific info
 const preInstructions = "<div class=\"row\"> "+ 
-	"<div class=\"col-3\"></div> "+ 
-	"<div class=\"col-6\"> "+ 
+	"<div class=\"col-0\"></div> "+ 
+	"<div class=\"col-1\"> "+ 
 	"<p><b>Thank you for agreeing to take part in this study!</b></p>"+
 	"<p>" + 
 	"We expect this study to take around <b> 20 minutes</b> to complete. "+
@@ -43,13 +43,13 @@ const preInstructions = "<div class=\"row\"> "+
 	"<input type=\"submit\" id=\"startStudy\" value=\"Begin Study\" style=\"margin-left: 40%;\">"+
 	"<br><br>"+
 	"</div>"+ 
-	"<div class=\"col-3\"></div>"+ 
+	"<div class=\"col-0\"></div>"+ 
 	"</div>";
 
 // information sheet and consent form (this text will be the same for all experiments)
 const infoConsentText = "<div class=\"row\"> "+ 
-	" 	<div class=\"col-3\"></div> "+ 
-	" 	<div class=\"col-6\"> "+ 
+	" 	<div class=\"col-0\"></div> "+ 
+	" 	<div class=\"col-1\"> "+ 
 	"	<img src=\"./assets/imgs/ucl-banner-land-brightblue-rgb.png\" alt=\"UCL logo\" style=\"width:100%;\">"+
 	"   <h2>Mindfulness Study:<br>"+
 	"		Participant Information and Consent</h2>"+ 
@@ -304,7 +304,7 @@ const infoConsentText = "<div class=\"row\"> "+
 	"		<input type=\"submit\" id=\"start\" value=\"Continue\" style=\"margin-left: 40%;\">"+
 	" 		<br><br> " + 
 	" 	</div> " + 
-	" 	<div class=\"col-3\"></div> " + 
+	" 	<div class=\"col-0\"></div> " + 
 	" </div> ";
 
 // create info sheet and consent form in consent div within consent-container 
@@ -332,6 +332,7 @@ var checkConsent = function () {
 	}
 };
 document.getElementById('start').onclick = checkConsent;
+
 
 // once pre-instructions startStudy button clicked, hide info and run task!
 var runStudy = function () {
