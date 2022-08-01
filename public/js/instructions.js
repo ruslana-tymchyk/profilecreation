@@ -153,7 +153,7 @@ var taskinstructions_rank= {
 	" 	<div class=\"col-3\"></div> "+ 
 	" 	<div class=\"col-6\"> "+ 
 	"<h2>Main experiment </h2>" + 
-	"<p>Thank you for providing your profile and rating other's profiles You are now ready to start the main part of the experiment." + 
+	"<p>Thank you for providing your profile and rating other's profiles. You are now ready to start the main part of the experiment." + 
 	"<p>We have received the feedback from other participants saying whether they liked you or not based on your responses to questions about yourself." +
 	"We found that certain people tend to either like or dislike more profiles, hence we ranked people based on how many profiles they liked. Each colour corresponds to a category. " +
     "People in the top category (1) liked the greatest number of profiles that they rated, people in the lowest category (4) liked fewest profiles. " +
@@ -163,7 +163,7 @@ var taskinstructions_rank= {
 	"<br> " + images[1] + "<h1> 2 </h1> </br>" +
 	"<br> " + images[2] +"<h1> 3 </h1> </br>" +
 	"<br> " + images[3] + "<h1> 4 </h1> </br>" +
-    "<p><b> It is important for the next part of the experiment that you have learn the ranking of the images. </b> </p>" +
+    "<p><b> It is important for the next part of the experiment that you have learned the ranking of the images. </b> </p>" +
     "<p>Please take your time to learn the correspondence between each image and a ranking. We will now quiz you on the knowledge of the ranking and then explain the rest of the experiment. </p>"
     + "</br></br>[Press Continue to proceed to ASSESMENT OF YOUR KNOWLEDGE OF THE RANKING]</p>" ], 
 	on_start: function(){
@@ -172,6 +172,11 @@ var taskinstructions_rank= {
 	},
 };
 
+var random_order = [0,1,2,3]
+
+var answers = random_order.map(num => {
+	return String(num+1);
+  });
 var nCorrect = 0;
 var test_relative_rank = {
 	preamble: '<p ></br></br><b>Image Rank Order Quiz</b></br></br>Please select the relative rank for each of the colours below. Each number can only be used once. </br></br> Please provide ONE response for each.</p>',  
@@ -179,35 +184,35 @@ var test_relative_rank = {
 	questions: [
 		{
 		  prompt: 
-          "<p>" + images[0] + "</p>" , 
+          "<p>" + images[random_order[0]] + "</p>" , 
 		  name: 'one', 
 		  options: ['1', '2', '3', '4'],
 		  required: true
 		}, 
 		{
 		  prompt: 
-          "<p>" + images[1] + " </p>" , 
+          "<p>" + images[random_order[1]] + " </p>" , 
 		  name: 'two', 
 		  options: ['1', '2', '3', '4'], 
 		  required: true
 		},
 		{
 			prompt: 
-            "<p>" + images[2] + "</p>" , 
+            "<p>" + images[random_order[2]] + "</p>" , 
 			name: 'three', 
 			options: ['1', '2', '3', '4'], 
 			required: true
 		  },
           {
 			prompt: 
-            "<p>" + images[3] + "</p>" , 
+            "<p>" + images[random_order[3]] + "</p>" , 
 			name: 'four', 
 			options: ['1', '2', '3', '4'], 
 			required: true
 		  }
 	  ],
       data: {
-        correct_answers: ['1', '2', '3', '4']
+        correct_answers: answers
       },
       button_label: "check answers", 
     on_finish: function (data) {
@@ -216,6 +221,7 @@ var test_relative_rank = {
       for (var i=0; i < data.correct_answers.length; i++) {
         var questID = "Q"+i;
         if (data.response[questID] == data.correct_answers[i]) {
+		   console.log('responded correctly')
           nCorrect++;
         }
       }

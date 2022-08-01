@@ -8,6 +8,11 @@ import { control, timeline_comprehension_control} from "./control.js";
 import {random_ps, response, list_names, image_set, random_ps_test} from './randomisation.js';
 import {loop_node, continueText} from "./instructions_quiz.js";
 
+//will have to import SaveTask Data
+//on finish saveData
+//data.stimulus etc is a jsPysch object
+//take jsPsych data.whatever and save it to firebase via save task etc
+
 var writetime = 10; 	// write every x trials 
 var introspectiontime = 2; // how often to ask for happiness ratings 
 var nTrials = 10;
@@ -26,7 +31,6 @@ var timeline = [];  /* list of things to run */
 if (dofullscreen==true) {
     timeline.push(full_screen);
 }
-timeline.push(control);
 timeline.push(initialinstructions_profile);
 timeline.push(ask_questions_profile)
 timeline.push(loop_node)
