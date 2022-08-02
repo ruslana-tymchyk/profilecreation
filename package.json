@@ -1,5 +1,26 @@
 {
   "dependencies": {
     "firebase": "^9.8.2"
-  }
+  },
+  "name": "lanamind",
+  "description": "Mindfulness Dissertation",
+  "version": "9.8.0",
+  "main": "index.html",
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruslana-tymchyk/lanamind.git"
+  },
+  "keywords": [
+    "lanamind"
+  ],
+  "author": "Lana Tymchyk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ruslana-tymchyk/lanamind/issues"
+  },
+  "homepage": "https://github.com/ruslana-tymchyk/lanamind#readme"
 }

@@ -17,13 +17,12 @@ firebase.firestore().enablePersistence()
 
 // initialize db
 var db = firebase.firestore();
-var uid = 3;
 // function to save consent 
-var saveConsent = function(){
+var saveConsent = function(uid){
   db.collection('tasks').doc('mind').collection('minddata').doc('uid').set({
     firebaseUID: uid,             // firebase user ID 
-    prolificSubID: subjectID,     // prolific subject ID 
-    prolificStudyID: studyID,     // prolific study ID 
+    //prolificSubID: subjectID,     // prolific subject ID 
+    //prolificStudyID: studyID,     // prolific study ID 
     consentObtained: 'yes', 
     consentDate: new Date().toISOString().split('T')[0],
     consentTime: new Date().toLocaleTimeString(),
@@ -31,5 +30,21 @@ var saveConsent = function(){
   }); 
 };
 
-export { saveConsent}
+var savePreTaskData = function(response){
+  console.log('at least I am here');
+  db.collection('tasks').doc('mind').collection('minddata').doc('uid').collection('pre_task_data').doc('pre_task_fields').set({
+    own_profile: response
+             
+
+  }); 
+};
+
+//profile_ratings: ,
+//rank_test: ,
+//task_understanding_quiz: ,
+//condition_task:   
+
+
+
+export { saveConsent, savePreTaskData}
 
