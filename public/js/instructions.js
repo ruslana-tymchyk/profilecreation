@@ -2,6 +2,7 @@
 // INSTRUCTIONS 
 import { jsPsych } from './task.js';
 import {p_image_orders, image_set} from './randomisation.js';
+import { savePreTaskData } from './saveData.js';
 var image_path = './assets/imgs/'
 
 
@@ -56,8 +57,12 @@ var ask_questions_profile= {
       ],
 	on_start: function(){
 		document.querySelector('body').style.backgroundColor = '#cce3f0fb';
-		//saveStartData()
 	},
+	on_finish: function(){
+	var respData = this.type.jsPsych.data.getLastTrialData().trials[0].response;
+	//var respRT = this.type.jsPsych.data.getLastTrialData().trials[0].rt;
+    savePreTaskData(respData);
+	}
 };
 
 //var scale = ["yes", "no"];

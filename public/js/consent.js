@@ -3,7 +3,7 @@
 // import task-version relevant info and functions
 import {infoSheet} from "./versionInfo.js";
 import { saveConsent } from "./saveData.js";
-import { runTask } from "./task.js";	 
+import { runTask } from "./task.js";	
 
 // create task pre-instructions using task-version specific info
 const preInstructions = "<div class=\"row\"> "+ 
@@ -310,7 +310,6 @@ const infoConsentText = "<div class=\"row\"> "+
 // create info sheet and consent form in consent div within consent-container 
 document.getElementById('consent').innerHTML = infoConsentText;
 
-var uid = 2;
 // once consent form start button clicked, check consent form for completeness
 var checkConsent = function () {
 	console.log('in check consent function');
@@ -336,7 +335,7 @@ document.getElementById('start').onclick = checkConsent;
 
 // once pre-instructions startStudy button clicked, hide info and run task!
 var runStudy = function () {
-	const uid = 1;
+	const uid = 5;
 	if (uid) {
 		// hide consent-container
 		document.getElementById('consent-container').style.display = "none";
