@@ -1,7 +1,7 @@
 //PHQ_9
-
+//import { saveQuestData } from "./saveData";
   // definiting two different response scales that can be used.
-  var options = ["Not at all", "Several days", "More than</br>half the days", "Nearly every day"];
+var options = ["Not at all", "Several days", "More than</br>half the days", "Nearly every day"];
 
   var PHQ = {
     type: jsPsychSurveyLikert,
@@ -18,10 +18,15 @@
       {prompt: "<b>Thoughts that you would be better off dead or of hurting yourself in some way.</b>", name: "PHQ9_9", labels: options, required:true},
       
     ],
-    on_finish:function(){
-      console.log('save data');
-      //saveQuestionnaireData()
-    },
+    /*
+    on_finish: function () {
+      // get response and RT data
+      var respData = this.type.jsPsych.data.getLastTrialData().trials[0].response;
+      var respRT = this.type.jsPsych.data.getLastTrialData().trials[0].rt;
+      //console.log(respData, respRT);
+      saveQuestData("PHQ-9", respData, respRT);
+    }
+    */
   };
 
   var difficulty = ["Not difficult at all", "Somewhat difficult", "Very diffucult", "Extremely difficult"];
@@ -40,3 +45,5 @@
  var timeline_PHQ = [];
  timeline_PHQ.push(PHQ);
  timeline_PHQ.push(diff);
+
+ export {timeline_PHQ};

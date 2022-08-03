@@ -8,6 +8,7 @@ import { control, timeline_comprehension_control} from "./control.js";
 import {random_ps, response, list_names, image_set, random_ps_test} from './randomisation.js';
 import {loop_node, continueText} from "./instructions_quiz.js";
 import {saveConditionCode} from './saveData.js' ;
+import {timeline_PHQ} from './PHQ_9.js' ;
 
 //will have to import SaveTask Data
 //on finish saveData
@@ -90,7 +91,7 @@ for (trial=0; trial<nTrials; trial++) {
 }
 //timeline.push(initialinstructions); //questionnaire instructions 
 timeline = timeline.concat(timeline_PHQ);
-timeline = timeline.concat(timeline_SPIN);
+//timeline = timeline.concat(timeline_SPIN);
 timeline.push(debrief);
 timeline.push(end_screen);
 

@@ -35,6 +35,7 @@ var saveConsent = function(){
   db.collection('tasks').doc('mind').collection('minddata').doc(uid).collection('task_data').doc('main_task').set({init: 1});
   db.collection('tasks').doc('mind').collection('minddata').doc(uid).collection('task_data').doc('mood_rating').set({init: 1});
   db.collection('tasks').doc('mind').collection('minddata').doc(uid).collection('task_data').doc('viewing_time').set({init: 1});
+  db.collection('tasks').doc('mind').collection('minddata').doc(uid).collection('task_data').doc('questionnaires').set({init: 1});
 };
 
 var savePreTaskData = function(response){
@@ -88,6 +89,14 @@ var saveMoodData = function(trialN, response){
 
   ); 
 };
+/*
+var saveQuestData = function(questionnaire, dataToSave, completionRT) {
+  db.collection('tasks').doc('mind').collection('minddata').doc(uid).collection('task_data').doc('questionnaires').update({
+    [questionnaire]: dataToSave,
+    [questionnaire+'_RT']: completionRT
+  });
+};
+*/
 
 /*
 var saveViewTime = function(view_history, rt, condition){
