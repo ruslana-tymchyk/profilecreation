@@ -2,7 +2,7 @@
 // INSTRUCTIONS 
 import { jsPsych } from './task.js';
 import {p_image_orders, image_set} from './randomisation.js';
-import { savePreTaskData } from './saveData.js';
+import { savePreTaskData, saveProfileRatingsData } from './saveData.js';
 var image_path = './assets/imgs/'
 
 
@@ -137,8 +137,13 @@ var rate_profiles_fun = function(profile_count) {
 		 "<div class=\"row\">" + "<br> press F to respond YES </br> <br> press J to respond NO </br>" ,
 		on_start: function(){
 			document.querySelector('body').style.backgroundColor = '#cce3f0fb';
-			//saveStartData()
-		}
+	
+		},
+		on_finish: function(){
+			var respData = this.type.jsPsych.data.getLastTrialData().trials[0].response;
+			//var respRT = this.type.jsPsych.data.getLastTrialData().trials[0].rt;
+			saveProfileRatingsData(profile_count, respData);
+			}
 	}
 	return rate_profiles;
 }

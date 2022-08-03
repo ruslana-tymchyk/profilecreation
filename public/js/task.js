@@ -2,11 +2,12 @@
 // RUN EXPERIMENT 
 // define global variables 
 import {full_screen, end_screen, dur_max, initialinstructions_profile, ask_questions_profile, rate_profiles_fun, debrief, test_relative_rank, taskinstructions_rank} from "./instructions.js";
-import {run_trial, mood_feedback} from "./task_design.js";
+import {run_trial, mood_feedback_fun} from "./task_design.js";
 import { intervention, timeline_comprehension_intervention} from "./intervention.js";
 import { control, timeline_comprehension_control} from "./control.js";
 import {random_ps, response, list_names, image_set, random_ps_test} from './randomisation.js';
 import {loop_node, continueText} from "./instructions_quiz.js";
+import {saveConditionCode} from './saveData.js' ;
 
 //will have to import SaveTask Data
 //on finish saveData
@@ -43,6 +44,7 @@ timeline.push(taskinstructions_rank)
 timeline.push(test_relative_rank)
 //add task instructions comprehension
 //Main task 
+var cond;
 for (trial=0; trial<nTrials; trial++) {
     var p_type = random_ps_test[random_ps[trial] - 1]
     var this_trial_in_p = p_retrieved_counter[p_type]
@@ -51,14 +53,18 @@ for (trial=0; trial<nTrials; trial++) {
     var name_trial = list_names[p_type][this_trial_in_p]
     var trial_numbers = random_ps[trial]- 1
     //make sure you can return the correct type of person for each participant
-    timeline.push(run_trial(trial_numbers, name_trial, response_trial, image_set)); 
+    timeline.push(run_trial(trial_numbers, name_trial, response_trial, image_set, trial)); 
     if (trial == 3) { //at trial 81 provide intervention
         //randomise intervention and control
             if (Math.random() < 0.5){
+                var cond = 0;
+                saveConditionCode(cond);
                 timeline.push(intervention);
                 timeline = timeline.concat(timeline_comprehension_intervention);
             }
             else{
+                var cond = 1;
+                saveConditionCode(cond);
                 timeline.push(control);
                 timeline = timeline.concat(timeline_comprehension_control);
              }
@@ -72,7 +78,7 @@ for (trial=0; trial<nTrials; trial++) {
         }
             else{
                 var previous_answer = 35;}
-        timeline.push(mood_feedback);
+        timeline.push(mood_feedback_fun(trial));
         //how to save happiness rating here?
         //also make sure the very first trial is initialised at 0
     }; 

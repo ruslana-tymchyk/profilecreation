@@ -1,11 +1,12 @@
 // Task
 import {p_image_orders, female_names} from './randomisation.js';
 import {previous_answer} from './task.js';
+import {saveTaskData, saveMoodData} from './saveData.js' ;
 
 var responses = ['yes.png ', 'no.png '];
 var image_path = './assets/imgs/'
 
-var run_trial = function(type_trial, name, response_correct, image_set) {
+var run_trial = function(type_trial, name, response_correct, image_set, trialN) {
     //pass the correct response into this
     var name_gender = female_names.includes(name);
     if (name_gender){
@@ -32,26 +33,35 @@ var run_trial = function(type_trial, name, response_correct, image_set) {
         on_start: function(){
             document.querySelector('body').style.backgroundColor = '#cce3f0fb';
             //saveStartData()
+        },
+        on_finish: function(){
+        var respData = this.type.jsPsych.data.getLastTrialData().trials[0].response;
+        saveTaskData(trialN, respData)
         }
     }
     return ask_question;
 };
 //create a variable that saves previous slider response and uses it as the starting value for the next trial
 //increases autocorrelation of signal & reduces noise
-var mood_feedback = { 
-    type: jsPsychHtmlSliderResponse,
-	stimulus: ["<h1>How do you feel about yourself at the moment?</h1>"],
-    labels: ['very bad', 'very good'],
-    prompt: ['<p> Please provide response before continuing </p>'],
-    button_label: ['Continue'],
-    slider_width: 100,
-    slider_start: previous_answer, 
-    require_movement: true, //must move slider before clicking
-	on_start: function(){
-		document.querySelector('body').style.backgroundColor = '#cce3f0fb';
-        //document.querySelector('body').style.width = '100px';
-		//saveStartData()
-	},
+var mood_feedback_fun = function(trialN){
+        var mood_feedback = { 
+            type: jsPsychHtmlSliderResponse,
+            stimulus: ["<h1>How do you feel about yourself at the moment?</h1>"],
+            labels: ['very bad', 'very good'],
+            prompt: ['<p> Please provide response before continuing </p>'],
+            button_label: ['Continue'],
+            slider_width: 100,
+            slider_start: previous_answer, 
+            require_movement: true, //must move slider before clicking
+            on_start: function(){
+                document.querySelector('body').style.backgroundColor = '#cce3f0fb';
+            },
+            on_finish: function(){
+                var respData = this.type.jsPsych.data.getLastTrialData().trials[0].response;
+                saveMoodData(trialN, respData)
+                }
+            }
+    return mood_feedback;
 };
 
-export {run_trial, mood_feedback};
+export {run_trial, mood_feedback_fun};
