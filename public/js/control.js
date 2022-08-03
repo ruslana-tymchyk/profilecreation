@@ -1,7 +1,7 @@
 // -----------------------------------------------------------------------------
 // INTERVENTION
 
-import { saveViewTime } from "./saveData.js";
+import { saveViewTime, saveQuestData } from "./saveData.js";
 
 var control = {
 	type: jsPsychInstructions,
@@ -172,18 +172,19 @@ var comprehension_control = {
 		  prompt: "What was the name of the ship?", 
 		  name: 'ThinkAbout', 
 		  options: ['Repasse', 'Rangoon', 'Reform'], 
-		  required: false
+		  required: true
 		},
 		{
 			prompt: "What is Fix's occupation?", 
 			name: 'AskedTo', 
 			options: ['A captain', 'A detective', 'Marine labourer'], 
-			required: false
+			required: true
 		  }
 	  ],
   on_finish:function(){
-	console.log('save data');
-	//saveQuestionnaireData()
+	var respData = this.type.jsPsych.data.getLastTrialData().trials[0].response;
+	var respRT = this.type.jsPsych.data.getLastTrialData().trials[0].rt;
+	saveQuestData("condition_comprehension", respData, respRT);
   },
 
 };
