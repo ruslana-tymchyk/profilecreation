@@ -92,24 +92,24 @@ var questions = ["1. If we asked your friends and family about your best qualiti
     "4. My favorite things in life are:",
     "5. I really dislike people who (for example people who are lazy, mean to others, or make annoying noises when they eat):"
     ]
-var responses = [["I am quite driven, sociable and love being around people. They would probably also say that I am a good cook :)",
-    "Probably that I am easily distracted. Also I sometimes talk too much about things I get excited about.",
-    "I am afraid I will not be liked by new people that I meet. Also I am afraid of very very steep slides!",
-    "I enjoy spending time with my friends and having banter with them. I love climbing because it gets me to be active and problem solve at the same time. I also really enjoy Japanese food because it is very wholesome.", 
-    "I do not like people who are very demanding all the time and can not relax and take things easy sometimes. I also find it hard to deal with people who are  ignorant of others feelings."
-    ],//Lana
+	var responses = [["They might say that I'm empathetic and positive.",  
+	"Disorganised and sometimes too relaxed.",
+	"Becoming someone/acting like someone I thought I wasn't.",
+	"Being in nature away from a lot of people, playing/listening to music, climbing, reading.", 
+	"I dislike people who are unkind, selfish, narcissistic."
+	], //Ori
     ["According to others, my best qualities are being a compassionate listener, and being someone who stays proactive and optimistic in life.",  
     "According to others, my worst qualities are not knowing how to keep a work-life balance, and not always knowing when to draw boundaries with others.",
     "I am afraid to lose my sight.",
     "My favorite things in life are: spending time pursuing my curiosity and creativity, and spending quality time with my loved ones.", 
     "I really dislike people who are too scared to communicate their thoughts and feelings, and those who are selfish and egoistic."
     ],//Heema
-	["They might say that I'm empathetic and positive.",  
-    "Disorganised and sometimes too relaxed.",
-    "Becoming someone/acting like someone I thought I wasn't.",
-    "Being in nature away from a lot of people, playing/listening to music, climbing, reading.", 
-    "I dislike people who are unkind, selfish, narcissistic."
-    ], //Ori
+	["I am quite driven, sociable and love being around people. They would probably also say that I am a good cook :)",
+    "Probably that I am easily distracted. Also I sometimes talk too much about things I get excited about.",
+    "I am afraid I will not be liked by new people that I meet. Also I am afraid of very very steep slides!",
+    "I enjoy spending time with my friends and having banter with them. I love climbing because it gets me to be active and problem solve at the same time. I also really enjoy Japanese food because it is very wholesome.", 
+    "I do not like people who are very demanding all the time and can not relax and take things easy sometimes. I also find it hard to deal with people who are  ignorant of others feelings."
+    ],//Lana
 	["Opened minded, kind, genuine.",
 	"Like to rush things, attention to details.",
 	"Losing control over things, things not going as expected.",
@@ -248,32 +248,32 @@ var test_relative_rank = {
 var debrief = {
 	type: jsPsychSurveyText,
 	preamble: ["<h2>Study Debrief</h2>"+ 
-	"<p>  Thank you for taking part in our study! Before proceeding we want to get your general impression about this study. </p>" +
-	"<p> Particularly since there are elements of this study that we have not yet told you about. </p>" + 
-	"<p> In psychological research we sometimes have to omit information or deceive participants in order to make our measurements more valid. </p>"
+	"<p>  Thank you for taking part in our study! Before proceeding we want to get your general impression about this study. " +
+	"Particularly since there are elements of this study that we have not yet told you about. " + 
+	"In psychological research we sometimes have to omit information or deceive participants in order to make our measurements more valid. </p>"
 	],
 	questions: [
 		{prompt: " <b>Did you suspect that we were not honest with you at any point of this study? </b>", name: "P1", required:true},
-        {prompt: "<p>We can now share the goals of this research with you. </p>" +
-		"<p>In this study we were investigating if mindfulness can reduce fluctuations in self-esteem in response to social feedback.</p>" +
-		"<p> For example, when someone tells you that they dislike you, can mindfulness reduce your emotional reaction to such events. </p>" +
-		"<p> Conversely, if you receive a lot of positive feedback, does being mindful mean you will not get overly excited about it. </p>" +
-		"<br></br>" +
-		"<p>This is important since past research has found that in individuals with depression, negative feedback reduces self-esteem much more.</p>" +
-		"<p>The goal of this study is to find out if we could use mindfulness-based interventions to reduce the effect of social feedback on self-esteem </p>" +
-		"<p> in individuals with depression. To be completely sure that it is the mindfulness that makes people less reactive to social feedback - half of </p>" +
-		"<p>participants received a mindfulness intervention and the other half were asked to read a book chapter. We expect that only mindfulness intervention </p>" +
-		"<p>will reduce the effect of social feedback on self-esteem. </p>" +
-		"<p>We have asked you in the experiment to rate the profiles of other people and to provide your own profile for people to rate." + "In fact, other participants </p>" +
-		"<p>were not providing their profiles for you to rate, instead we had a fixed set of profiles generated by our research group and all participants, including you, </p>" +
-		"<p>viewed and rated the same profiles. Furthermore, we never shared your personal profile with anyone and the feedback that you have been given has been generated </p>" + 
-		"<p>by the computer. Hence the feedback that you have received does not tell you anything about what others think of your personal profile. </p>" +
-        "<p>In fact, everyone who has participated in this study has received the exact same feedback in the same order. This has been done to ensure </p>" + 
-		"<p>that we can precisely measure how social feedback affects self-esteem. Since, if some people received more positive than negative feedback,</p>" +
-		"<p>their self-esteem would have likely been higher. This would make it harder for us to measure to which extent the intervention improves self-esteem.</p>" +
-        "<p>Your participation in this research is very valuable to us. Therefore, if learning that the purpose of the study is different to what you initially</p>" + 
-		"<p>thought it was reduces your satisfaction or raises any questions - please let us know. We hope though that you have enjoyed the study and are happy</p>" + 
-		"<p>for us to use your data for the research purposes. If for any reason you do not want us to keep your data - it is completely understandable.</p>" +
+        {prompt: "<p>We can now share the goals of this research with you. " +
+		"In this study we were investigating if mindfulness can reduce fluctuations in self-esteem in response to social feedback. " +
+		"For example, when someone tells you that they dislike you, can mindfulness reduce your emotional reaction to such events. " +
+		"Conversely, if you receive a lot of positive feedback, does being mindful mean you will not get overly excited about it. " +
+		 +
+		"This is important since past research has found that in individuals with depression, negative feedback reduces self-esteem much more. </p>" +
+		"<p>The goal of this study is to find out if we could use mindfulness-based interventions to reduce the effect of social feedback on self-esteem " +
+		"in individuals with depression. To be completely sure that it is the mindfulness that makes people less reactive to social feedback - half of " +
+		"participants received a mindfulness intervention and the other half were asked to read a book chapter. We expect that only mindfulness intervention " +
+		"will reduce the effect of social feedback on self-esteem. </p>" +
+		"<p>We have asked you in the experiment to rate the profiles of other people and to provide your own profile for people to rate. " + "In fact, other participants " +
+		"were not providing their profiles for you to rate, instead we had a fixed set of profiles generated by our research group and all participants, including you, " +
+		"viewed and rated the same profiles. </p> <p> Furthermore, we never shared your personal profile with anyone and the feedback that you have been given has been generated " + 
+		"by the computer. Hence the feedback that you have received does not tell you anything about what others think of your personal profile. </p>" +
+        "<p>In fact, everyone who has participated in this study has received the exact same feedback in the same order. This has been done to ensure " + 
+		"that we can precisely measure how social feedback affects self-esteem. Since, if some people received more positive than negative feedback, " +
+		"their self-esteem would have likely been higher. This would make it harder for us to measure to which extent the intervention improves self-esteem.</p>" +
+        "<p>Your participation in this research is very valuable to us. Therefore, if learning that the purpose of the study is different to what you initially " + 
+		"thought it was reduces your satisfaction or raises any questions - please let us know. We hope though that you have enjoyed the study and are happy " + 
+		"for us to use your data for the research purposes. If for any reason you do not want us to keep your data - it is completely understandable.</p>" +
 		"<b>Do you agree with us using your data for research purposes?</b>", name: "P2", required:true}, 
         {prompt: "<p> We hope you enjoyed the experience of participating in this research. </p>" + "<b>Do you have any questions?</b>", name: "P3", required:true}
       ],

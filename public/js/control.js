@@ -14,19 +14,19 @@ var control = {
 	        "<div class=\"row-top\"></div> "+ 
 			"<div class=\"row\"> "+ 
 			"<div class=\"col-3\"></div> "+ 
-			"<div class=\"col-6\">" +'<p>Before you proceed with the rest of the task - we will ask you to read some material.<p>'
+			"<div class=\"col-6\">" +'<p>Before you proceed with the rest of the task - we will ask you to read some material. <p>'
 				+'<p> Please make sure you pay attention and answer the questions provided. <p>' +  "<div class=\"row\">",
 			/////////////////////page two////////////////////////
 			"<div class=\"row-top\"></div> "+ 
 			"<div class=\"row\"> "+ 
 			"<div class=\"col-3\"></div> "+ 
-			"<div class=\"col-6\">" + "<b> Please take your time to read each sentence slowly and carefully in your mind. After you read each paragraph, pause for a minute to imagine the scene. </b> <br></br>",
+			"<div class=\"col-6\">" + "<b> Please take your time to read each sentence slowly and carefully in your mind. After you read each paragraph, pause for a moment to imagine the scene. </b> <br></br>",
 			/////////////////////page three////////////////////////
 			"<div class=\"row-top\"></div> "+ 
 			"<div class=\"row\"> "+ 
 			"<div class=\"col-3\"></div> "+ 
 			"<div class=\"col-6\">" +
-			"<p>The island of Singapore, though not grand or imposing, still has its peculiar beauties. It is a park traversed by pleasant roads." +
+			"<p>The island of Singapore, though not grand or imposing, still has its peculiar beauties. It is a park traversed by pleasant roads. " +
 			"A well-appointed carriage took Phileas Fogg and Aouda through palm-groves and clove-plantations, various tropical plants perfumed the air, while troops of monkeys gambolled in the trees;" +
 			" the woods, also, were not innocent of tigers, and to those travellers who were astonished to learn why these terrible animals were not destroyed in such a small island, the reply would be that they swam across from the mainland.</p>" +
 			"<div class=\"row\">",
@@ -35,7 +35,7 @@ var control = {
             "<div class=\"row\"> "+ 
 			"<div class=\"col-3\"></div> "+ 
 			"<div class=\"col-6\">" +
-			"After a couple of hours' drive, Mr. Fogg and Aouda returned to the town and went on board ship again, all the time followed by the detective. Passe-partout was awaiting them on deck; the brave fellow had purchased some beautiful mangoes," +
+			"After a couple of hours' drive, Mr. Fogg and Aouda returned to the town and went on board ship again, all the time followed by the detective. Passe-partout was awaiting them on deck; the brave fellow had purchased some beautiful mangoes, " +
 			"and was enabled to offer them to Mrs. Aouda, who received them gracefully.</p>" +
 			"<div class=\"row\">",
             /////////////////////page five////////////////////////
@@ -43,7 +43,7 @@ var control = {
 			"<div class=\"row\"> "+ 
 			"<div class=\"col-3\"></div> "+ 
 			"<div class=\"col-6\">" +
-			"<p>At eleven o'clock the Rangoon resumed her voyage and a few hours later Malacca had sunk below the horizon. They had about thirteen hundred miles to traverse to reach Hong Kong, and Phileas Fogg hoped to get there in six days," +
+			"<p>At eleven o'clock the Rangoon resumed her voyage and a few hours later Malacca had sunk below the horizon. They had about thirteen hundred miles to traverse to reach Hong Kong, and Phileas Fogg hoped to get there in six days, " +
 			"so as to be able to catch the steamer for Yokohama on the 6th of November.</p> " +
 			"<div class=\"row\">",
 			/////////////////////page six////////////////////////
@@ -60,9 +60,9 @@ var control = {
 			"<div class=\"col-6\">" 
 			+ "The captain set the sails at every opportunity, and the Rangoon, under these circumstances, made rapid progress. " +
 			 "But in very rough weather extra precautions were necessary, and steam had to be reduced. " + 
-			 "This delay did not appear to affect Phileas Fogg in the least, but it worried Passe-partout tremendously." +
-			  "He swore at the captain, the engineers, and the company, and consigned all concerned to a warmer climate than Hong Kong." +
-			  " Perhaps the thought of the gas that was still burning in his room in London may have had something to do with his impatience." + 
+			 "This delay did not appear to affect Phileas Fogg in the least, but it worried Passe-partout tremendously. " +
+			  "He swore at the captain, the engineers, and the company, and consigned all concerned to a warmer climate than Hong Kong. " +
+			  "Perhaps the thought of the gas that was still burning in his room in London may have had something to do with his impatience." + 
 			 "<div class=\"row\">",
             /////////////////////page eight////////////////////////
 			"<div class=\"row-top\"></div> "+ 
@@ -107,18 +107,17 @@ var control = {
 			"<div class=\"col-6\">" + 
 			"<p>Fix looked very hard at his companion, whose face was perfectly innocent, and laughed too. But Passe-partout was in the humour for quizzing, and asked him if he made much by his present business. </p>"+
 			"<p>'Yes and no,' replied Fix, without flinching. 'We have our good and bad times, but of course I do not travel at my own expense.' </p>"+
-			"<p>'Of that I am quite sure,' said Passe-partout, laughing. </p>"
+			"<p>'Of that I am quite sure,' said Passe-partout, laughing." 
 			+  "<div class=\"row\">",
 			/////////////////////page twelve////////////////////////
 			"<div class=\"row-top\"></div> "+ 
 			"<div class=\"row\"> "+ 
 			"<div class=\"col-3\"></div> "+ 
-			"<div class=\"col-6\">" + 
-			"How did you feel? </p>" +
-			"Fix then returned to his cabin, where he remained deep in thought. " +
+			"<div class=\"col-6\">"  +
+			"Fix then returned to his cabin, where he remained deep in thought. "+
 			" Somehow or another the Frenchman had found him out, but had he told his master? Was he his accomplice or not? And must the whole thing be given up? " +
 			" The detective passed many hours considering the matter in all its bearings, and was as undecided at the end as he had been at the beginning. "+
-			" But he retained his presence of mind, and resolved at length to deal frankly with Passe-partout, if he could not arrest Fogg at Hong Kong." + 
+			" But he retained his presence of mind, and resolved at length to deal frankly with Passe-partout, if he could not arrest Fogg at Hong Kong. " + 
 			"Either the servant was an accomplice, knowing everything, and he would fail; or the servant knew nothing, and then his interest would be to quit the service of the criminal. " + 
 			 "<div class=\"row\">",
 			/////////////////////page thirteen////////////////////////
@@ -132,7 +131,7 @@ var control = {
 		   "<div class=\"row-top\"></div> "+ 
 		   "<div class=\"row\"> "+ 
 			"<div class=\"col-3\"></div> "+ 
-			"<div class=\"col-6\">" + "Yes, it certainly was a matter of astonishment to that worthy man, who every day read the lady's gratitude to his master in Mrs. Aouda's eyes." +
+			"<div class=\"col-6\">" + "Yes, it certainly was a matter of astonishment to that worthy man, who every day read the lady's gratitude to his master in Mrs. Aouda's eyes. " +
 			"Phileas Fogg must certainly be heartless; brave he was no doubt, but sympathetic, no. There was no proof that the incidents of the journey had wakened any feelings in his breast, while Passe-partout was continually indulging in reverie. "+
 			"<div class=\"row\">",
 			/////////////////////page fifteen////////////////////////
@@ -140,9 +139,9 @@ var control = {
 			"<div class=\"row\"> "+ 
 			"<div class=\"col-3\"></div> "+ 
 			"<div class=\"col-6\">" + 
-			"One day he was contemplating the working of the machinery, when a pitch of the vessel threw the screw out of the water." +
-			 "The steam roared through the valves, and Passe-partout exclaimed, indignantly: 'The escape valves are not sufficiently charged! We make no way!" + 
-			 "That is English all over. Ah! if this were only an American ship—we might blow up, perhaps, but at any rate we should go quicker meantime.' " +
+			"One day he was contemplating the working of the machinery, when a pitch of the vessel threw the screw out of the water. " +
+			 "The steam roared through the valves, and Passe-partout exclaimed, indignantly: 'The escape valves are not sufficiently charged! We make no way! " + 
+			 "That is English all over. Ah! if this were only an American ship—we might blow up, perhaps, but at any rate we should go quicker meantime. ' " +
 			"<div class=\"row\">"
 			],
 	on_start: function() {
@@ -150,9 +149,8 @@ var control = {
 	}
 	,
 	on_finish: function(){
-		console.log('here is the data: ' + JSON.stringify(this.type.jsPsych.data.getLastTrialData().trials[0]));
-		var view = this.type.jsPsych.data.get().view_history;
-		var rt = this.type.jsPsych.data.get().rt;
+		var view = this.type.jsPsych.data.getLastTrialData().trials[0].view_history;
+		var rt = this.type.jsPsych.data.getLastTrialData().trials[0].rt;
 		saveViewTime(view, rt, 'control')
 	}
   };

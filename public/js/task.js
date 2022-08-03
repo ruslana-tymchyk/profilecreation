@@ -9,7 +9,7 @@ import {random_ps, response, list_names, image_set, random_ps_test} from './rand
 import {loop_node, continueText} from "./instructions_quiz.js";
 import {timeline_PHQ} from './PHQ_9.js' ;
 import {timeline_SPIN} from './SPIN.js' ;
-import {getMoodRating } from "./saveData.js";
+//import {getMoodRating } from "./saveData.js";
 
 //will have to import SaveTask Data
 //on finish saveData
@@ -77,8 +77,7 @@ for (trial=0; trial<nTrials; trial++) {
             else{
                 var previous_answer = 35;}
         timeline.push(mood_feedback_fun(trial));
-        var answer = getMoodRating();
-        console.log('answer from firestore ' + answer);
+        //var answer = getMoodRating();
         //how to save happiness rating here?
         //also make sure the very first trial is initialised at 0
     }; 

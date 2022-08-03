@@ -73,7 +73,7 @@ var intervention = {
 			"<div class=\"row-top\"></div> "+ 
 			"<div class=\"row\"> "+ 
 			"<div class=\"col-3\"></div> "+ 
-			"<div class=\"col-6\">" + "We will now ask you to think about memories of difficult situations." +
+			"<div class=\"col-6\">" + "We will now ask you to think about memories of difficult situations. " +
 			"Could you pick one out now?" +
 			"<div class=\"row\">",
 			/////////////////////page ten////////////////////////
@@ -81,8 +81,8 @@ var intervention = {
 			"<div class=\"row\"> "+ 
 			"<div class=\"col-3\"></div> "+ 
 			"<div class=\"col-6\">" + 
-			"<p> Is there a memory from the past week which is particularly difficult or uncomfortable to remember?" +
-			"If you can’t, maybe think back a little further." +
+			"<p> Is there a memory from the past week which is particularly difficult or uncomfortable to remember? " +
+			"If you can’t, maybe think back a little further. " +
 			"What was the last difficult or negative situation you found yourself in?</p>"
 			+  "<div class=\"row\">",
 			/////////////////////page eleven////////////////////////
@@ -122,7 +122,7 @@ var intervention = {
 			"<div class=\"row\"> "+ 
 			"<div class=\"col-3\"></div> "+ 
 			"<div class=\"col-6\">" + 
-			"<p> Notice it for what it is, a situation that happened, that is observable by people outside the situation." +
+			"<p> Notice it for what it is, a situation that happened, that is observable by people outside the situation. " +
 			///NEW
 			"When you take a step back and see the situation as if you were a neutral observer, maybe you can notice new features that weren’t so obvious before? " +
 			//NEW
@@ -133,11 +133,11 @@ var intervention = {
 			"<div class=\"row\"> "+ 
 			"<div class=\"col-3\"></div> "+ 
 			"<div class=\"col-6\">" + 
-			"Can you see yourself, and how you were reacting or behaving in that situation?" +
+			"Can you see yourself, and how you were reacting or behaving in that situation? " +
 			////NEW
-			"Can you see any other individuals who were involved? How are they behaving?" +
+			"Can you see any other individuals who were involved? How are they behaving? " +
 			///NEW
-			" Do you notice anything different about your, or their behavior, as you look at the situation from this place?" +
+			" Do you notice anything different about your, or their behavior, as you look at the situation from this place? " +
             "<div class=\"row\">",
             /////////////////////page seventeen////////////////////////
 			"<div class=\"row-top\"></div> "+ 
@@ -156,7 +156,7 @@ var intervention = {
 			"<div class=\"col-6\">" + 
 			"<p> How does this difficult moment feel as you look at it from a new perspective? </p>" +
 			///NEW
-			"<p> Can you see how you can notice what happened and think about it, but consider it from another place. This distant and neutral observer is always with you, and is a part of you." +
+			"<p> Can you see how you can notice what happened and think about it, but consider it from another place. This distant and neutral observer is always with you, and is a part of you. " +
 			"We just don’t always notice it because we tend to remember things from as if we are right there, living them and seeing through our own eyes. </p>" +
 			"<div class=\"row\">",
             /////////////////////page nineteen////////////////////////
@@ -181,7 +181,7 @@ var intervention = {
 			"<div class=\"row\"> "+ 
 			"<div class=\"col-3\"></div> "+ 
 			"<div class=\"col-6\">" + 
-			"<p> Now, open up your awareness to your surroundings. Allow yourself to step back into the world, and gently take three deep breaths, as you reconnect to the rest of your day.</p>" + 
+			"<p> Now, open up your awareness to your surroundings. Allow yourself to step back into the world, and gently take three deep breaths, as you reconnect to the rest of your day. </p>" + 
 			"<div class=\"row\">"
 			],
 	on_start: function() {
@@ -190,7 +190,6 @@ var intervention = {
 	on_finish: function() {
 		var view = this.type.jsPsych.data.getLastTrialData().trials[0].view_history;
 		var rt = this.type.jsPsych.data.getLastTrialData().trials[0].rt;
-
 		saveViewTime(view, rt, 'intervention')
 	}
   };
