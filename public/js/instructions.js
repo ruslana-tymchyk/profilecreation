@@ -141,8 +141,8 @@ var rate_profiles_fun = function(profile_count) {
 		},
 		on_finish: function(){
 			var respData = this.type.jsPsych.data.getLastTrialData().trials[0].response;
-			//var respRT = this.type.jsPsych.data.getLastTrialData().trials[0].rt;
-			saveProfileRatingsData(profile_count, respData);
+			var respRT = this.type.jsPsych.data.getLastTrialData().trials[0].rt;
+			saveProfileRatingsData(profile_count, respData, respRT);
 			}
 	}
 	return rate_profiles;

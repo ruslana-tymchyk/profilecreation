@@ -45,9 +45,10 @@ var savePreTaskData = function(response){
   }); 
 };
 
-var saveProfileRatingsData = function(profile_count, respData){
+var saveProfileRatingsData = function(profile_count, respData, respRT){
   db.collection('tasks').doc('mind').collection('minddata').doc(uid).collection('pre_task_data').doc('rank_profiles').update(
-    {[profile_count]: respData}  
+    {[profile_count]: respData,
+      rt: respRT}  
 
   ); 
 };
