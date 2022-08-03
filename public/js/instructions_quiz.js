@@ -8,27 +8,29 @@ var timeline_instructions = [];
 var introText = {
   type: jsPsychHtmlButtonResponse,
 	button_html: '<button class="jspsych-btn">%choice%</button>',
-  choices: ['NEXT'],
+  choices: ['Continue'],
 	margin_vertical: '8px',
 	stimulus: 
 	////////////////////page one////////////////////
     "<div class=\"row\"></div> "+ 
 	" 	<div class=\"col-3\"></div> "+ 
 	" 	<div class=\"col-6\"> "+ 
-	"<h2>Main experiment</h2>" + 
-	"The only information we will give you about each person is: " +
-    "<ul>" +
-    "<li> Their relative ranking represented by colour </li>" +
-    "<li> Their gender represented by icon </li>" +
-    "<li> Their name </li>" +
-    "</ul>" +
+	"<h2>Instructions</h2>" + 
 	"<p><b> On each trial we will ask you to try and predict if this person liked you based on your profile. To make a prediction: </b> </p>" +
 	"<ul><li>Press 'YES' if you think they liked you.</li>" +
 	"    <li>Press 'NO' if you think they did not like you.</li> </ul>" +
-	"</br>Every few trials we will also ask you to tell us how you feel about yourself that very moment. "+ 
+  "<b> The only information we will give you about each person is: </b>" +
+  "<ul>" +
+  "<li> Their relative ranking represented by colour </li>" +
+  "<li> Their gender represented by icon </li>" +
+  "<li> Their name </li>" +
+  "</ul>" +
+	"Every few trials we will also ask you to tell us how you feel about yourself that very moment. "+ 
 	"When answering consider how you feel at this very moment and not in general that day. " + 
 	"This part is very important for the scientific questions we are trying to answer. " + 
-	"Please do your best to truthfully indicate how much (or how little) happiness you experience in that very moment. " 
+	"<br></br>Please do your best to truthfully indicate how much (or how little) happiness you experience in that very moment. " +
+  "<br></br>We will now test your understanding of the task instructions. <br></br> <b>You will not be able to proceed with an experiment "+
+  "and will be returned to this screen until you correctly complete the task understanding quiz. </b>"
 , 
 	on_start: function(){
 		document.querySelector('body').style.backgroundColor = '#cce3f0fb';
@@ -131,21 +133,22 @@ var quizQuestions = [
 	" 	<div class=\"col-3\"></div> "+ 
 	" 	<div class=\"col-6\"> "+ 
 	"<h2>Main experiment</h2>" + 
-	"</br>You are now ready to start the main experiment. "+ 
-    "The only information we will give you about each person is: " +
-    "<ul>" +
-    "<li> Their relative ranking represented by colour </li>" +
-    "<li> Their gender represented by an icon </li>" +
-    "<li> Their name </li>" +
-    "</ul>" +
-	"<p><b> On each trial we will ask you to try and predict if this person liked you based on your profile. To make a prediction: </b> </p>" +
+	"</br>You have correctly completed the quiz and are ready to start the main experiment! " +
+  " <p> Below is the reminder of the task instructions. </p>" +
+  "<p><b> On each trial we will ask you to try and predict if this person liked you based on your profile. To make a prediction: </b> </p>" +
 	"<ul><li>Press 'YES' if you think they liked you.</li>" +
 	"    <li>Press 'NO' if you think they did not like you.</li> </ul>" +
-	"</br>Every few trials we will also ask you to tell us how you feel about yourself that very moment. "+ 
+  "<b> The only information we will give you about each person is: </b>" +
+  "<ul>" +
+  "<li> Their relative ranking represented by colour </li>" +
+  "<li> Their gender represented by icon </li>" +
+  "<li> Their name </li>" +
+  "</ul>" +
+	"Every few trials we will also ask you to tell us how you feel about yourself that very moment. "+ 
 	"When answering consider how you feel at this very moment and not in general that day. " + 
 	"This part is very important for the scientific questions we are trying to answer. " + 
-	"Please do your best to truthfully indicate how much (or how little) happiness you experience in that very moment. " + 
-	"</br>Note: pressing the escape key at any point will terminate the experiment." + 
+	"<br></br>Please do your best to truthfully indicate how much (or how little) happiness you experience in that very moment. " +
+	"</br><b>Note: pressing the escape key at any point will terminate the experiment. </b>" + 
 	"</br></br>[Press Continue to BEGIN THE TASK]</p>" 
             ]
   };

@@ -17,7 +17,7 @@ var full_screen = {
 var initialinstructions_profile = {
 	type: jsPsychHtmlButtonResponse,
 	button_html: '<button class="jspsych-btn">%choice%</button>',
-    choices: ['NEXT'],
+    choices: ['Continue'],
 	margin_vertical: '8px',
 	stimulus: 
 	"<div class=\"row\"> "+ 
@@ -36,6 +36,26 @@ var initialinstructions_profile = {
 	"<br> Click <b> Continue </b> to complete your personal profile. </br>"
 	,
 
+	on_start: function(){
+		document.querySelector('body').style.backgroundColor = '#cce3f0fb';
+		//saveStartData()
+	},
+};
+
+var initialinstructions_rate_profile = {
+	type: jsPsychHtmlButtonResponse,
+	button_html: '<button class="jspsych-btn">%choice%</button>',
+    choices: ['Continue'],
+	margin_vertical: '8px',
+	stimulus: 
+	"<div class=\"row\"> "+ 
+	" 	<div class=\"col-3\"></div> "+ 
+	" 	<div class=\"col-6\"> "+ 
+	"<h2>Rate other profiles</h2>" + 
+	"<p>Thank you for completing your profile. </p>"+
+	"<p> We will now ask you to read and rate other people's profile while participants are rating yours. </p>" + 
+	"<br> Click <b> Continue </b> to proceed. </br>"
+	,
 	on_start: function(){
 		document.querySelector('body').style.backgroundColor = '#cce3f0fb';
 		//saveStartData()
@@ -65,23 +85,7 @@ var ask_questions_profile= {
 	}
 };
 
-//var scale = ["yes", "no"];
-/*
-var rate_profiles = {
-	type: jsPsychSurveyLikert,
-	   preamble: ["<br> <span class= 'emphasized'> Do you like this person? Do you think you could be friends with them in real life? </p>" + 
-	   "<p> Or do you think this person is boring and are you not interested in getting to know them any better? </p>" + "Press the “like” button, if you think you could be friends with this person in real life. Press the “dislike” button if you are not interested in getting to know them. </br> </span>" + 
-	   "<br> Click <b> Continue </b> to complete your personal profile. </br>"],  
-	questions: [
-	  {prompt: "<b>Profile 1.</b>", name: "PROF1",  labels: scale, required: true}
-	],
-  on_finish:function(){
-	console.log('save data');
-	//saveQuestionnaireData()
-  },
 
-};
-*/
 var questions = ["1. If we asked your friends and family about your best qualities, what might they say?", 
     "2. And what would they say were your worst qualities?",
     "3. What are you most afraid of?",
@@ -127,8 +131,8 @@ var rate_profiles_fun = function(profile_count) {
 		stimulus: "<div class=\"row\"> "+ 
 		" 	<div class=\"col-3\"></div> "+ 
 		" 	<div class=\"col-6\"> "+ 
-		"<h1><p> Do you like this person based on their profile </p>" +
-		"<p> description? </p></h1>"+ 
+		"<h2><p> Do you like this person based on their profile " +
+		"description? </p></h2>"+ 
 		"<p><b>" + questions[0] + "</b><br>" + responses[profile_count][0] + "</br>" +  "</p>" +
 		"<p><b>" + questions[1] + "</b><br>" + responses[profile_count][1] + "</br>" +  "</p>" +
 		"<p><b>" + questions[2] + "</b><br>" + responses[profile_count][2] + "</br>" +  "</p>" +
@@ -300,4 +304,4 @@ var end_screen = {
 }; 
 
 
-export {full_screen, taskinstructions_rank, end_screen, dur_max, initialinstructions_profile, ask_questions_profile, rate_profiles_fun, test_relative_rank, debrief};
+export {full_screen, taskinstructions_rank, end_screen, dur_max, initialinstructions_profile, ask_questions_profile, rate_profiles_fun, test_relative_rank, debrief, initialinstructions_rate_profile};
