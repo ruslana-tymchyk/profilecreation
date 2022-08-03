@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
 // INTERVENTION
-//import { saveViewTime } from "./saveData";
+import { saveViewTime } from "./saveData.js";
 
 var intervention = {
 	type: jsPsychInstructions,
@@ -187,13 +187,12 @@ var intervention = {
 	on_start: function() {
 	  document.querySelector('body').style.backgroundColor = '#cce3f0fb';
 	},
-	/*
 	on_finish: function() {
-			var view = this.type.jsPsych.data.getLastTrialData().trials[0].view_history;
-			var rt = this.type.jsPsych.data.getLastTrialData().trials[0].rt;
-			saveViewTime(view_history, rt, 'control')
+		var view = this.type.jsPsych.data.getLastTrialData().trials[0].view_history;
+		var rt = this.type.jsPsych.data.getLastTrialData().trials[0].rt;
+
+		saveViewTime(view, rt, 'intervention')
 	}
-	*/
   };
 
 

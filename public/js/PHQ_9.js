@@ -1,5 +1,5 @@
 //PHQ_9
-//import { saveQuestData } from "./saveData";
+import { saveQuestData } from "./saveData.js";
   // definiting two different response scales that can be used.
 var options = ["Not at all", "Several days", "More than</br>half the days", "Nearly every day"];
 
@@ -18,15 +18,12 @@ var options = ["Not at all", "Several days", "More than</br>half the days", "Nea
       {prompt: "<b>Thoughts that you would be better off dead or of hurting yourself in some way.</b>", name: "PHQ9_9", labels: options, required:true},
       
     ],
-    /*
     on_finish: function () {
       // get response and RT data
       var respData = this.type.jsPsych.data.getLastTrialData().trials[0].response;
       var respRT = this.type.jsPsych.data.getLastTrialData().trials[0].rt;
-      //console.log(respData, respRT);
       saveQuestData("PHQ-9", respData, respRT);
     }
-    */
   };
 
   var difficulty = ["Not difficult at all", "Somewhat difficult", "Very diffucult", "Extremely difficult"];
@@ -37,8 +34,9 @@ var options = ["Not at all", "Several days", "More than</br>half the days", "Nea
       {prompt: "If you had any of the problems above, how difficult have these problems made it for you to do your work, take care of things at home, or get along with other people?", name: "PHQ9_diff", labels: difficulty, required:true}, 
     ],
     on_finish:function(){
-      console.log('save data');
-      //saveQuestionnaireData();
+      var respData = this.type.jsPsych.data.getLastTrialData().trials[0].response;
+      var respRT = this.type.jsPsych.data.getLastTrialData().trials[0].rt;
+      saveQuestData("PHQ-9-diff", respData, respRT);
     },
   };
   

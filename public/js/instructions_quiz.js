@@ -3,7 +3,6 @@
 //var image_path = './assets/imgs/'
 
 var timeline_instructions = [];
-console.log('in instructions quiz')
 
 // INSTRUCTIONS 
 var introText = {
@@ -113,7 +112,6 @@ var quizQuestions = [
   var loop_node = {
     timeline: [introText, introQuiz],
     loop_function: function(data) {
-      console.log('in loop function')
       if ( nCorrect >= 3 ) {
           return false;
       } else {

@@ -312,7 +312,6 @@ document.getElementById('consent').innerHTML = infoConsentText;
 
 // once consent form start button clicked, check consent form for completeness
 var checkConsent = function () {
-	console.log('in check consent function');
 	// only proceed if all boxes are ticked
 	//if (consent_checkbox9.checked == true) {	// [for debugging only!]
 	if (consent_checkbox1.checked == true && consent_checkbox2.checked == true && consent_checkbox3.checked == true && consent_checkbox4.checked == true && consent_checkbox5.checked == true && consent_checkbox6.checked == true && consent_checkbox7.checked == true && consent_checkbox8.checked == true && consent_checkbox9.checked == true){
