@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
 // INTERVENTION
-import { saveViewTime } from "./saveData.js";
+import { saveViewTime, saveQuestData } from "./saveData.js";
 
 var intervention = {
 	type: jsPsychInstructions,
@@ -210,18 +210,20 @@ var comprehension_intervention = {
 		  prompt: "You were asked to think about:", 
 		  name: 'ThinkAbout', 
 		  options: ['Memory of a difficult event', 'Memory of a happy moment in life', 'Memory of the time with friends'], 
-		  required: false
+		  required: true
 		},
 		{
 			prompt: "You were asked to:", 
 			name: 'AskedTo', 
 			options: ['Look at the situation from a different perspective', ' Get distracted from a memory', 'Ignore the images of the memory '], 
-			required: false
+			required: true
 		  }
 	  ],
   on_finish:function(){
-	console.log('save data');
-	//saveQuestionnaireData()
+	// get response and RT data
+	var respData = this.type.jsPsych.data.getLastTrialData().trials[0].response;
+	var respRT = this.type.jsPsych.data.getLastTrialData().trials[0].rt;
+	saveQuestData("condition_comprehension", respData, respRT);
   },
 
 };
