@@ -1,7 +1,7 @@
 // -----------------------------------------------------------------------------
 // RUN EXPERIMENT 
 // define global variables 
-import {full_screen, end_screen, dur_max, initialinstructions_profile, ask_questions_profile, rate_profiles_fun, debrief, test_relative_rank, taskinstructions_rank} from "./instructions.js";
+import {full_screen, end_screen, dur_max, initialinstructions_profile, initialinstructions_rate_profile, ask_questions_profile, rate_profiles_fun, debrief, test_relative_rank, taskinstructions_rank} from "./instructions.js";
 import {run_trial, mood_feedback_fun} from "./task_design.js";
 import { intervention, timeline_comprehension_intervention} from "./intervention.js";
 import { control, timeline_comprehension_control} from "./control.js";
@@ -35,14 +35,15 @@ if (dofullscreen==true) {
 }
 timeline.push(initialinstructions_profile);
 timeline.push(ask_questions_profile)
-timeline.push(loop_node)
-timeline.push(continueText)
+timeline.push(initialinstructions_rate_profile);
 var profiles = 4;
 for(profile_count = 0; profile_count< profiles; profile_count++){
     timeline.push(rate_profiles_fun(profile_count))
 }
 timeline.push(taskinstructions_rank)
 timeline.push(test_relative_rank)
+timeline.push(loop_node)
+timeline.push(continueText)
 //add task instructions comprehension
 //Main task 
 for (trial=0; trial<nTrials; trial++) {
