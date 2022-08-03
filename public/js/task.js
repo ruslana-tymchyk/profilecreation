@@ -37,7 +37,7 @@ timeline.push(initialinstructions_profile);
 timeline.push(ask_questions_profile)
 timeline.push(loop_node)
 timeline.push(continueText)
-var profiles = 2;
+var profiles = 4;
 for(profile_count = 0; profile_count< profiles; profile_count++){
     timeline.push(rate_profiles_fun(profile_count))
 }
