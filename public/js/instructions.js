@@ -2,7 +2,7 @@
 // INSTRUCTIONS 
 import { jsPsych } from './task.js';
 import {p_image_orders, image_set} from './randomisation.js';
-import { savePreTaskData, saveProfileRatingsData } from './saveData.js';
+import { savePreTaskData, saveProfileRatingsData, saveQuestData } from './saveData.js';
 var image_path = './assets/imgs/'
 
 
@@ -249,7 +249,7 @@ var debrief = {
 	"<p> In psychological research we sometimes have to omit information or deceive participants in order to make our measurements more valid. </p>"
 	],
 	questions: [
-		{prompt: " <b>Did you suspect that we were not honest with you at any point of this study? </b>", name: "P1", required:true,  name: "P2", required:true},
+		{prompt: " <b>Did you suspect that we were not honest with you at any point of this study? </b>", name: "P1", required:true},
         {prompt: "<p>We can now share the goals of this research with you. </p>" +
 		"<p>In this study we were investigating if mindfulness can reduce fluctuations in self-esteem in response to social feedback.</p>" +
 		"<p> For example, when someone tells you that they dislike you, can mindfulness reduce your emotional reaction to such events. </p>" +
@@ -277,6 +277,11 @@ var debrief = {
 		document.querySelector('body').style.backgroundColor = '#cce3f0fb';
 		//saveStartData()
 	},
+	on_finish: function(){
+		var respData = this.type.jsPsych.data.getLastTrialData().trials[0].response;
+		var respRT = this.type.jsPsych.data.getLastTrialData().trials[0].rt;
+		saveQuestData("study_debrief", respData, respRT);
+	}
 }; 
 
 var end_screen = {
