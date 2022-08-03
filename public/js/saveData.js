@@ -30,12 +30,11 @@ var saveConsent = function(){
   }); 
   // initialize data-storage collections
   db.collection('tasks').doc('mind').collection('minddata').doc(uid).collection('pre_task_data').doc('own_profile').set({init: 1});
-  db.collection('tasks').doc('mind').collection('minddata').doc(uid).collection('pre_task_data').doc('condition').set({init: 1});
   db.collection('tasks').doc('mind').collection('minddata').doc(uid).collection('pre_task_data').doc('rank_profiles').set({init: 1});
   db.collection('tasks').doc('mind').collection('minddata').doc(uid).collection('task_data').doc('main_task').set({init: 1});
   db.collection('tasks').doc('mind').collection('minddata').doc(uid).collection('task_data').doc('mood_rating').set({init: 1});
   db.collection('tasks').doc('mind').collection('minddata').doc(uid).collection('task_data').doc('viewing_time').set({init: 1});
-  db.collection('tasks').doc('mind').collection('minddata').doc(uid).collection('task_data').doc('questionnaires').set({init: 1});
+  db.collection('tasks').doc('mind').collection('minddata').doc(uid).collection('post_task_data').doc('questionnaires').set({init: 1});
 };
 
 var savePreTaskData = function(response){
@@ -61,14 +60,6 @@ var saveRankTestData = function(rank_test){
     rank_test_data: rank_test 
   }); 
 };
-*/
-var saveConditionCode = function(cond){
-  console.log('in a condition code saving function');
-  db.collection('tasks').doc('mind').collection('minddata').doc(uid).collection('pre_task_data').doc('condition').update({
-    condition_code: cond 
-  }); 
-};
-/*
 var savePilotRun = function(cond){
   db.collection('tasks').doc('mind').collection('minddata').doc('uid').collection('pre_task_data').doc('condition').set({
     condition_code: cond 
@@ -89,26 +80,44 @@ var saveMoodData = function(trialN, response){
 
   ); 
 };
-/*
+
 var saveQuestData = function(questionnaire, dataToSave, completionRT) {
-  db.collection('tasks').doc('mind').collection('minddata').doc(uid).collection('task_data').doc('questionnaires').update({
+  db.collection('tasks').doc('mind').collection('minddata').doc(uid).collection('post_task_data').doc('questionnaires').update({
     [questionnaire]: dataToSave,
     [questionnaire+'_RT']: completionRT
   });
 };
-*/
 
-/*
+
+
 var saveViewTime = function(view_history, rt, condition){
   db.collection('tasks').doc('mind').collection('minddata').doc(uid).collection('task_data').doc('viewing_time').update(
     {view: view_history,
-    rteaction: rt,
+    reaction: rt,
     cond: condition
   }  
   ); 
 };
-*/
 
 
-export { saveConsent, savePreTaskData, saveProfileRatingsData, saveConditionCode, saveTaskData, saveMoodData}
+var getMoodRating = function(){
+
+        var docRef = db.collection('tasks').doc('mind').collection('minddata').doc(uid).collection('task_data').doc('mood_rating');
+
+        docRef.get().then((doc) => {
+            if (doc.exists) {
+                console.log("Document data:", doc.data());
+                return doc.data();
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+                return 1;
+            }
+        }).catch((error) => {
+            console.log("Error getting document:", error);
+        });
+  }
+
+
+export { saveConsent, savePreTaskData, saveProfileRatingsData, saveTaskData, saveMoodData, saveQuestData, saveViewTime, getMoodRating};
 

@@ -7,14 +7,14 @@ import { intervention, timeline_comprehension_intervention} from "./intervention
 import { control, timeline_comprehension_control} from "./control.js";
 import {random_ps, response, list_names, image_set, random_ps_test} from './randomisation.js';
 import {loop_node, continueText} from "./instructions_quiz.js";
-import {saveConditionCode} from './saveData.js' ;
 import {timeline_PHQ} from './PHQ_9.js' ;
+import {timeline_SPIN} from './SPIN.js' ;
+import {getMoodRating } from "./saveData.js";
 
 //will have to import SaveTask Data
 //on finish saveData
 //data.stimulus etc is a jsPysch object
 //take jsPsych data.whatever and save it to firebase via save task etc
-
 var writetime = 10; 	// write every x trials 
 var introspectiontime = 2; // how often to ask for happiness ratings 
 var nTrials = 10;
@@ -45,7 +45,6 @@ timeline.push(taskinstructions_rank)
 timeline.push(test_relative_rank)
 //add task instructions comprehension
 //Main task 
-var cond;
 for (trial=0; trial<nTrials; trial++) {
     var p_type = random_ps_test[random_ps[trial] - 1]
     var this_trial_in_p = p_retrieved_counter[p_type]
@@ -58,14 +57,10 @@ for (trial=0; trial<nTrials; trial++) {
     if (trial == 3) { //at trial 81 provide intervention
         //randomise intervention and control
             if (Math.random() < 0.5){
-                var cond = 0;
-                saveConditionCode(cond);
                 timeline.push(intervention);
                 timeline = timeline.concat(timeline_comprehension_intervention);
             }
             else{
-                var cond = 1;
-                saveConditionCode(cond);
                 timeline.push(control);
                 timeline = timeline.concat(timeline_comprehension_control);
              }
@@ -77,9 +72,12 @@ for (trial=0; trial<nTrials; trial++) {
         if (mood == 0){
             var previous_answer = 50;
         }
+        //here retrieve data from firebase to get the previous slider value
             else{
                 var previous_answer = 35;}
         timeline.push(mood_feedback_fun(trial));
+        var answer = getMoodRating();
+        console.log('answer from firestore ' + answer);
         //how to save happiness rating here?
         //also make sure the very first trial is initialised at 0
     }; 
@@ -91,7 +89,8 @@ for (trial=0; trial<nTrials; trial++) {
 }
 //timeline.push(initialinstructions); //questionnaire instructions 
 timeline = timeline.concat(timeline_PHQ);
-//timeline = timeline.concat(timeline_SPIN);
+timeline = timeline.concat(timeline_SPIN);
+
 timeline.push(debrief);
 timeline.push(end_screen);
 

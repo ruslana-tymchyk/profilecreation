@@ -1,7 +1,7 @@
 // -----------------------------------------------------------------------------
 // INTERVENTION
 
-//import { saveViewTime } from "./saveData";
+import { saveViewTime } from "./saveData.js";
 
 var control = {
 	type: jsPsychInstructions,
@@ -148,14 +148,13 @@ var control = {
 	on_start: function() {
 	  document.querySelector('body').style.backgroundColor = '#cce3f0fb';
 	}
-	/*,
+	,
 	on_finish: function(){
-		console.log('its to do with this')
-		//var view = this.type.jsPsych.data.get().view_history;
-		//var rt = this.type.jsPsych.data.get().rt;
-		//saveViewTime(view, rt, 'control')
+		console.log('here is the data: ' + JSON.stringify(this.type.jsPsych.data.getLastTrialData().trials[0]));
+		var view = this.type.jsPsych.data.get().view_history;
+		var rt = this.type.jsPsych.data.get().rt;
+		saveViewTime(view, rt, 'control')
 	}
-	*/
   };
 
 

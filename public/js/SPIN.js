@@ -1,4 +1,5 @@
 //SPIN
+import { saveQuestData } from "./saveData.js";
 
 //define likert scale
   var scale = ["not at all", "a little bit", "somewhat", "very much", "extremely"];
@@ -12,11 +13,14 @@
         {prompt: "<b>Being embarrassed or looking stupid are among my worst fears</b>", name: "SPIN3", labels: scale, required: true}
       ],
     on_finish:function(){
-      console.log('save data');
-      //saveQuestionnaireData()
+      var respData = this.type.jsPsych.data.getLastTrialData().trials[0].response;
+      var respRT = this.type.jsPsych.data.getLastTrialData().trials[0].rt;
+      saveQuestData("SPIN", respData, respRT);
     },
 
   };
 
   var timeline_SPIN = [];
   timeline_SPIN.push(SPIN);
+
+  export {timeline_SPIN};

@@ -13,9 +13,7 @@ var uid;
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
 		uid = user.uid;
-		console.log('firebase uid: '+uid);
   } else {
 		uid = 'not found';
-		console.log('firebase uid not found');
   }
 });
