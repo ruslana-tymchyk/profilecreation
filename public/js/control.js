@@ -1,6 +1,8 @@
 // -----------------------------------------------------------------------------
 // INTERVENTION
 
+//import { saveViewTime } from "./saveData";
+
 var control = {
 	type: jsPsychInstructions,
 	allow_backward: true,
@@ -145,11 +147,15 @@ var control = {
 			],
 	on_start: function() {
 	  document.querySelector('body').style.backgroundColor = '#cce3f0fb';
-	},
-	on_finish: function() {
-	  //var startTime = performance.now(); // this.type.jsPsych.getStartTime();
-	  //saveStartData(startTime);
 	}
+	/*,
+	on_finish: function(){
+		console.log('its to do with this')
+		//var view = this.type.jsPsych.data.get().view_history;
+		//var rt = this.type.jsPsych.data.get().rt;
+		//saveViewTime(view, rt, 'control')
+	}
+	*/
   };
 
 
