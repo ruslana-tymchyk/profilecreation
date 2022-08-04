@@ -14,7 +14,7 @@ const preInstructions = "<div class=\"row\"> "+
 	"We expect this study to take around <b> 20 minutes</b> to complete. "+
 	"Since the hourly payment rate for this study is £7.50, "+
 	"you will earn <b> at least £2.13 if you fully complete the study</b> "+
-	"(this includes practice trials, the main game, and some brief post-game questions). "+
+	"(this includes practice trials, the main section, and some brief questions). "+
 	"</p>" + 
 	"<p>" + 
 	"Everyone who successfully completes the study will also earn a <b>bonus payment</b>. "+
@@ -71,7 +71,7 @@ const infoConsentText = "<div class=\"row\"> "+
 	" 		<p><b>What is involved in the study?</b></p> "+ 
 	" 		<p>  " + 
 	" 		The study involves performing different online tasks. These may include both questionnaires and "+
-	"		different kinds of computerised games. We hope these games will help us understand how the kinds "+
+	"		different kinds of computerised tasks. We hope these tasks will help us understand how the kinds "+
 	"		of thought processes targeted by psychological treatments work."+ 
 	" 		</p>  " + 
 	"  " + 
@@ -80,7 +80,7 @@ const infoConsentText = "<div class=\"row\"> "+
 	" 		In order to help us understand how these kinds of thought processes work, and how they might vary "+
 	"		across the population, we are inviting lots of different people to take part in our study. The only "+
 	"		requirements are that you are an adult (aged 18 or older) and speak fluent English. This is because "+
-	"		the different study components (questionnaires and games) are currently only available in English." + 
+	"		the different study components (questionnaires and tasks) are currently only available in English." + 
 	"  " + 
 	" 		<p><b>Do I have to take part?</b></p> "+ 
 	" 		<p>  " + 

@@ -187,9 +187,30 @@ var comprehension_control = {
 
 };
 
+
+
 var timeline_comprehension_control = [];
 timeline_comprehension_control.push(comprehension_control);
 
 
+var condition_complete = {
+	type: jsPsychHtmlButtonResponse,
+	button_html: '<button class="jspsych-btn">%choice%</button>',
+    choices: ['Continue'],
+	margin_vertical: '8px',
+	stimulus: 
+	"<div class=\"row\"> "+ 
+	" 	<div class=\"col-3\"></div> "+ 
+	" 	<div class=\"col-6\"> "+ 
+	"<h2>Continue the main part of an experiment</h2>" + 
+	"<p>Thank you for completing this part of an experiment. </p>"+
+	"<p>You will now ask you to continue predicting what you think people have thought of your profile. </p>" + 
+	"<br> Click <b> Continue </b> to proceed. </br>"
+	,
+	on_start: function(){
+		document.querySelector('body').style.backgroundColor = '#cce3f0fb';
+		//saveStartData()
+	},
+};
 
-export {control, timeline_comprehension_control};
+export {control, timeline_comprehension_control, condition_complete};

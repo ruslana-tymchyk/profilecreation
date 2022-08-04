@@ -1,7 +1,8 @@
 
 var random_ps_test = ['p15', 'p30', 'p70', 'p85']
 
-var image_set = Math.floor((Math.random() * 25));
+//var image_set = Math.floor((Math.random() * 25));
+var image_set = 4;
 
 var random_ps = [1,3,1,4,4,4,2,1,2,2,3,2,3,3,2,1,1,2,3,1,2,4,3,1,4,4,2,4,4,2,1,3,4,4,1,4,3,1,3,4,4,
     3,2,4,3,4,2,1,3,1,1,1,3,2,3,4,2,2,4,1,3,1,4,2,3,3,3,4,1,3,3,3,2,1,2,2,1,1,4,2,1,3,3,4,1,1,1,4,4,2,2,
@@ -40,30 +41,30 @@ var female_names = ['OLIVIA', 'AMELIA', 'ISLA', 'AVA', 'MIA', 'IVY', 'LILY', 'IS
     'LYRA','SUMMER', 'MAEVE', 'HEIDI', 'ELODIE', 'LYLA', 'EDEN', 'OLIVE', 'AISHA']
 
 var p_image_orders = [
-    [ 'blue.png', 'yellow.png', 'purple.png', 'pink.png' ],
-    [ 'blue.png', 'yellow.png', 'pink.png', 'purple.png' ],
-    [ 'blue.png', 'purple.png', 'yellow.png', 'pink.png' ],
-    [ 'blue.png', 'purple.png', 'pink.png', 'yellow.png' ],
-    [ 'blue.png', 'pink.png', 'yellow.png', 'purple.png' ],
-    [ 'blue.png', 'pink.png', 'purple.png', 'yellow.png' ],
-    [ 'yellow.png', 'blue.png', 'purple.png', 'pink.png' ],
-    [ 'yellow.png', 'blue.png', 'pink.png', 'purple.png' ],
-    [ 'yellow.png', 'purple.png', 'blue.png', 'pink.png' ],
-    [ 'yellow.png', 'purple.png', 'pink.png', 'blue.png' ],
-    [ 'yellow.png', 'pink.png', 'blue.png', 'purple.png' ],
-    [ 'yellow.png', 'pink.png', 'purple.png', 'blue.png' ],
-    [ 'purple.png', 'blue.png', 'yellow.png', 'pink.png' ],
-    [ 'purple.png', 'blue.png', 'pink.png', 'yellow.png' ],
-    [ 'purple.png', 'yellow.png', 'blue.png', 'pink.png' ],
-    [ 'purple.png', 'yellow.png', 'pink.png', 'blue.png' ],
-    [ 'purple.png', 'pink.png', 'blue.png', 'yellow.png' ],
-    [ 'purple.png', 'pink.png', 'yellow.png', 'blue.png' ],
-    [ 'pink.png', 'blue.png', 'yellow.png', 'purple.png' ],
-    [ 'pink.png', 'blue.png', 'purple.png', 'yellow.png' ],
-    [ 'pink.png', 'yellow.png', 'blue.png', 'purple.png' ],
-    [ 'pink.png', 'yellow.png', 'purple.png', 'blue.png' ],
-    [ 'pink.png', 'purple.png', 'blue.png', 'yellow.png' ],
-    [ 'pink.png', 'purple.png', 'yellow.png', 'blue.png' ]
+    [ 'blue.png', 'yellow.png', 'lighty.png', 'lightb.png' ],
+    [ 'blue.png', 'yellow.png', 'lightb.png', 'lighty.png' ],
+    [ 'blue.png', 'lighty.png', 'yellow.png', 'lightb.png' ],
+    [ 'blue.png', 'lighty.png', 'lightb.png', 'yellow.png' ],
+    [ 'blue.png', 'lightb.png', 'yellow.png', 'lighty.png' ],
+    [ 'blue.png', 'lightb.png', 'lighty.png', 'yellow.png' ],
+    [ 'yellow.png', 'blue.png', 'lighty.png', 'lightb.png' ],
+    [ 'yellow.png', 'blue.png', 'lightb.png', 'lighty.png' ],
+    [ 'yellow.png', 'lighty.png', 'blue.png', 'lightb.png' ],
+    [ 'yellow.png', 'lighty.png', 'lightb.png', 'blue.png' ],
+    [ 'yellow.png', 'lightb.png', 'blue.png', 'lighty.png' ],
+    [ 'yellow.png', 'lightb.png', 'lighty.png', 'blue.png' ],
+    [ 'lighty.png', 'blue.png', 'yellow.png', 'lightb.png' ],
+    [ 'lighty.png', 'blue.png', 'lightb.png', 'yellow.png' ],
+    [ 'lighty.png', 'yellow.png', 'blue.png', 'lightb.png' ],
+    [ 'lighty.png', 'yellow.png', 'lightb.png', 'blue.png' ],
+    [ 'lighty.png', 'lightb.png', 'blue.png', 'yellow.png' ],
+    [ 'lighty.png', 'lightb.png', 'yellow.png', 'blue.png' ],
+    [ 'lightb.png', 'blue.png', 'yellow.png', 'lighty.png' ],
+    [ 'lightb.png', 'blue.png', 'lighty.png', 'yellow.png' ],
+    [ 'lightb.png', 'yellow.png', 'blue.png', 'lighty.png' ],
+    [ 'lightb.png', 'yellow.png', 'lighty.png', 'blue.png' ],
+    [ 'lightb.png', 'lighty.png', 'blue.png', 'yellow.png' ],
+    [ 'lightb.png', 'lighty.png', 'yellow.png', 'blue.png' ]
   ]
 /*
   var image_number = {
