@@ -188,63 +188,143 @@ var taskinstructions_rank= {
 
 var random_order = [0,1,2,3]
 
-var answers = random_order.map(num => {
-	return String(num+1);
-  });
 var nCorrect = 0;
 var test_relative_rank = {
-	preamble: '<p ></br></br><b>Image Rank Order Quiz</b></br></br>Please select the relative rank for each of the colours below. Each number can only be used once. </br></br> Please provide ONE response for each.</p>',  
+	preamble: '<p ></br></br><b>Image Rank Order Quiz</b></br></br>Please select the relative rank for each of the colours below. Each number can only be used once. You will be returned to the previous screen until you learn the correct ranking order. </br></br> <b> Please provide ONE response for each. </b> </p>',  
 	type: jsPsychSurveyMultiChoice,
 	questions: [
 		{
 		  prompt: 
           "<p>" + images[random_order[0]] + "</p>" , 
-		  name: 'one', 
 		  options: ['1', '2', '3', '4'],
-		  required: true
+		  required: true,
+		  horizontal: true
 		}, 
 		{
 		  prompt: 
           "<p>" + images[random_order[1]] + " </p>" , 
-		  name: 'two', 
 		  options: ['1', '2', '3', '4'], 
-		  required: true
+		  required: true,
+		  horizontal: true
 		},
 		{
 			prompt: 
             "<p>" + images[random_order[2]] + "</p>" , 
-			name: 'three', 
 			options: ['1', '2', '3', '4'], 
-			required: true
+			required: true,
+			horizontal: true
 		  },
           {
 			prompt: 
             "<p>" + images[random_order[3]] + "</p>" , 
-			name: 'four', 
 			options: ['1', '2', '3', '4'], 
-			required: true
+			required: true,
+			horizontal: true
 		  }
 	  ],
       data: {
-        correct_answers: answers
+        correct_answers: ['1', '2', '3', '4']
       },
+	  randomize_question_order: false,
       button_label: "check answers", 
-    on_finish: function (data) {
-      // compare answers to correct answers
-      nCorrect = 0;
-      for (var i=0; i < data.correct_answers.length; i++) {
-        var questID = "Q"+i;
-        if (data.response[questID] == data.correct_answers[i]) {
-		   console.log('responded correctly')
-          nCorrect++;
-        }
+	  on_finish: function (data) {
+		// compare answers to correct answers
+		nCorrect = 0;
+		for (var i=0; i < data.correct_answers.length; i++) {
+			console.log('answers ' + data.correct_answers);
+		  var questID = "Q"+i;
+		  if (data.response[questID] == data.correct_answers[i]) {
+			nCorrect++;
+		  }
+		}
+		data.nCorrect = nCorrect;
+	  }
+	};
+
+var loop_node_rank = {
+    timeline: [taskinstructions_rank, test_relative_rank],
+    loop_function: function(data) {
+      if ( nCorrect >= 3 ) {
+          return false;
+      } else {
+          return true;
       }
-      data.nCorrect = nCorrect;
-	//saveQuestionnaireData()
-  },
+    }
+  };
 
-};
+var debrief = {
+	type: jsPsychSurvey,
+	pages: [
+	  [
+		{
+		  type: 'html',
+		  prompt: "<h2>Study Debrief</h2>"+ 
+		  "<p>  Thank you for taking part in our study! Before proceeding we want to get your general impression about this study. " +
+		  "Particularly since there are elements of this study that we have not yet told you about. " + 
+		  "In psychological research we sometimes have to omit information or deceive participants in order to make our measurements more valid. </p>"
+		},
+		{
+		  type: 'drop-down',
+		  prompt: "Did you suspect that we were not honest with you at any point of this study?", 
+		  name: 'honest', 
+		  options: ['yes', 'no'], 
+		  required: true
+		}, 
+		{
+			type: 'text',
+			prompt: "If yes - explain how", 
+			name: 'how_honest', 
+			textbox_rows: 4,
+		  textbox_columns: 60,
+			required: false,
+		  },
+		  {
+			type: 'html',
+			prompt: "<p>We can now share the goals of this research with you. " +
+			"In this study we were investigating if mindfulness can reduce fluctuations in self-esteem in response to social feedback. " +
+			"For example, when someone tells you that they dislike you, can mindfulness reduce your emotional reaction to such events. " +
+			"Conversely, if you receive a lot of positive feedback, does being mindful mean you will not get overly excited about it. " +
+			 +
+			"This is important since past research has found that in individuals with depression, negative feedback reduces self-esteem much more. </p>" +
+			"<p>The goal of this study is to find out if we could use mindfulness-based interventions to reduce the effect of social feedback on self-esteem " +
+			"in individuals with depression. To be completely sure that it is the mindfulness that makes people less reactive to social feedback - half of " +
+			"participants received a mindfulness intervention and the other half were asked to read a book chapter. We expect that only mindfulness intervention " +
+			"will reduce the effect of social feedback on self-esteem. </p>" +
+			"<p>We have asked you in the experiment to rate the profiles of other people and to provide your own profile for people to rate. " + "In fact, other participants " +
+			"were not providing their profiles for you to rate, instead we had a fixed set of profiles generated by our research group and all participants, including you, " +
+			"viewed and rated the same profiles. </p> <p> Furthermore, we never shared your personal profile with anyone and the feedback that you have been given has been generated " + 
+			"by the computer. Hence the feedback that you have received does not tell you anything about what others think of your personal profile. </p>" +
+			"<p>In fact, everyone who has participated in this study has received the exact same feedback in the same order. This has been done to ensure " + 
+			"that we can precisely measure how social feedback affects self-esteem. Since, if some people received more positive than negative feedback, " +
+			"their self-esteem would have likely been higher. This would make it harder for us to measure to which extent the intervention improves self-esteem.</p>" +
+			"<p>Your participation in this research is very valuable to us. Therefore, if learning that the purpose of the study is different to what you initially " + 
+			"thought it was reduces your satisfaction or raises any questions - please let us know. We hope though that you have enjoyed the study and are happy " + 
+			"for us to use your data for the research purposes. If for any reason you do not want us to keep your data - it is completely understandable.</p>"
+		  },
+		{
+		  type: 'text',
+		  prompt: "Is there any feedback you would like to give us about "+
+				  "any aspect of the study (including the task and questionnaires)?", 
+		  name: 'study_feedback', 
+		  textbox_rows: 4,
+		  textbox_columns: 60,
+		  required: false
+		},
+	  ]
+	],
+	show_question_numbers: 'onPage',
+	button_label_finish: 'submit',
+	on_start: function(){
+		document.querySelector('body').style.backgroundColor = '#cce3f0fb';
+	},
+	on_finish: function() {
+	var respData = this.type.jsPsych.data.getLastTrialData().trials[0].response;
+	var respRT = this.type.jsPsych.data.getLastTrialData().trials[0].rt;
+	saveQuestData("study_debrief", respData, respRT);
+	}
+  };
 
+  /*
 var debrief = {
 	type: jsPsychSurveyText,
 	preamble: ["<h2>Study Debrief</h2>"+ 
@@ -287,6 +367,7 @@ var debrief = {
 		saveQuestData("study_debrief", respData, respRT);
 	}
 }; 
+*/
 
 var end_screen = {
 	type: jsPsychHtmlButtonResponse,
@@ -304,4 +385,4 @@ var end_screen = {
 }; 
 
 
-export {full_screen, taskinstructions_rank, end_screen, dur_max, initialinstructions_profile, ask_questions_profile, rate_profiles_fun, test_relative_rank, debrief, initialinstructions_rate_profile};
+export {full_screen, end_screen, dur_max, initialinstructions_profile, ask_questions_profile, rate_profiles_fun, debrief, initialinstructions_rate_profile, loop_node_rank};

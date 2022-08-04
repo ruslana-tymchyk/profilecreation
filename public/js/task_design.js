@@ -50,12 +50,26 @@ var mood_feedback_fun = function(trialN){
             labels: ['very bad', 'very good'],
             prompt: ['<p> Please provide response before continuing </p>'],
             button_label: ['Continue'],
-            slider_width: 100,
+            slider_width: 500,
             slider_start: previous_answer, 
             require_movement: true, //must move slider before clicking
             on_start: function(){
                 document.querySelector('body').style.backgroundColor = '#cce3f0fb';
-            },
+                //var previous_stimuli = this.jsPsych.data.get();
+                //.filter({ trial_type: 'html-multiple-slider-response' }).select('stimulus').values;
+                //console.log('previous value is: ' + previous_stimuli);
+                /*
+                previous_stimuli = previous_stimuli[emotions.t];
+                next_stimuli = emotions.stimulus;
+                responses = jsPsych.data.get().filter({ trial_type: 'html-multiple-slider-response' }).select('response').values;
+                responses = responses[emotions.t];
+                var last_location = [];
+                for (var s = 0; s < responses.length; s++) {
+                    idx = previous_stimuli.indexOf(next_stimuli[s]);
+                    last_location[s] = responses[idx];
+            }
+            */
+        },
             on_finish: function(){
                 var respData = this.type.jsPsych.data.getLastTrialData().trials[0].response;
                 saveMoodData(trialN, respData)
