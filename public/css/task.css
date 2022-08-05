@@ -64,6 +64,9 @@
     }
     */
 
+.jspsych-slider {
+        width:500px;
+    }
 /* Experiment does not even start without this */
 .jspsych-display-element:focus {
     outline: none;
