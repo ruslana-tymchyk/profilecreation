@@ -1,6 +1,5 @@
 // Task
 import {p_image_orders, female_names} from './randomisation.js';
-import {previous_answer} from './task.js';
 import {saveTaskData, saveMoodData} from './saveData.js' ;
 
 var responses = ['yes.png ', 'no.png '];
@@ -51,25 +50,18 @@ var mood_feedback_fun = function(trialN){
             prompt: ['<p> Please provide response before continuing </p>'],
             button_label: ['Continue'],
             slider_width: 500,
-            slider_start: previous_answer, 
             require_movement: true, //must move slider before clicking
-            on_start: function(){
+            on_start: function(mood_feedback_fun){
                 document.querySelector('body').style.backgroundColor = '#cce3f0fb';
-                //var previous_stimuli = this.jsPsych.data.get();
-                //.filter({ trial_type: 'html-multiple-slider-response' }).select('stimulus').values;
-                //console.log('previous value is: ' + previous_stimuli);
-                /*
-                previous_stimuli = previous_stimuli[emotions.t];
-                next_stimuli = emotions.stimulus;
-                responses = jsPsych.data.get().filter({ trial_type: 'html-multiple-slider-response' }).select('response').values;
-                responses = responses[emotions.t];
-                var last_location = [];
-                for (var s = 0; s < responses.length; s++) {
-                    idx = previous_stimuli.indexOf(next_stimuli[s]);
-                    last_location[s] = responses[idx];
-            }
-            */
-        },
+                    var slider_responses = this.type.jsPsych.data.get().filter({ trial_type: "html-slider-response" }).select('response').values;
+                    var previous_answer = slider_responses[slider_responses.length - 1];
+                    if (previous_answer == null){
+                        var previous_answer = 50;
+                    }
+                    document.querySelector('body').style.backgroundColor = '#cce3f0fb';
+                    //saveStartData()
+                    mood_feedback_fun.slider_start = previous_answer;
+            },
             on_finish: function(){
                 var respData = this.type.jsPsych.data.getLastTrialData().trials[0].response;
                 saveMoodData(trialN, respData)
