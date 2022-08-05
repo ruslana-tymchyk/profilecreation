@@ -11,13 +11,16 @@ import {timeline_PHQ} from './PHQ_9.js' ;
 import {timeline_SPIN} from './SPIN.js' ;
 //import {getMoodRating } from "./saveData.js";
 
+var jsPsych = initJsPsych({}
+    ); 
+
 //will have to import SaveTask Data
 //on finish saveData
 //data.stimulus etc is a jsPysch object
 //take jsPsych data.whatever and save it to firebase via save task etc
 var writetime = 10; 	// write every x trials 
 var introspectiontime = 2; // how often to ask for happiness ratings 
-var nTrials = 10; //160
+var nTrials = 20; //160
 var trial;
 var profile_count;
 var p_retrieved_counter = {
@@ -54,7 +57,7 @@ for (trial=0; trial<nTrials; trial++) {
     var trial_numbers = random_ps[trial]- 1
     //make sure you can return the correct type of person for each participant
     timeline.push(run_trial(trial_numbers, name_trial, response_trial, image_set, trial)); 
-    if (trial == 5) { //at trial 80 provide intervention
+    if (trial == 10) { //at trial 80 provide intervention
         //randomise intervention and control
             if (Math.random() < 0.5){
                 timeline.push(intervention);
@@ -68,15 +71,7 @@ for (trial=0; trial<nTrials; trial++) {
              }
     }; 
     //ask for happiness rating every once in a while
-    var mood = 0;
 	if ((trial % introspectiontime)==0 & trial > 0) { 
-        mood++;
-        if (mood == 0){
-            var previous_answer = 50;
-        }
-        //here retrieve data from firebase to get the previous slider value
-            else{
-                var previous_answer = 35;}
         timeline.push(mood_feedback_fun(trial));
         //var answer = getMoodRating();
         //how to save happiness rating here?
@@ -90,9 +85,6 @@ timeline = timeline.concat(timeline_SPIN);
 timeline.push(debrief);
 timeline.push(end_screen);
 
-var jsPsych = initJsPsych({}
-); 
-
 // now call jsPsych.init to run experiment 
 export function runTask(uid) {
     //firestore_effort file
@@ -101,4 +93,6 @@ export function runTask(uid) {
     jsPsych.run(timeline);
 }
 
-export{previous_answer, jsPsych};
+export{jsPsych};
+
+
