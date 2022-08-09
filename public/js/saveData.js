@@ -8,13 +8,13 @@ firebase.firestore().enablePersistence()
 
 // initialize db
 var db = firebase.firestore();
-var version = "test2.0"
+var version = "prolific1.1"
 // function to save consent 
 var saveConsent = function(){
   db.collection(version).doc('mind').collection('minddata').doc(uid).set({
     firebaseUID: uid,             // firebase user ID 
-    //prolificSubID: subjectID,     // prolific subject ID 
-    //prolificStudyID: studyID,     // prolific study ID 
+    prolificSubID: subjectID,     // prolific subject ID 
+    prolificStudyID: studyID,     // prolific study ID 
     consentObtained: 'yes', 
     consentDate: new Date().toISOString().split('T')[0],
     consentTime: new Date().toLocaleTimeString(),

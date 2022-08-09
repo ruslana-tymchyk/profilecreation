@@ -51,7 +51,7 @@ const infoConsentText = "<div class=\"row\"> "+
 	" 	<div class=\"col-0\"></div> "+ 
 	" 	<div class=\"col-1\"> "+ 
 	"	<img src=\"./assets/imgs/ucl-banner-land-brightblue-rgb.png\" alt=\"UCL logo\" style=\"width:100%;\">"+
-	"   <h2>Mindfulness Study:<br>"+
+	"   <h2><p>Modular Tests of Cognitive Interventions: A study to investigate thought processes targeted by psychological treatments:</p>"+
 	"		Participant Information and Consent</h2>"+ 
 	" 		<p><b>Introduction</b></p> "+ 
 	" 		<p>  " + 

@@ -20,7 +20,7 @@ var jsPsych = initJsPsych({}
 //take jsPsych data.whatever and save it to firebase via save task etc
 var writetime = 10; 	// write every x trials 
 var introspectiontime = 2; // how often to ask for happiness ratings 
-var nTrials = 10; //160
+var nTrials = 160; //160
 var trial;
 var profile_count;
 var p_retrieved_counter = {
@@ -57,7 +57,7 @@ for (trial=0; trial<nTrials; trial++) {
     var trial_numbers = random_ps[trial]- 1
     //make sure you can return the correct type of person for each participant
     timeline.push(run_trial(trial_numbers, name_trial, response_trial, image_set, trial)); 
-    if (trial == 5) { //at trial 80 provide intervention
+    if (trial == 80) { //at trial 80 provide intervention
         //randomise intervention and control
             if (Math.random() < 0.5){
                 timeline.push(intervention);
