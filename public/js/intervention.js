@@ -202,19 +202,19 @@ var comprehension_intervention = {
 		{
 		  prompt: "This task involved:", 
 		  name: 'TaskActivity', 
-		  options: ['Breathing in and out', 'Tapping your fingers to a count', 'Moving your eyes side to side'],
+		  options: ['Moving your eyes side to side', 'Breathing in and out', 'Tapping your fingers to a count'],
 		  required: true
 		}, 
 		{
 		  prompt: "You were asked to think about:", 
 		  name: 'ThinkAbout', 
-		  options: ['Memory of a difficult event', 'Memory of a happy moment in life', 'Memory of the time with friends'], 
+		  options: ['Memory of a happy moment in life', 'Memory of the time with friends', 'Memory of a difficult event'], 
 		  required: true
 		},
 		{
 			prompt: "You were asked to:", 
 			name: 'AskedTo', 
-			options: ['Look at the situation from a different perspective', ' Get distracted from a memory', 'Ignore the images of the memory '], 
+			options: ['Look at the situation from a different perspective', ' Get distracted from a memory', 'Ignore the images of a memory'], 
 			required: true
 		  }
 	  ],

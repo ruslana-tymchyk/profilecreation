@@ -23,13 +23,13 @@ var initialinstructions_profile = {
 	"<div class=\"row\"> "+ 
 	" 	<div class=\"col-3\"></div> "+ 
 	" 	<div class=\"col-6\"> "+ 
-	"<h2>Create a personal profile</h2>" + 
+	"<h2>Artificial Intelligence (AI) Agent </h2>" + 
 	"<p>Our lab specializes in social psychology research and together with the researchers at the Computer Science Department we have developed " +
 	 "an AI agent that can predict whether or not a person with a certain personal profile likes another person based on their personal profile. </p>" +
-     "<p> This AI agent has been trained on thousands of people’s responses to other people’s profiles. We have found that this algorithm is 95% accurate " +
-	 "in predicting the response of the actual person who owns the profile. </p> <p> In the first part of an experiment  we will ask you to complete your own personal profile." +
+     "<p> This AI agent has been trained on thousands of people’s responses to other people’s profiles. We have found that this algorithm is <b>95% accurate</b> " +
+	 "in predicting the response of the actual person who owns the profile. </p> <p> In the first part of an experiment we will ask you to <b>complete your own personal profile.</b>" +
 	 " We will then feed your profile to our AI agent, which will tell us how people would have responded to your profile. </p>" + 
-     "<p> While the AI agent is generating responses, we will ask you to rate other people’s profiles, so we can use this information  to improve the accuracy of an algorithm. </p>" +
+     "<p> While the AI agent is generating responses, we will ask you to <b>rate other people’s profiles</b>, so we can use this information to improve the accuracy of an algorithm. </p>" +
 	"<br> Click <b> Continue </b> to complete your personal profile. </br>"
 	,
 
@@ -92,8 +92,8 @@ var initialinstructions_rate_profile = {
 var ask_questions_profile= {
 	type: jsPsychSurveyText, 
 	preamble: ["<h2>Create a personal profile</h2>"+ 
-	"<p>  Please answer each question thoughtfully and honestly in roughly 2-3 sentences. </p>" +
-	"<p>  Take the time to answer, because this is the only information that others will have to judge you. </p> "+
+	"<p>  Please answer each question thoughtfully and honestly. " +
+	"Take the time to answer and make sure you write <b>at least 2-3 sentences</b>, for an algorithm to have enough information to generate the feedback. </p> "+
 	"<p>  Note: if your answers are not valid, you will not be fully reimbursed for participation. </p> "],
 	questions: [
         {prompt: "<b>If we asked your friends and family about your best qualities, what might they say?</b>", name: "P1", required:true}, 
@@ -202,15 +202,15 @@ var taskinstructions_rank= {
 	"<p>Thank you for providing your profile and rating other's profiles. You are now ready to start the main part of the experiment." + 
 	"<p> We found that certain people tend to either like or dislike more profiles, hence we ranked people based on how many profiles they liked. Each colour corresponds to a category. " +
     "People in the top category (1) liked the greatest number of profiles that they rated, people in the lowest category (4) liked fewest profiles. " +
-	"</br></br>Below are the icons you will see and their ranking: " +
+	"</br></br><b>Below are the icons you will see and their ranking: </b> " +
 	"<p> <h1> 1 </h1>" + images[0] + "   " + images2[0] + "</p>" +
 	"<p> <h1> 2 </h1>" + images[1] + "   " + images2[1] + "</p>" +
 	"<p> <h1> 3 </h1>" + images[2]+ "   " + images2[2] +"</p>" +
 	"<p> <h1> 4 </h1>" + images[3] + "   " + images2[3] + "</p>" +
     "<p><b> It is important for the next part of the experiment that you understand the ranking of the images. </b> </p>" +
-    "<p> In an experiment you will see icons above. They can either be male or female. Size of the slice in the right corner represents the ranking of the person."  +
-	"Each colour corresponds to one size of the slice, so if it is easier for you, you can memorise how each colour relates to ranking instead. </p>"
-    + "</br></br>[Press Continue to START AN EXPERIMENT]</p>" ], 
+    "<p> In an experiment you will see icons above. They can either be male or female. Size of the slice in the right corner represents the ranking of the person, with largest slice representing people who liked most profiles and smallest slice representing people who liked fewest profiles. </p>"  +
+	"<p> Each colour corresponds to one size of the slice, so if it is easier for you, you can memorise how each colour relates to ranking instead. </p>"
+    + "<p></p>[Press Continue to START AN EXPERIMENT]</p>" ], 
 	on_start: function(){
 		document.querySelector('body').style.backgroundColor = '#cce3f0fb';
 		//saveStartData()
@@ -318,7 +318,6 @@ var debrief = {
 			"In this study we were investigating if mindfulness can reduce fluctuations in self-esteem in response to social feedback. " +
 			"For example, when someone tells you that they dislike you, can mindfulness reduce your emotional reaction to such events. " +
 			"Conversely, if you receive a lot of positive feedback, does being mindful mean you will not get overly excited about it. " +
-			 +
 			"This is important since past research has found that in individuals with depression, negative feedback reduces self-esteem much more. </p>" +
 			"<p>The goal of this study is to find out if we could use mindfulness-based interventions to reduce the effect of social feedback on self-esteem " +
 			"in individuals with depression. To be completely sure that it is the mindfulness that makes people less reactive to social feedback - half of " +
@@ -338,7 +337,7 @@ var debrief = {
 		{
 		  type: 'text',
 		  prompt: "Is there any feedback you would like to give us about "+
-				  "any aspect of the study (including the task and questionnaires)?", 
+				  "any aspect of the study (including the task and questionnaires) please type it in below.", 
 		  name: 'study_feedback', 
 		  textbox_rows: 4,
 		  textbox_columns: 60,
@@ -403,6 +402,26 @@ var debrief = {
 }; 
 */
 
+var questionnaire_instructions = {
+	type: jsPsychHtmlButtonResponse,
+	button_html: '<button class="jspsych-btn">%choice%</button>',
+    choices: ['Continue'],
+	margin_vertical: '8px',
+	stimulus: 
+	"<div class=\"row\"> "+ 
+	" 	<div class=\"col-3\"></div> "+ 
+	" 	<div class=\"col-6\"> "+ 
+	"<h2>Complete the questionnaires</h2>" + 
+	"<p>Thank you for completing the main part of a study </p>"+
+	"<p>Before completing the research study, we will ask you to complete some questionnaires. </p>" + 
+	"<br> Click <b> Continue </b> to proceed. </br>"
+	,
+	on_start: function(){
+		document.querySelector('body').style.backgroundColor = '#cce3f0fb';
+		//saveStartData()
+	},
+};
+
 var end_screen = {
 	type: jsPsychHtmlButtonResponse,
 	timing_post_trial: 0,
@@ -419,4 +438,4 @@ var end_screen = {
 }; 
 
 
-export {full_screen, end_screen, dur_max, initialinstructions_profile, ask_questions_profile, rate_profiles_fun, debrief, initialinstructions_rate_profile, taskinstructions_rank};
+export {full_screen, end_screen, dur_max, initialinstructions_profile, ask_questions_profile, rate_profiles_fun, debrief, initialinstructions_rate_profile, taskinstructions_rank,questionnaire_instructions};

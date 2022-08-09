@@ -11,17 +11,17 @@ const preInstructions = "<div class=\"row\"> "+
 	"<div class=\"col-1\"> "+ 
 	"<p><b>Thank you for agreeing to take part in this study!</b></p>"+
 	"<p>" + 
-	"We expect this study to take around <b> 20 minutes</b> to complete. "+
+	"We expect this study to take around <b> 30 minutes</b> to complete. "+
 	"Since the hourly payment rate for this study is £7.50, "+
-	"you will earn <b> at least £2.13 if you fully complete the study</b> "+
+	"you will earn <b> at least £3.75 if you fully complete the study</b> "+
 	"(this includes practice trials, the main section, and some brief questions). "+
 	"</p>" + 
 	"<p>" + 
 	"Everyone who successfully completes the study will also earn a <b>bonus payment</b>. "+
 	"The exact amount will depend on the options you choose during the game. "+
-	"Specifically, you will earn an extra 0.35 pence for every coin "+
-	"you collect during the game (the maximum possible bonus you can earn during this study is "+
-	"<b>£0.93</b>). Your bonus will be calculated at the end of task "+
+	"Specifically, you will earn an extra 1 pence for every time you "+
+	" correctly predict how someone responded to your profile (the maximum possible bonus you can earn during this study is "+
+	"<b>£1.60</b>). Your bonus will be calculated at the end of task "+
 	"and added to your payment from Prolific."+
 	"</p>" + 
 	"<p>" + 
@@ -99,21 +99,12 @@ const infoConsentText = "<div class=\"row\"> "+
 	"		identifying information, such as your name or phone number."+
 	" 		</p>  " + 
 	" 		<p>  " + 
-	"		You will then be asked to play some online games, that will help us better understand how different "+
-	"		people learn and make decisions. For example, one game might involve learning how to choose between "+
-	"		different coloured shapes, in order to win bonus rewards. Another game might involve deciding which "+
-	"		different computer characters to trust to share your rewards with. At certain points, you may be asked "+
-	"		to take part in short tasks that mimic parts of common psychological treatments. For example, you be asked "+
-	"		to watch a short animation involving some of the computer characters you met before, and asked to reflect "+
-	"		on how you feel about them."+
-	" 		</p>  " + 
-	" 		<p>  " + 
-	"		Finally, we may ask you to fill out some questionnaires that ask about your feelings and mood, personality "+
+	"		You will then be asked to perform some computerised tasks. Finally, we may ask you to fill out some questionnaires that ask about your feelings and mood, personality "+
 	"		(how you tend to think and act in different situations), or thinking styles (how you tend to think about "+
 	"		the world)."+
 	" 		</p>  " + 
 	" 		<p>  " + 
-	"		Overall, these different tasks should take about <b>20 minutes.</b> </p>  " + 
+	"		Overall, these different tasks should take about <b>30 minutes.</b> </p>  " + 
 	"  " + 
 	" 		<p><b>What are the possible disadvantages and risks of taking part?</b></p>"+ 
 	" 		<p>  " + 
