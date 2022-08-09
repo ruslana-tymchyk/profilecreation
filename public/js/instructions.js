@@ -24,11 +24,37 @@ var initialinstructions_profile = {
 	" 	<div class=\"col-3\"></div> "+ 
 	" 	<div class=\"col-6\"> "+ 
 	"<h2>Create a personal profile</h2>" + 
+	"<p>Our lab specializes in social psychology research and together with the researchers at the Computer Science Department we have developed " +
+	 "an AI agent that can predict whether or not a person with a certain personal profile likes another person based on their personal profile. </p>" +
+     "<p> This AI agent has been trained on thousands of people’s responses to other people’s profiles. We have found that this algorithm is 95% accurate " +
+	 "in predicting the response of the actual person who owns the profile. </p> <p> In the first part of an experiment  we will ask you to complete your own personal profile." +
+	 " We will then feed your profile to our AI agent, which will tell us how people would have responded to your profile. </p>" + 
+     "<p> While the AI agent is generating responses, we will ask you to rate other people’s profiles, so we can use this information  to improve the accuracy of an algorithm. </p>" +
+	"<br> Click <b> Continue </b> to complete your personal profile. </br>"
+	,
+
+	on_start: function(){
+		document.querySelector('body').style.backgroundColor = '#cce3f0fb';
+		//saveStartData()
+	},
+};
+
+/*
+var initialinstructions_profile = {
+	type: jsPsychHtmlButtonResponse,
+	button_html: '<button class="jspsych-btn">%choice%</button>',
+    choices: ['Continue'],
+	margin_vertical: '8px',
+	stimulus: 
+	"<div class=\"row\"> "+ 
+	" 	<div class=\"col-3\"></div> "+ 
+	" 	<div class=\"col-6\"> "+ 
+	"<h2>Create a personal profile</h2>" + 
 	"<p>We will first ask you to create a personal profile by answering a few questions about yourself </p>" + 
 	"<p> Your profile will be made up of your answers to 5 personal questions. Together they will give others a good idea about who you are. </p>" + 
     "<p> We will then ask you to rate other people's profiles. While you are rating these profiles we will show your profile to other people taking part in the study. </p>" + 
     "<p> These people are men and women between the ages of 18 and 65. They will be asked what they think about you. They can choose to like or dislike you.</p>"+ 
-	"<br> <b> They will be asked to think about the following when making a decision: </b> </br>"+ 
+	"<br> <b> When people are rating the profi asked to think about the following when making a decision: </b> </br>"+ 
     "<br> <span class= 'emphasized'> Do you like this person? Do you think you could be friends with them in real life? </p>" + 
     "<p> Or do you think this person is boring and are you not interested in getting to know them any better? </p>" + 
 	"<br> <b> They will also be given the following instructions: </b> </br>"+ 
@@ -41,6 +67,7 @@ var initialinstructions_profile = {
 		//saveStartData()
 	},
 };
+*/
 
 var initialinstructions_rate_profile = {
 	type: jsPsychHtmlButtonResponse,
@@ -53,7 +80,7 @@ var initialinstructions_rate_profile = {
 	" 	<div class=\"col-6\"> "+ 
 	"<h2>Rate other profiles</h2>" + 
 	"<p>Thank you for completing your profile. </p>"+
-	"<p> We will now ask you to read and rate other people's profile while participants are rating yours. </p>" + 
+	"<p> We will now ask you to read and rate other people's profile while the algortithm is generating the ratings for your profile. </p>" + 
 	"<br> Click <b> Continue </b> to proceed. </br>"
 	,
 	on_start: function(){
@@ -155,6 +182,11 @@ var rate_profiles_fun = function(profile_count) {
 // INSTRUCTIONS 
 var images = [["<img src= "+ image_path + "woman_" + p_image_orders[image_set][0] + " alt='Icon' style='width:50px;height:50px;' align='center' >"], 
 			  ["<img src= "+ image_path + "woman_" + p_image_orders[image_set][1] + " alt='Icon' style='width:50px;height:50px;' align='center'>"],
+			  ["<img src= "+ image_path + "woman_" + p_image_orders[image_set][2] + " alt='Icon' style='width:50px;height:50px;' align='center'>"],
+			  ["<img src= "+ image_path + "woman_" + p_image_orders[image_set][3] + " alt='Icon' style='width:50px;height:50px;' align='center'>"]]
+
+var images2 = [["<img src= "+ image_path + "man_" + p_image_orders[image_set][0] + " alt='Icon' style='width:50px;height:50px;' align='center' >"], 
+			  ["<img src= "+ image_path + "man_" + p_image_orders[image_set][1] + " alt='Icon' style='width:50px;height:50px;' align='center'>"],
 			  ["<img src= "+ image_path + "man_" + p_image_orders[image_set][2] + " alt='Icon' style='width:50px;height:50px;' align='center'>"],
 			  ["<img src= "+ image_path + "man_" + p_image_orders[image_set][3] + " alt='Icon' style='width:50px;height:50px;' align='center'>"]]
 
@@ -168,24 +200,24 @@ var taskinstructions_rank= {
 	" 	<div class=\"col-6\"> "+ 
 	"<h2>Main experiment </h2>" + 
 	"<p>Thank you for providing your profile and rating other's profiles. You are now ready to start the main part of the experiment." + 
-	"<p>We have received the feedback from other participants saying whether they liked you or not based on your responses to questions about yourself." +
-	"We found that certain people tend to either like or dislike more profiles, hence we ranked people based on how many profiles they liked. Each colour corresponds to a category. " +
+	"<p> We found that certain people tend to either like or dislike more profiles, hence we ranked people based on how many profiles they liked. Each colour corresponds to a category. " +
     "People in the top category (1) liked the greatest number of profiles that they rated, people in the lowest category (4) liked fewest profiles. " +
-    "So people in category (1) generally like most of the profiles that they see. " +
 	"</br></br>Below are the icons you will see and their ranking: " +
-	"<br>" + images[0] + "<h1> 1 </h1> </br>" +
-	"<br> " + images[1] + "<h1> 2 </h1> </br>" +
-	"<br> " + images[2] +"<h1> 3 </h1> </br>" +
-	"<br> " + images[3] + "<h1> 4 </h1> </br>" +
-    "<p><b> It is important for the next part of the experiment that you have learned the ranking of the images. </b> </p>" +
-    "<p>Please take your time to learn the correspondence between each image and a ranking. We will now quiz you on the knowledge of the ranking and then explain the rest of the experiment. </p>"
-    + "</br></br>[Press Continue to proceed to ASSESMENT OF YOUR KNOWLEDGE OF THE RANKING]</p>" ], 
+	"<p> <h1> 1 </h1>" + images[0] + "   " + images2[0] + "</p>" +
+	"<p> <h1> 2 </h1>" + images[1] + "   " + images2[1] + "</p>" +
+	"<p> <h1> 3 </h1>" + images[2]+ "   " + images2[2] +"</p>" +
+	"<p> <h1> 4 </h1>" + images[3] + "   " + images2[3] + "</p>" +
+    "<p><b> It is important for the next part of the experiment that you understand the ranking of the images. </b> </p>" +
+    "<p> In an experiment you will see icons above. They can either be male or female. Size of the slice in the right corner represents the ranking of the person."  +
+	"Each colour corresponds to one size of the slice, so if it is easier for you, you can memorise how each colour relates to ranking instead. </p>"
+    + "</br></br>[Press Continue to START AN EXPERIMENT]</p>" ], 
 	on_start: function(){
 		document.querySelector('body').style.backgroundColor = '#cce3f0fb';
 		//saveStartData()
 	},
 };
 
+/*
 var random_order = [0,1,2,3]
 
 var nCorrect = 0;
@@ -252,6 +284,8 @@ var loop_node_rank = {
     }
   };
 
+  */
+
 var debrief = {
 	type: jsPsychSurvey,
 	pages: [
@@ -292,7 +326,7 @@ var debrief = {
 			"will reduce the effect of social feedback on self-esteem. </p>" +
 			"<p>We have asked you in the experiment to rate the profiles of other people and to provide your own profile for people to rate. " + "In fact, other participants " +
 			"were not providing their profiles for you to rate, instead we had a fixed set of profiles generated by our research group and all participants, including you, " +
-			"viewed and rated the same profiles. </p> <p> Furthermore, we never shared your personal profile with anyone and the feedback that you have been given has been generated " + 
+			"viewed and rated the same profiles. </p> <p> Furthermore, we never used any AI agent to predict people's responses. The feedback that you have been given has been randomly generated " + 
 			"by the computer. Hence the feedback that you have received does not tell you anything about what others think of your personal profile. </p>" +
 			"<p>In fact, everyone who has participated in this study has received the exact same feedback in the same order. This has been done to ensure " + 
 			"that we can precisely measure how social feedback affects self-esteem. Since, if some people received more positive than negative feedback, " +
@@ -385,4 +419,4 @@ var end_screen = {
 }; 
 
 
-export {full_screen, end_screen, dur_max, initialinstructions_profile, ask_questions_profile, rate_profiles_fun, debrief, initialinstructions_rate_profile, loop_node_rank};
+export {full_screen, end_screen, dur_max, initialinstructions_profile, ask_questions_profile, rate_profiles_fun, debrief, initialinstructions_rate_profile, taskinstructions_rank};

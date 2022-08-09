@@ -16,15 +16,16 @@ var introText = {
 	" 	<div class=\"col-3\"></div> "+ 
 	" 	<div class=\"col-6\"> "+ 
 	"<h2>Instructions</h2>" + 
-	"<p><b> On each trial we will ask you to try and predict if this person liked you based on your profile. To make a prediction: </b> </p>" +
+	"<p><b> The AI agent has now generated people's responses to your profile. On each trial we will ask you to try and predict if this person liked you based on your profile. To make a prediction: </b> </p>" +
 	"<ul><li>Press 'YES' if you think they liked you.</li>" +
 	"    <li>Press 'NO' if you think they did not like you.</li> </ul>" +
   "<b> The only information we will give you about each person is: </b>" +
   "<ul>" +
-  "<li> Their relative ranking represented by colour </li>" +
+  "<li> Their relative ranking represented by the size of the slice and colour </li>" +
   "<li> Their gender represented by icon </li>" +
   "<li> Their name </li>" +
   "</ul>" +
+  "Note: Each colour always corresponds to a certain ranking too. " +
 	"Every few trials we will also ask you to tell us how you feel about yourself that very moment. "+ 
 	"When answering consider how you feel at this very moment and not in general that day. " + 
 	"This part is very important for the scientific questions we are trying to answer. " + 
@@ -140,7 +141,7 @@ var quizQuestions = [
 	"    <li>Press 'NO' if you think they did not like you.</li> </ul>" +
   "<b> The only information we will give you about each person is: </b>" +
   "<ul>" +
-  "<li> Their relative ranking represented by colour </li>" +
+  "<li> Their relative ranking represented by the size of the slice and colour </li>" +
   "<li> Their gender represented by icon </li>" +
   "<li> Their name </li>" +
   "</ul>" +
@@ -152,7 +153,6 @@ var quizQuestions = [
 	"</br></br>[Press Continue to BEGIN THE TASK]</p>" 
             ]
   };
-
 
   ///////////////////////////////////////////// CONCAT ////////////////////////////////////////////////////////
   

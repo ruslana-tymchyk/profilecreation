@@ -1,34 +1,7 @@
 
 /*
  * Misc CSS styling for the task .
- *
  */
-    /* Control appearance of jsPsych.data.displayData() 
-    #jspsych-data-display {
-    text-align: center;
-    }
-    */
-
-    /* Centering the task in the middle of the screen 
-    .jspsych-middle {
-        align-items: center;
-    }
-    */
-    
-    /*
-    #jspsych-progressbar-container {
-        background-color: rgb(255, 255, 255);
-    }
-    */
-    /*
-    #jspsych-progressbar-outer {
-        background-color: rgb(160, 5, 5);
-    }
-
-    #jspsych-progressbar-inner{
-        background-color: rgb(6, 247, 106);
-    }
-     */
     /* Button design for the whole experiment */
     .jspsych-btn {
     display: inline-block;
@@ -50,20 +23,7 @@
     border-color: #ccc;
     }
     
-    /* CENTERS CONTENT IN THE MIDDLE OF THE PAGE 
-    .jspsych-display-element {
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    }
-    */
-    /*
-
-    .jspsych-html-slider-response-response.jspsych-slider {
-        color: rgb(136, 100, 3);
-    }
-    */
-
+/* Slider width fix */
 .jspsych-slider {
         width:500px;
     }
@@ -72,14 +32,6 @@
     outline: none;
 }
 
-/* Does not seem to do anything really
-.jspsych-content-wrapper {
-    display: flex;
-    margin: auto;
-    flex: 1 1 100%;
-    width: 100%;
-}
-*/
 
 .jspsych-content {
     max-width: 45%; /* this is mainly an IE 10-11 fix */
