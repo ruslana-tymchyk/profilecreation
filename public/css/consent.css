@@ -5,8 +5,8 @@
 
  @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
 
- html,
- body,
+html,
+body,
  #consent-container {
    font-family: 'Open Sans', 'Arial', sans-serif;
    font-size: 14px;
@@ -121,6 +121,7 @@ h2 { color: black;
 }
 
 body { background-color: #cce3f0fb;}
+html{ background-color:#cce3f0fb;}
 
 .container { color:black;}
 
