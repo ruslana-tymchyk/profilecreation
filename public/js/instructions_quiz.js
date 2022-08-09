@@ -25,13 +25,13 @@ var introText = {
   "<li> Their gender represented by icon </li>" +
   "<li> Their name </li>" +
   "</ul>" +
-  "Note: Each colour always corresponds to a certain ranking too. " +
 	"Every few trials we will also ask you to tell us how you feel about yourself that very moment. "+ 
 	"When answering consider how you feel at this very moment and not in general that day. " + 
 	"This part is very important for the scientific questions we are trying to answer. " + 
-	"<br></br>Please do your best to truthfully indicate how much (or how little) happiness you experience in that very moment. " +
-  "<br></br>We will now test your understanding of the task instructions. <br></br> <b>You will not be able to proceed with an experiment "+
-  "and will be returned to this screen until you correctly complete the task understanding quiz. </b>"
+	"Please do your best to truthfully indicate how much (or how little) happiness you experience in that very moment. " +
+  "<p></p>We will now test your understanding of the task instructions. <p></p> <b>You will not be able to proceed with an experiment "+
+  "and will be returned to this screen until you correctly complete the task understanding quiz. </b>"+ 
+  "</br></br>[Press Continue to TEST THE UNDERSTANDING OF TASK INSTRUCTIONS]</p>" 
 , 
 	on_start: function(){
 		document.querySelector('body').style.backgroundColor = '#cce3f0fb';
@@ -41,9 +41,9 @@ var introText = {
 
 var quizQuestions = [
     { prompt: "<p><b>1. The point of the study is to...</b></p>"+
-              "<p><b>A</b>  Try to predict if the person shown liked me or disliked me based on my profile </p>"+
+              "<p><b>A</b>  Try to get as many people as possible to like me </p>"+
               "<p><b>B</b>  Decide if I like the people shown based on their profiles </p>"+
-              "<p><b>C</b>  Try to get as many people as possible to like me </p>",
+              "<p><b>C</b>  Try to predict if the person shown liked me or disliked me based on my profile </p>",
       options: ["A", "B", "C"],
       required: true,
       horizontal: false
@@ -56,10 +56,18 @@ var quizQuestions = [
       required: true,
       horizontal: false
     },
-    { prompt:  "<p><b>3. After completing the main part of the study I will... </b></p>"+
-              "<p><b>A</b>  Be asked to fill in some questionnaires</p>"+
-              "<p><b>B</b>  Receive remuneration for the study based on how many responses I got right </p>"+
-              "<p><b>C</b>  Complete the second part </p>",
+    { prompt:  "<p><b>3. Each slice next to an icon corresponds to ... </b></p>"+
+              "<p><b>A</b>  The exact number of profiles that the person liked </p>"+
+              "<p><b>B</b>  The rank order of that person, based on how many profiles they liked </p>"+
+              "<p><b>C</b>  How many people liked this person </p>",
+      options: ["A", "B", "C"],
+      required: true,
+      horizontal: false
+    },
+    { prompt:  "<p><b>4. The smallest size of the slice ... </b></p>"+
+              "<p><b>A</b>  Means that this type of person liked most profiles </p>"+
+              "<p><b>B</b>  Means that this type of person liked fewest profiles </p>"+
+              "<p><b>C</b>  Does not give any information about the person </p>",
       options: ["A", "B", "C"],
       required: true,
       horizontal: false
@@ -71,7 +79,7 @@ var quizQuestions = [
     type: jsPsychSurveyMultiChoice,
     questions: quizQuestions,
     data: {
-      correct_answers: ["A", "A", "A"]
+      correct_answers: ["C", "A", "B", "A"]
     },
     randomize_question_order: false,
     button_label: "check answers", 
@@ -135,20 +143,20 @@ var quizQuestions = [
 	" 	<div class=\"col-6\"> "+ 
 	"<h2>Main experiment</h2>" + 
 	"</br>You have correctly completed the quiz and are ready to start the main experiment! " +
-  " <p> Below is the reminder of the task instructions. </p>" +
+  "Below is the reminder of the task instructions." +
   "<p><b> On each trial we will ask you to try and predict if this person liked you based on your profile. To make a prediction: </b> </p>" +
 	"<ul><li>Press 'YES' if you think they liked you.</li>" +
 	"    <li>Press 'NO' if you think they did not like you.</li> </ul>" +
-  "<b> The only information we will give you about each person is: </b>" +
+  "<p> The only information we will give you about each person is: </p>" +
   "<ul>" +
   "<li> Their relative ranking represented by the size of the slice and colour </li>" +
   "<li> Their gender represented by icon </li>" +
   "<li> Their name </li>" +
   "</ul>" +
 	"Every few trials we will also ask you to tell us how you feel about yourself that very moment. "+ 
-	"When answering consider how you feel at this very moment and not in general that day. " + 
+	"When answering consider <b>how you feel at this very moment</b> and not in general that day. " + 
 	"This part is very important for the scientific questions we are trying to answer. " + 
-	"<br></br>Please do your best to truthfully indicate how much (or how little) happiness you experience in that very moment. " +
+	"Please do your best to truthfully indicate how much (or how little) happiness you experience in that very moment. " +
 	"</br><b>Note: pressing the escape key at any point will terminate the experiment. </b>" + 
 	"</br></br>[Press Continue to BEGIN THE TASK]</p>" 
             ]
