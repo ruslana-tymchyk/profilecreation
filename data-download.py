@@ -25,13 +25,6 @@ version = taskname+versionN
 # get all current data
 client = firestore.client()
 
-docs = client.collection(versionN).document('mind').collection(taskname).stream()
-
-# for doc in docs:
-#     print(f'{doc.id} => {doc.to_dict()}')
-
-
-# collection(version).doc('mind').collection('minddata').doc(uid).collection('pre_task_data').doc('rank_profiles').
 # loop across all current participants
 for sub in client.collection(versionN).document('mind').collection(taskname).stream():
     # grab prolific and firebase ID info
