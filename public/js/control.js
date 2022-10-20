@@ -162,19 +162,19 @@ var comprehension_control = {
 	questions: [
 		{
 		  prompt: "Where did the heroes of the story travel to?", 
-		  name: 'TaskActivity', 
-		  options: ['Singapore', 'Japan', 'Seichel' ],
+		  name: 'COND_1', 
+		  options: ['Singapore', 'Mongolia', 'Seichel' ],
 		  required: true
 		}, 
 		{
 		  prompt: "What was the name of the ship?", 
-		  name: 'ThinkAbout', 
+		  name: 'COND_2', 
 		  options: [ 'Rangoon', 'Reform', 'Repasse'], 
 		  required: true
 		},
 		{
 			prompt: "What is Fix's occupation?", 
-			name: 'AskedTo', 
+			name: 'COND_3', 
 			options: ['Marine labourer','A captain', 'A detective', ], 
 			required: true
 		  }

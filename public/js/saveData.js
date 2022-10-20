@@ -8,7 +8,7 @@ firebase.firestore().enablePersistence()
 
 // initialize db
 var db = firebase.firestore();
-var version = "prolific1.1"
+var version = "prolific30v2"
 // function to save consent 
 var saveConsent = function(){
   db.collection(version).doc('mind').collection('minddata').doc(uid).set({
@@ -31,8 +31,7 @@ var saveConsent = function(){
 
 var savePreTaskData = function(response){
   db.collection(version).doc('mind').collection('minddata').doc(uid).collection('pre_task_data').doc('own_profile').update({
-    own_profile: response,
-    //own_profile_rt: rt, -maybe add this       
+    own_profile: response 
 
   }); 
 };
@@ -40,21 +39,23 @@ var savePreTaskData = function(response){
 var saveProfileRatingsData = function(profile_count, respData, respRT){
   db.collection(version).doc('mind').collection('minddata').doc(uid).collection('pre_task_data').doc('rank_profiles').update(
     {[profile_count]: respData,
-      rt: respRT}  
+      ['rt_' + profile_count]: respRT}  
 
   ); 
 };
 
-var saveTaskData = function(trialN, response){
+var saveTaskData = function(trialN, response, rtData){
   db.collection(version).doc('mind').collection('minddata').doc(uid).collection('task_data').doc('main_task').update(
-    {[trialN]: response}  
+    {[trialN]: response,
+      ['rt_task_' + trialN]: rtData}  
 
   ); 
 };
 
-var saveMoodData = function(trialN, response){
+var saveMoodData = function(trialN, response, rtData){
   db.collection(version).doc('mind').collection('minddata').doc(uid).collection('task_data').doc('mood_rating').update(
-    {[trialN]: response}  
+    {[trialN]: response,
+    ['rt_mood_' + trialN]: rtData}  
 
   ); 
 };

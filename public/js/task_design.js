@@ -35,7 +35,8 @@ var run_trial = function(type_trial, name, response_correct, image_set, trialN) 
         },
         on_finish: function(){
         var respData = this.type.jsPsych.data.getLastTrialData().trials[0].response;
-        saveTaskData(trialN, respData)
+        var rtData = this.type.jsPsych.data.getLastTrialData().trials[0].rt;
+        saveTaskData(trialN, respData, rtData)
         }
     }
     return ask_question;
@@ -64,7 +65,8 @@ var mood_feedback_fun = function(trialN){
             },
             on_finish: function(){
                 var respData = this.type.jsPsych.data.getLastTrialData().trials[0].response;
-                saveMoodData(trialN, respData)
+                var rtData = this.type.jsPsych.data.getLastTrialData().trials[0].rt;
+                saveMoodData(trialN, respData, rtData)
                 }
             }
     return mood_feedback;

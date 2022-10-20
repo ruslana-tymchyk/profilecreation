@@ -9,6 +9,7 @@ import {random_ps, response, list_names, image_set, random_ps_test} from './rand
 import {loop_node, continueText} from "./instructions_quiz.js";
 import {timeline_PHQ} from './PHQ_9.js' ;
 import {timeline_SPIN} from './SPIN.js' ;
+import {demogs} from './demogs.js' ;
 //import {getMoodRating } from "./saveData.js";
 
 var jsPsych = initJsPsych({}
@@ -18,7 +19,6 @@ var jsPsych = initJsPsych({}
 //on finish saveData
 //data.stimulus etc is a jsPysch object
 //take jsPsych data.whatever and save it to firebase via save task etc
-var writetime = 10; 	// write every x trials 
 var introspectiontime = 2; // how often to ask for happiness ratings 
 var nTrials = 160; //160
 var trial;
@@ -37,6 +37,7 @@ if (dofullscreen==true) {
     timeline.push(full_screen);
 }
 timeline.push(initialinstructions_profile);
+timeline.push(intervention);
 timeline.push(ask_questions_profile)
 timeline.push(initialinstructions_rate_profile);
 var profiles = 4;
@@ -56,7 +57,6 @@ for (trial=0; trial<nTrials; trial++) {
     var name_trial = list_names[p_type][this_trial_in_p]
     var trial_numbers = random_ps[trial]- 1
     //make sure you can return the correct type of person for each participant
-    timeline.push(run_trial(trial_numbers, name_trial, response_trial, image_set, trial)); 
     if (trial == 80) { //at trial 80 provide intervention
         //randomise intervention and control
             if (Math.random() < 0.5){
@@ -71,16 +71,18 @@ for (trial=0; trial<nTrials; trial++) {
              }
     }; 
     //ask for happiness rating every once in a while
-	if ((trial % introspectiontime)==0 & trial > 0) { 
+	if ((trial % introspectiontime)==0 & trial > 1) { 
         timeline.push(mood_feedback_fun(trial));
         //var answer = getMoodRating();
         //how to save happiness rating here?
         //also make sure the very first trial is initialised at 0
     }; 
+    timeline.push(run_trial(trial_numbers, name_trial, response_trial, image_set, trial)); 
 }
 timeline.push(questionnaire_instructions);
 timeline = timeline.concat(timeline_PHQ);
 timeline = timeline.concat(timeline_SPIN);
+timeline.push(demogs);
 timeline.push(debrief);
 timeline.push(end_screen);
 

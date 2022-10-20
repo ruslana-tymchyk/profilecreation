@@ -96,18 +96,17 @@ var ask_questions_profile= {
 	"Take the time to answer and make sure you write <b>at least 2-3 sentences</b>, for an algorithm to have enough information to generate the feedback. </p> "+
 	"<p>  Note: if your answers are not valid, you will not be fully reimbursed for participation. </p> "],
 	questions: [
-        {prompt: "<b>If we asked your friends and family about your best qualities, what might they say?</b>", name: "P1", required:true}, 
-        {prompt: "<b>And what would they say were your worst qualities?</b>",  name: "P2", required:true},
-        {prompt: "<b>What are you most afraid of?</b>", name: "P3", required:true},
-        {prompt: "<b>My favorite things in life are:</b>", name: "P4", required:true},
-        {prompt: "<b>I really dislike people who (for example people who are lazy, mean to others, or make annoying noises when they eat):</b>", name: "P5", required:true} 
+        {prompt: "<b>If we asked your friends and family about your best qualities, what might they say?</b>", name: "OWN_PROF_1", required:true}, 
+        {prompt: "<b>And what would they say were your worst qualities?</b>",  name: "OWN_PROF_2", required:true},
+        {prompt: "<b>What are you most afraid of?</b>", name: "OWN_PROF_3", required:true},
+        {prompt: "<b>My favorite things in life are:</b>", name: "OWN_PROF_4", required:true},
+        {prompt: "<b>I really dislike people who (for example people who are lazy, mean to others, or make annoying noises when they eat):</b>", name: "OWN_PROF_5", required:true} 
       ],
 	on_start: function(){
 		document.querySelector('body').style.backgroundColor = '#cce3f0fb';
 	},
 	on_finish: function(){
 	var respData = this.type.jsPsych.data.getLastTrialData().trials[0].response;
-	//var respRT = this.type.jsPsych.data.getLastTrialData().trials[0].rt;
     savePreTaskData(respData);
 	}
 };
@@ -300,14 +299,14 @@ var debrief = {
 		{
 		  type: 'drop-down',
 		  prompt: "Did you suspect that we were not honest with you at any point of this study?", 
-		  name: 'honest', 
+		  name: 'DEBRIEF_1', 
 		  options: ['yes', 'no'], 
 		  required: true
 		}, 
 		{
 			type: 'text',
 			prompt: "If yes - explain how", 
-			name: 'how_honest', 
+			name: 'DEBRIEF_2', 
 			textbox_rows: 4,
 		  textbox_columns: 60,
 			required: false,
@@ -338,7 +337,7 @@ var debrief = {
 		  type: 'text',
 		  prompt: "Is there any feedback you would like to give us about "+
 				  "any aspect of the study (including the task and questionnaires) please type it in below.", 
-		  name: 'study_feedback', 
+		  name: 'DEBRIEF_3', 
 		  textbox_rows: 4,
 		  textbox_columns: 60,
 		  required: false

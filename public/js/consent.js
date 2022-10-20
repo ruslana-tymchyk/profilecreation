@@ -11,9 +11,9 @@ const preInstructions = "<div class=\"row\"> "+
 	"<div class=\"col-1\"> "+ 
 	"<p><b>Thank you for agreeing to take part in this study!</b></p>"+
 	"<p>" + 
-	"We expect this study to take around <b> 30 minutes</b> to complete. "+
+	"We expect this study to take around <b> 40 minutes</b> to complete. "+
 	"Since the hourly payment rate for this study is £7.50, "+
-	"you will earn <b> at least £3.75 if you fully complete the study</b> "+
+	"you will earn <b> at least £5.00 if you fully complete the study</b> "+
 	"(this includes practice trials, the main section, and some brief questions). "+
 	"</p>" + 
 	"<p>" + 
@@ -104,7 +104,7 @@ const infoConsentText = "<div class=\"row\"> "+
 	"		the world)."+
 	" 		</p>  " + 
 	" 		<p>  " + 
-	"		Overall, these different tasks should take about <b>30 minutes.</b> </p>  " + 
+	"		Overall, these different tasks should take about <b>40 minutes.</b> </p>  " + 
 	"  " + 
 	" 		<p><b>What are the possible disadvantages and risks of taking part?</b></p>"+ 
 	" 		<p>  " + 
