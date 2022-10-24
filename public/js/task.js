@@ -2,7 +2,7 @@
 // RUN EXPERIMENT 
 // define global variables 
 import {full_screen, end_screen, dur_max, initialinstructions_profile, initialinstructions_rate_profile, ask_questions_profile, rate_profiles_fun, debrief, taskinstructions_rank, questionnaire_instructions} from "./instructions.js";
-import {run_trial, mood_feedback_fun} from "./task_design.js";
+import {run_trial, mood_feedback_fun, learn_colours} from "./task_design.js";
 import { intervention, timeline_comprehension_intervention} from "./intervention.js";
 import { control, timeline_comprehension_control, condition_complete} from "./control.js";
 import {random_ps, response, list_names, image_set, random_ps_test} from './randomisation.js';
@@ -36,6 +36,8 @@ var timeline = [];  /* list of things to run */
 if (dofullscreen==true) {
     timeline.push(full_screen);
 }
+timeline.push(learn_colours);
+/*
 timeline.push(initialinstructions_profile);
 timeline.push(intervention);
 timeline.push(ask_questions_profile)
@@ -47,6 +49,7 @@ for(profile_count = 0; profile_count< profiles; profile_count++){
 timeline.push(taskinstructions_rank)
 timeline.push(loop_node)
 timeline.push(continueText)
+*/
 //add task instructions comprehension
 //Main task 
 for (trial=0; trial<nTrials; trial++) {

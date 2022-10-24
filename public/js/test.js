@@ -108,5 +108,5 @@ const permutator = (inputArr) => {
   }
 
 
-  console.log(permutator(['blue.png', 'yellow.png', 'lighty.png', 'lightb.png']))
+  console.log(permutator(['blue.png', 'yellow.png', 'pink.png', 'purple.png']))
 
