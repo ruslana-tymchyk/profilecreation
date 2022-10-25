@@ -2,7 +2,7 @@
 // RUN EXPERIMENT 
 // define global variables 
 import {full_screen, end_screen, dur_max, initialinstructions_profile, initialinstructions_rate_profile, ask_questions_profile, rate_profiles_fun, debrief, taskinstructions_rank, questionnaire_instructions} from "./instructions.js";
-import {run_trial, mood_feedback_fun, learn_colours} from "./task_design.js";
+import {run_trial, mood_feedback_fun, timeline_learn_colours} from "./task_design.js";
 import { intervention, timeline_comprehension_intervention} from "./intervention.js";
 import { control, timeline_comprehension_control, condition_complete} from "./control.js";
 import {random_ps, response, list_names, image_set, random_ps_test} from './randomisation.js';
@@ -36,7 +36,9 @@ var timeline = [];  /* list of things to run */
 if (dofullscreen==true) {
     timeline.push(full_screen);
 }
-timeline.push(learn_colours);
+//NEED A REPLICA OF THE LOOP NODE
+timeline = timeline.concat(timeline_learn_colours);
+    //return outcome of trial back into the file to change the value of counter
 /*
 timeline.push(initialinstructions_profile);
 timeline.push(intervention);
@@ -94,6 +96,7 @@ export function runTask(uid) {
     //firestore_effort file
 	//saveSetup(timeline);
     console.log(timeline);
+    jsPsych.data.addProperties({correct_response_counter: 0});
     jsPsych.run(timeline);
 }
 
