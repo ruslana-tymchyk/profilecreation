@@ -1,28 +1,26 @@
 // Task
 import {p_image_orders, female_names} from './randomisation.js';
-import {saveTaskData, saveMoodData} from './saveData.js' ;
+import {saveTaskData, saveMoodData, saveQuestData } from './saveData.js' ;
 
 var responses = ['yes.png ', 'no.png '];
 var image_path = './assets/imgs/'
 
-/*
 //itterate through the same order of 12 images until they get it right -> IMPROVE
-var image_orders = [ 'blue.png', 'yellow.png', 'pink.png', 'purple.png',
-                     'blue.png', 'yellow.png', 'pink.png', 'purple.png',
-                     'blue.png', 'yellow.png', 'pink.png', 'purple.png'];
+var image_orders = [ 'blue.png', 'orange.png', 'pink.png', 'yellow.png'];
+
 var dict = {
     'blue.png' : '1',
-    'yellow.png' : '2',
-    'purple.png' : '3',
-    'pink.png' : '4'
+    'orange.png' : '2',
+    'pink.png' : '3',
+    'yellow.png' : '4'
 }
 
 var learn_colours = function(trialN){
     //Which category does this person belong to 
     var gender = ['woman_', 'man_'];
     var gender_choice = Math.round(Math.random()); //generate 1 or 0
-    2//itterate instead of entering single variable to get different combinations of images
-    //var type_trial = [1,2,3,4] //blue, yellow, purple, pink
+    //itterate instead of entering single variable to get different combinations of images
+    //var type_trial = [1,2,3,4] //blue, yellow, orange, pink
     var correct_response = image_orders[trialN];
     var learning = {
         type: jsPsychCategorizeHtml,
@@ -59,7 +57,6 @@ var learn_colours = function(trialN){
     return learning;
 
 };
-*/
 
 var run_trial = function(type_trial, name, response_correct, image_set, trialN) {
     //pass the correct response into this
@@ -128,5 +125,23 @@ var mood_feedback_fun = function(trialN){
     return mood_feedback;
 };
 
+var intervention_feedback = function(){
+    var int_feedback = { 
+        type: jsPsychHtmlSliderResponse,
+        stimulus: ["<h1>How much were using the intervention?</h1>"],
+        labels: ['not at all', 'all the time'],
+        prompt: ['<p> Please provide response before continuing </p>'],
+        button_label: ['Continue'],
+        slider_width: 500,
+        require_movement: true, //must move slider before clicking
+        on_finish: function(){
+            var respData = this.type.jsPsych.data.getLastTrialData().trials[0].response;
+            var rtData = this.type.jsPsych.data.getLastTrialData().trials[0].rt;
+            saveQuestData("intervention_feedback", respData, rtData);
+            }
+        }
+return int_feedback;
+};
 
-export {run_trial, mood_feedback_fun};
+
+export {run_trial, mood_feedback_fun, learn_colours,intervention_feedback};

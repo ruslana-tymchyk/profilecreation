@@ -1,6 +1,8 @@
  
 //import {p_image_orders, image_set} from './randomisation.js';
-//var image_path = './assets/imgs/'
+import { saveQuestData } from "./saveData.js";
+var image_path = './assets/imgs/'
+var responses = ['yes.png ', 'no.png '];
 
 var timeline_instructions = [];
 
@@ -16,18 +18,28 @@ var introText = {
 	" 	<div class=\"col-3\"></div> "+ 
 	" 	<div class=\"col-6\"> "+ 
 	"<h2>Instructions</h2>" + 
-	"<p><b> The AI agent has now generated people's responses to your profile. On each trial we will ask you to try and predict if this person liked you based on your profile. To make a prediction: </b> </p>" +
-	"<ul><li>Press 'YES' if you think they liked you.</li>" +
-	"    <li>Press 'NO' if you think they did not like you.</li> </ul>" +
-  "<b> The only information we will give you about each person is: </b>" +
+	"<p>Over the last week, other people have rated yours and many other profiles. On each trial we will ask you to try and predict if each person liked you based on your profile." + 
+  "The only information we will give you about each person is:" +
   "<ul>" +
-  "<li> Their relative ranking represented by the size of the slice and colour </li>" +
+  "<li> Their relative ranking represented by colour and number of stars </li>" +
   "<li> Their gender represented by icon </li>" +
-  "<li> Their name </li>" +
+  "<li> Their nickname </li>" +
   "</ul>" +
+  "<p> Once you see this information you we will ask you to predict if this person liked your profile or not </p>" +
+  "<p> <b> Once you make a prediction you will get a feedback from that person. The feedback will tell you if they liked you or not: </b> </p>"+ 
+  "<table>" + 
+  "<tr> " +
+    "<td>THUMBS UP means they liked you</td>"+
+    "<td>THUMBS DOWN means they did not like you</td>"+
+  "</tr>"+
+  "<tr> " +
+  "<td><img src=" + image_path + responses[0] + "alt='Yes icon' style='width:50px;height:50px;'></td>"+
+  "<td><img src=" + image_path + responses[1] + "alt='Yes icon' style='width:50px;height:50px;'></td>"+
+"</tr>"+
+  "</table>"+
 	"Every few trials we will also ask you to tell us how you feel about yourself that very moment. "+ 
 	"When answering consider how you feel at this very moment and not in general that day. " + 
-	"This part is very important for the scientific questions we are trying to answer. " + 
+	"<b> This part is very important for the scientific questions we are trying to answer.</b> " + 
 	"Please do your best to truthfully indicate how much (or how little) happiness you experience in that very moment. " +
   "<p></p>We will now test your understanding of the task instructions. <p></p> <b>You will not be able to proceed with an experiment "+
   "and will be returned to this screen until you correctly complete the task understanding quiz. </b>"+ 
@@ -56,21 +68,28 @@ var quizQuestions = [
       required: true,
       horizontal: false
     },
-    { prompt:  "<p><b>3. Each slice next to an icon corresponds to ... </b></p>"+
-              "<p><b>A</b>  The exact number of profiles that the person liked </p>"+
-              "<p><b>B</b>  The rank order of that person, based on how many profiles they liked </p>"+
-              "<p><b>C</b>  How many people liked this person </p>",
-      options: ["A", "B", "C"],
+    { prompt:  "<p><b>3. Number of stars and colour of a person indicate if they have general tendency to like or dislike other people </b></p>"+
+              "<p><b>A</b>  True </p>"+
+              "<p><b>B</b>  False </p>",
+      options: ["A", "B"],
       required: true,
       horizontal: false
     },
-    { prompt:  "<p><b>4. The smallest size of the slice ... </b></p>"+
-              "<p><b>A</b>  Means that this type of person liked most profiles </p>"+
-              "<p><b>B</b>  Means that this type of person liked fewest profiles </p>"+
-              "<p><b>C</b>  Does not give any information about the person </p>",
+    { prompt:  "<p><b>4. Which of these statements is FALSE </b></p>"+
+    "<p><b>A</b>  Raters with 3 stars liked more profiles than raters with 2 stars </p>"+
+    "<p><b>B</b>  Raters with 1 star disliked all profiles they rated </p>" +
+    "<p><b>C</b>  Raters with 4 stars liked the greatest number of profiles out of all raters </p>",
+    options: ["A", "B", "C"],
+    required: true,
+    horizontal: false
+    },
+    { prompt:  "<p><b>5. The feedback I receive will tell me... </b></p>"+
+    "<p><b>A</b>  If I correctly predicted that person likes me or dislikes me </p>"+
+    "<p><b>B</b>  If the person likes me or not </p>" +
+    "<p><b>C</b>  Both - if my prediciton was correct and if the person likes me </p>",
       options: ["A", "B", "C"],
       required: true,
-      horizontal: false
+      horizontal: false 
     }
   ];
   
@@ -79,10 +98,10 @@ var quizQuestions = [
     type: jsPsychSurveyMultiChoice,
     questions: quizQuestions,
     data: {
-      correct_answers: ["C", "A", "B", "A"]
+      correct_answers: ["C", "A", "A", "B", "B"]
     },
     randomize_question_order: false,
-    button_label: "check answers", 
+    button_label: "Check answers", 
     on_finish: function (data) {
       // compare answers to correct answers
       nCorrect = 0;
@@ -120,12 +139,16 @@ var quizQuestions = [
     }
   }
   
+  var attempts = 0
+
   var loop_node = {
     timeline: [introText, introQuiz],
     loop_function: function(data) {
-      if ( nCorrect >= 3 ) {
+      if ( nCorrect == 5 ) {
+        saveQuestData("comprehensionQuiz", attempts, 0);
           return false;
       } else {
+        attempts += 1
           return true;
       }
     }
@@ -149,7 +172,7 @@ var quizQuestions = [
 	"    <li>Press 'NO' if you think they did not like you.</li> </ul>" +
   "<p> The only information we will give you about each person is: </p>" +
   "<ul>" +
-  "<li> Their relative ranking represented by the size of the slice and colour </li>" +
+  "<li> Their relative ranking represented by the number of stars and colour </li>" +
   "<li> Their gender represented by icon </li>" +
   "<li> Their name </li>" +
   "</ul>" +

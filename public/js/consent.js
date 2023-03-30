@@ -116,9 +116,9 @@ const infoConsentText = "<div class=\"row\"> "+
 	"		information. You may also wish to discuss any concerns with your family doctor."+ 
 	" 		</p>  " +
 	"		<ul>  " +
-	"		<p><li><a href=\"http://mind.org.uk\">Mind Charity</a></li></p>"+
-	"		<p><li><a href=\"https://www.samaritans.org\">The Samaritans</a></li></p>"+
-	"		<p><li><a href=\"https://www.nhs.uk/mental-health\">NHS Choices mental health page</a></li></p>"+
+	"		<p><li><a href=\"http://mind.org.uk\" target=”_blank”>Mind Charity</a></li></p>"+
+	"		<p><li><a href=\"https://www.samaritans.org\" target=”_blank”>The Samaritans</a></li></p>"+
+	"		<p><li><a href=\"https://www.nhs.uk/mental-health\" target=”_blank”>NHS Choices mental health page</a></li></p>"+
 	"		</ul>  " +
 	" 		<p>  " + 
 	"		Please also note that although taking part in this study might involve experience of elements of common "+

@@ -3,11 +3,11 @@ import {p_image_orders} from './randomisation.js';
 
 var learn_colours = function(){
     //Which category does this person belong to 
-    //var image_orders = [ 'blue.png', 'yellow.png', 'pink.png', 'purple.png' ];
+    //var image_orders = [ 'blue.png', 'yellow.png', 'pink.png', 'orange.png' ];
     var image_path = './assets/imgs/'
     var gender = ['woman_', 'man_'];
     var image_set = 5; //itterate instead of entering single variable to get different combinations of images
-    //var type_trial = [1,2,3,4] //blue, yellow, purple, pink
+    //var type_trial = [1,2,3,4] //blue, yellow, orange, pink
     //Press f to choose 1, press j to choose 2
     //var response = [1];
     var learning = {

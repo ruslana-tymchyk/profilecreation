@@ -55,6 +55,9 @@ var demogs = {
     ],
     show_question_numbers: 'onPage',
     button_label_finish: 'submit',
+    on_start: function(){
+      document.querySelector('body').style.backgroundColor = '#cce3f0fb';
+    },
     on_finish: function() {
         console.log('finish');
       // get response and RT data

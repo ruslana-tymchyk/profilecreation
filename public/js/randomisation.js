@@ -4,12 +4,12 @@ var random_ps_test = ['p15', 'p30', 'p70', 'p85']
 //var image_set = Math.floor((Math.random() * 25));
 //basically says that all participants have the same baseline image set (i.e. order of trials and COLOURS is the same)
 //changing this variable would not change the order of trials, but would interchange the images displayed
-var image_set = 5;
+var image_set = 5; //was 5
 
-var random_ps = [1,3,1,4,4,4,2,1,2,2,3,2,3,3,2,1,1,2,3,1,2,4,3,1,4,4,2,4,4,2,1,3,4,4,1,4,3,1,3,4,4,
-    3,2,4,3,4,2,1,3,1,1,1,3,2,3,4,2,2,4,1,3,1,4,2,3,3,3,4,1,3,3,3,2,1,2,2,1,1,4,2,1,3,3,4,1,1,1,4,4,2,2,
-    2,2,1,3,2,2,3,1,3,3,4,1,3,2,1,2,1,3,3,3,3,4,4,4,3,2,2,1,4,1,1,2,2,2,2,4,4,2,1,4,2,2,4,4,4,1,4,1,3,2,
-    2,3,3,1,3,1,1,2,3,4,3,2,4,4,3,4,1,4,1]
+var random_ps = [1,3,1,4,3,4,2,1,2,2,3,2,3,4,2,1,1,2,3,1,2,4,3,1,4,4,2,4,4,2,1,3,4,4,1,4,3,1,3,4,4,
+    3,2,4,3,4,2,1,3,3,1,4,3,2,3,4,2,2,4,1,2,1,4,2,1,3,3,4,1,3,3,1,2,1,2,2,1,1,4,2,1,3,3,4,1,1,3,4,4,2,3,
+    2,2,1,3,2,2,3,1,3,3,4,1,3,2,1,2,1,3,3,2,3,4,1,4,3,2,2,1,4,1,1,2,3,2,2,4,4,2,1,4,2,2,3,4,4,1,4,1,3,2,
+    2,3,4,1,3,1,1,2,3,4,3,2,4,4,3,4,1,4,1] //like in Will et al, no numbers appearing more than twice in a row
 
 var response = {
     p15 : [2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,2,2,1,2,2,2,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,2,2,1],
@@ -43,30 +43,30 @@ var female_names = ['OLIVIA', 'AMELIA', 'ISLA', 'AVA', 'MIA', 'IVY', 'LILY', 'IS
     'LYRA','SUMMER', 'MAEVE', 'HEIDI', 'ELODIE', 'LYLA', 'EDEN', 'OLIVE', 'AISHA']
 
 var p_image_orders = [
-    [ 'blue.png', 'yellow.png', 'pink.png', 'purple.png' ],
-    [ 'blue.png', 'yellow.png', 'purple.png', 'pink.png' ],
-    [ 'blue.png', 'pink.png', 'yellow.png', 'purple.png' ],
-    [ 'blue.png', 'pink.png', 'purple.png', 'yellow.png' ],
-    [ 'blue.png', 'purple.png', 'yellow.png', 'pink.png' ],
-    [ 'blue.png', 'purple.png', 'pink.png', 'yellow.png' ],
-    [ 'yellow.png', 'blue.png', 'pink.png', 'purple.png' ],
-    [ 'yellow.png', 'blue.png', 'purple.png', 'pink.png' ],
-    [ 'yellow.png', 'pink.png', 'blue.png', 'purple.png' ],
-    [ 'yellow.png', 'pink.png', 'purple.png', 'blue.png' ],
-    [ 'yellow.png', 'purple.png', 'blue.png', 'pink.png' ],
-    [ 'yellow.png', 'purple.png', 'pink.png', 'blue.png' ],
-    [ 'pink.png', 'blue.png', 'yellow.png', 'purple.png' ],
-    [ 'pink.png', 'blue.png', 'purple.png', 'yellow.png' ],
-    [ 'pink.png', 'yellow.png', 'blue.png', 'purple.png' ],
-    [ 'pink.png', 'yellow.png', 'purple.png', 'blue.png' ],
-    [ 'pink.png', 'purple.png', 'blue.png', 'yellow.png' ],
-    [ 'pink.png', 'purple.png', 'yellow.png', 'blue.png' ],
-    [ 'purple.png', 'blue.png', 'yellow.png', 'pink.png' ],
-    [ 'purple.png', 'blue.png', 'pink.png', 'yellow.png' ],
-    [ 'purple.png', 'yellow.png', 'blue.png', 'pink.png' ],
-    [ 'purple.png', 'yellow.png', 'pink.png', 'blue.png' ],
-    [ 'purple.png', 'pink.png', 'blue.png', 'yellow.png' ],
-    [ 'purple.png', 'pink.png', 'yellow.png', 'blue.png' ]
+    [ 'blue.png', 'yellow.png', 'pink.png', 'orange.png' ],
+    [ 'blue.png', 'yellow.png', 'orange.png', 'pink.png' ],
+    [ 'blue.png', 'pink.png', 'yellow.png', 'orange.png' ],
+    [ 'blue.png', 'pink.png', 'orange.png', 'yellow.png' ],
+    [ 'blue.png', 'orange.png', 'yellow.png', 'pink.png' ],
+    [ 'blue.png', 'orange.png', 'pink.png', 'yellow.png' ],
+    [ 'yellow.png', 'blue.png', 'pink.png', 'orange.png' ],
+    [ 'yellow.png', 'blue.png', 'orange.png', 'pink.png' ],
+    [ 'yellow.png', 'pink.png', 'blue.png', 'orange.png' ],
+    [ 'yellow.png', 'pink.png', 'orange.png', 'blue.png' ],
+    [ 'yellow.png', 'orange.png', 'blue.png', 'pink.png' ],
+    [ 'yellow.png', 'orange.png', 'pink.png', 'blue.png' ],
+    [ 'pink.png', 'blue.png', 'yellow.png', 'orange.png' ],
+    [ 'pink.png', 'blue.png', 'orange.png', 'yellow.png' ],
+    [ 'pink.png', 'yellow.png', 'blue.png', 'orange.png' ],
+    [ 'pink.png', 'yellow.png', 'orange.png', 'blue.png' ],
+    [ 'pink.png', 'orange.png', 'blue.png', 'yellow.png' ],
+    [ 'pink.png', 'orange.png', 'yellow.png', 'blue.png' ],
+    [ 'orange.png', 'blue.png', 'yellow.png', 'pink.png' ],
+    [ 'orange.png', 'blue.png', 'pink.png', 'yellow.png' ],
+    [ 'orange.png', 'yellow.png', 'blue.png', 'pink.png' ],
+    [ 'orange.png', 'yellow.png', 'pink.png', 'blue.png' ],
+    [ 'orange.png', 'pink.png', 'blue.png', 'yellow.png' ],
+    [ 'orange.png', 'pink.png', 'yellow.png', 'blue.png' ]
   ]
 /*
   var image_number = {

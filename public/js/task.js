@@ -1,8 +1,9 @@
 // -----------------------------------------------------------------------------
 // RUN EXPERIMENT 
 // define global variables 
-import {full_screen, end_screen, dur_max, initialinstructions_profile, initialinstructions_rate_profile, ask_questions_profile, rate_profiles_fun, debrief, taskinstructions_rank, questionnaire_instructions} from "./instructions.js";
-import {run_trial, mood_feedback_fun, timeline_learn_colours} from "./task_design.js";
+import {full_screen, end_screen, dur_max, initialinstructions_profile, initialinstructions_rate_profile, ask_questions_profile, debrief, taskinstructions_rank, questionnaire_instructions} from "./instructions.js";
+import {run_trial, mood_feedback_fun, intervention_feedback} from "./task_design.js";
+import {loop_node_learn} from "./learn_task.js";
 import { intervention, timeline_comprehension_intervention} from "./intervention.js";
 import { control, timeline_comprehension_control, condition_complete} from "./control.js";
 import {random_ps, response, list_names, image_set, random_ps_test} from './randomisation.js';
@@ -12,15 +13,14 @@ import {timeline_SPIN} from './SPIN.js' ;
 import {demogs} from './demogs.js' ;
 //import {getMoodRating } from "./saveData.js";
 
-var jsPsych = initJsPsych({}
-    ); 
+var jsPsych = initJsPsych({}); 
 
 //will have to import SaveTask Data
 //on finish saveData
 //data.stimulus etc is a jsPysch object
 //take jsPsych data.whatever and save it to firebase via save task etc
 var introspectiontime = 2; // how often to ask for happiness ratings 
-var nTrials = 160; //160
+var nTrials = 6; //160
 var trial;
 var profile_count;
 var p_retrieved_counter = {
@@ -36,22 +36,18 @@ var timeline = [];  /* list of things to run */
 if (dofullscreen==true) {
     timeline.push(full_screen);
 }
+//timeline.push(initialinstructions_profile);
 //NEED A REPLICA OF THE LOOP NODE
-timeline = timeline.concat(timeline_learn_colours);
-    //return outcome of trial back into the file to change the value of counter
-/*
 timeline.push(initialinstructions_profile);
-timeline.push(intervention);
 timeline.push(ask_questions_profile)
-timeline.push(initialinstructions_rate_profile);
-var profiles = 4;
-for(profile_count = 0; profile_count< profiles; profile_count++){
-    timeline.push(rate_profiles_fun(profile_count))
-}
+//timeline.push(initialinstructions_rate_profile);
+// var profiles = 4;
+// for(profile_count = 0; profile_count< profiles; profile_count++){
+//     timeline.push(rate_profiles_fun(profile_count))
+// }
 timeline.push(taskinstructions_rank)
 timeline.push(loop_node)
 timeline.push(continueText)
-*/
 //add task instructions comprehension
 //Main task 
 for (trial=0; trial<nTrials; trial++) {
@@ -62,17 +58,19 @@ for (trial=0; trial<nTrials; trial++) {
     var name_trial = list_names[p_type][this_trial_in_p]
     var trial_numbers = random_ps[trial]- 1
     //make sure you can return the correct type of person for each participant
-    if (trial == 80) { //at trial 80 provide intervention
+    if (trial == 3) { //at trial 80 provide intervention
         //randomise intervention and control
             if (Math.random() < 0.5){
                 timeline.push(intervention);
                 timeline = timeline.concat(timeline_comprehension_intervention);
                 timeline.push(condition_complete);
+                var cond = 1
             }
             else{
                 timeline.push(control);
                 timeline = timeline.concat(timeline_comprehension_control);
                 timeline.push(condition_complete);
+                var cond = 0
              }
     }; 
     //ask for happiness rating every once in a while
@@ -83,7 +81,12 @@ for (trial=0; trial<nTrials; trial++) {
         //also make sure the very first trial is initialised at 0
     }; 
     timeline.push(run_trial(trial_numbers, name_trial, response_trial, image_set, trial)); 
-}
+
+         // ask question "did you feel like you were using the intervention?"
+    }
+
+if (cond == 1){
+    timeline.push(intervention_feedback())}
 timeline.push(questionnaire_instructions);
 timeline = timeline.concat(timeline_PHQ);
 timeline = timeline.concat(timeline_SPIN);
@@ -92,11 +95,10 @@ timeline.push(debrief);
 timeline.push(end_screen);
 
 // now call jsPsych.init to run experiment 
-export function runTask(uid) {
+export function runTask() {
     //firestore_effort file
 	//saveSetup(timeline);
-    console.log(timeline);
-    jsPsych.data.addProperties({correct_response_counter: 0});
+    //jsPsych.data.addProperties({correct_response_counter: 0});
     jsPsych.run(timeline);
 }
 

@@ -204,7 +204,7 @@ var condition_complete = {
 	" 	<div class=\"col-6\"> "+ 
 	"<h2>Continue the main part of an experiment</h2>" + 
 	"<p>Thank you for completing this part of an experiment. </p>"+
-	"<p>You will now ask you to continue predicting what you think people have thought of your profile. </p>" + 
+	"<p>We will now ask you to continue predicting what you think people have thought of your profile. </p>" + 
 	"<br> Click <b> Continue </b> to proceed. </br>"
 	,
 	on_start: function(){
