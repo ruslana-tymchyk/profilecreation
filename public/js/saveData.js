@@ -52,13 +52,6 @@ var saveTaskData = function(trialN, response, rtData){
   ); 
 };
 
-var saveMoodData = function(trialN, response, rtData){
-  db.collection(version).doc('mind').collection('minddata').doc(uid).collection('task_data').doc('mood_rating').update(
-    {[trialN]: response,
-    ['rt_mood_' + trialN]: rtData}  
-
-  ); 
-};
 
 var saveQuestData = function(questionnaire, dataToSave, completionRT) {
   db.collection(version).doc('mind').collection('minddata').doc(uid).collection('post_task_data').doc('questionnaires').update({
@@ -100,5 +93,5 @@ var getMoodRating = function(){
 
 */
 
-export { saveConsent, savePreTaskData, saveProfileRatingsData, saveTaskData, saveMoodData, saveQuestData, saveViewTime};
+export { saveConsent, savePreTaskData, saveProfileRatingsData, saveTaskData, saveQuestData, saveViewTime};
 

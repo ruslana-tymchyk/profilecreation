@@ -1,2 +1,2 @@
-# lanamind
+# profilecreation
 Mindfulness Dissertation

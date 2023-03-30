@@ -122,33 +122,6 @@ var images2 = [["<img src= "+ image_path + "man_" + p_image_orders[image_set][0]
 			  ["<img src= "+ image_path + "man_" + p_image_orders[image_set][2] + " alt='Icon' style='width:50px;height:50px;' align='center'>"],
 			  ["<img src= "+ image_path + "man_" + p_image_orders[image_set][3] + " alt='Icon' style='width:50px;height:50px;' align='center'>"]]
 
-var taskinstructions_rank= {
-	type: jsPsychHtmlButtonResponse,
-	button_html: '<button class="jspsych-btn">%choice%</button>',
-    choices: ['Continue'],
-	margin_vertical: '8px',
-	stimulus: [	"<div class=\"row\"> "+ 
-	" 	<div class=\"col-3\"></div> "+ 
-	" 	<div class=\"col-6\"> "+ 
-	"<h2>Main experiment </h2>" + 
-	"<p>Thank you for creating a personal profile! You are now ready to start the main part of the experiment. In the last week, we asked people to rate multiple profiles and we" + 
-	"<p> found that certain people tend to either like or dislike more profiles. Hence we ranked people based on how many profiles they liked. People with 4 stars " +
-    " liked the greatest number of profiles, people with 1 star liked fewest profiles. So the more stars, the more profiles these people tend to like!" +
-	"</br></br><b>Below are the icons you will see and their ranking: </b> " +
-	"<p> " + images[0] + "   " + images2[0] + "</p>" +
-	"<p> " + images[1] + "   " + images2[1] + "</p>" +
-	"<p> " + images[2]+ "   " + images2[2] +"</p>" +
-	"<p> " + images[3] + "   " + images2[3] + "</p>" +
-    "<p> Just like number of stars, each colour corresponds to one category." +
-	"You don't need to worry about colours of the icons, simply " + 
-	"remember that more stars means this person liked more profiles. " + 
-    "In an experiment you will see icons above. They can either be male or female. </p>" +
-    "<p></p>[Press Continue to TEST UNDERSTANDING OF CATEGORIES]</p>" ], 
-	on_start: function(){
-		document.querySelector('body').style.backgroundColor = '#cce3f0fb';
-		//saveStartData()
-	},
-};
 
 
 var debrief = {
@@ -231,25 +204,6 @@ var debrief = {
   };
 
 
-var questionnaire_instructions = {
-	type: jsPsychHtmlButtonResponse,
-	button_html: '<button class="jspsych-btn">%choice%</button>',
-    choices: ['Continue'],
-	margin_vertical: '8px',
-	stimulus: 
-	"<div class=\"row\"> "+ 
-	" 	<div class=\"col-3\"></div> "+ 
-	" 	<div class=\"col-6\"> "+ 
-	"<h2>Complete the questionnaires</h2>" + 
-	"<p>Thank you for completing the main task </p>"+
-	"<p>Before completing the study, we will ask you to fill in some questionnaires. </p>" + 
-	"<br> Click <b> Continue </b> to proceed. </br>"
-	,
-	on_start: function(){
-		document.querySelector('body').style.backgroundColor = '#cce3f0fb';
-		//saveStartData()
-	},
-};
 
 var end_screen = {
 	type: jsPsychHtmlButtonResponse,

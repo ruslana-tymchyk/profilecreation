@@ -2,7 +2,7 @@
   "dependencies": {
     "firebase": "^9.8.2"
   },
-  "name": "lanamind",
+  "name": "profilecreation",
   "description": "Mindfulness Dissertation",
   "version": "9.8.0",
   "main": "index.html",
@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ruslana-tymchyk/lanamind.git"
+    "url": "git+https://github.com/ruslana-tymchyk/profilecreation.git"
   },
   "keywords": [
-    "lanamind"
+    "profilecreation"
   ],
   "author": "Lana Tymchyk",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ruslana-tymchyk/lanamind/issues"
+    "url": "https://github.com/ruslana-tymchyk/profilecreation/issues"
   },
-  "homepage": "https://github.com/ruslana-tymchyk/lanamind#readme"
+  "homepage": "https://github.com/ruslana-tymchyk/profilecreation#readme"
 }
