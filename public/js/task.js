@@ -1,7 +1,7 @@
 // -----------------------------------------------------------------------------
 // RUN EXPERIMENT 
 // define global variables 
-import {full_screen, end_screen, initialinstructions_profile, initialinstructions_rate_profile, ask_questions_profile} from "./instructions.js";
+import {full_screen, end_screen, initialinstructions_profile, initialinstructions_rate_profile, ask_questions_profile, pick_name} from "./instructions.js";
 
 var jsPsych = initJsPsych({}); 
 
@@ -13,6 +13,7 @@ if (dofullscreen==true) {
     timeline.push(full_screen);
 }
 timeline.push(initialinstructions_profile);
+timeline.push(pick_name)
 timeline.push(ask_questions_profile)
 timeline.push(initialinstructions_rate_profile)
 timeline.push(end_screen);

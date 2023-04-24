@@ -84,6 +84,44 @@ var initialinstructions_rate_profile = {
 	},
 };
 
+var pick_name = {
+    type: jsPsychSurvey,
+    pages: [
+      [
+        {
+          type: 'html',
+          prompt: "<b>Since we want to maximise the validity of our study, while ensuring your anonimity, we ask you to choose an alias that will be associated with your personal profile. </b>",
+        },
+        {
+          type: 'drop-down',
+          prompt: "Pick one of the names below: ", 
+          name: 'pick_name_list', 
+          options: ['Ori', "Lana", "Gabalini", "Creek Resident", "None of these names"], 
+          required: true
+        }, 
+		{
+			type: 'text',
+			prompt: "If you picked 'None of these names' above, please type in an alias of your choice: ", 
+			name: 'pick_name_own', 
+			textbox_rows: 1,
+		    textbox_columns: 20,
+			required: false,
+		  },
+      ]
+    ],
+    show_question_numbers: 'onPage',
+    button_label_finish: 'submit',
+    on_start: function(){
+      document.querySelector('body').style.backgroundColor = '#cce3f0fb';
+    },
+	on_finish: function(){
+		var respData = this.type.jsPsych.data.getLastTrialData().trials[0].response;
+		savePreTaskData(respData);
+    }
+  };
+
+ 
+
 var ask_questions_profile= {
 	type: jsPsychSurveyText, 
 	preamble: ["<h2>Create a personal profile</h2>"+ 
@@ -91,7 +129,7 @@ var ask_questions_profile= {
 	"Take the time to answer and make sure you write <b>at least 2-3 sentences</b>, for others to get an accurate idea about you. </p> "+
 	"<p>  Note: if your answers are not valid, you will not be fully reimbursed for participation. </p> "],
 	questions: [
-		{prompt: "<b>Nickname (i.e. name of fictional character, celebrity. DO NOT write your actual name)</b>", name: "OWN_PROF_NAME", required:true}, 
+		//{prompt: "<b>Nickname (i.e. name of fictional character, celebrity. DO NOT write your actual name)</b>", name: "OWN_PROF_NAME", required:true}, 
         {prompt: "<b>If we asked your friends and family about your best qualities, what might they say?</b>", name: "OWN_PROF_1", required:true}, 
         {prompt: "<b>And what would they say were your worst qualities?</b>",  name: "OWN_PROF_2", required:true},
         {prompt: "<b>What are you most afraid of?</b>", name: "OWN_PROF_3", required:true},
@@ -124,4 +162,4 @@ var end_screen = {
 }; 
 
 
-export {full_screen, end_screen, dur_max, initialinstructions_profile, ask_questions_profile, initialinstructions_rate_profile};
+export {full_screen, end_screen, dur_max, initialinstructions_profile, ask_questions_profile, initialinstructions_rate_profile, pick_name};
