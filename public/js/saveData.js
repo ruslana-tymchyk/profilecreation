@@ -8,7 +8,7 @@ firebase.firestore().enablePersistence()
 
 // initialize db
 var db = firebase.firestore();
-var version = "prolific30v2"
+var version = "test1"
 // function to save consent 
 var saveConsent = function(){
   db.collection(version).doc('mind').collection('minddata').doc(uid).set({
@@ -22,11 +22,6 @@ var saveConsent = function(){
   }); 
   // initialize data-storage collections
   db.collection(version).doc('mind').collection('minddata').doc(uid).collection('pre_task_data').doc('own_profile').set({init: 1});
-  db.collection(version).doc('mind').collection('minddata').doc(uid).collection('pre_task_data').doc('rank_profiles').set({init: 1});
-  db.collection(version).doc('mind').collection('minddata').doc(uid).collection('task_data').doc('main_task').set({init: 1});
-  db.collection(version).doc('mind').collection('minddata').doc(uid).collection('task_data').doc('mood_rating').set({init: 1});
-  db.collection(version).doc('mind').collection('minddata').doc(uid).collection('task_data').doc('viewing_time').set({init: 1});
-  db.collection(version).doc('mind').collection('minddata').doc(uid).collection('post_task_data').doc('questionnaires').set({init: 1});
 };
 
 var savePreTaskData = function(response){
@@ -36,62 +31,5 @@ var savePreTaskData = function(response){
   }); 
 };
 
-var saveProfileRatingsData = function(profile_count, respData, respRT){
-  db.collection(version).doc('mind').collection('minddata').doc(uid).collection('pre_task_data').doc('rank_profiles').update(
-    {[profile_count]: respData,
-      ['rt_' + profile_count]: respRT}  
-
-  ); 
-};
-
-var saveTaskData = function(trialN, response, rtData){
-  db.collection(version).doc('mind').collection('minddata').doc(uid).collection('task_data').doc('main_task').update(
-    {[trialN]: response,
-      ['rt_task_' + trialN]: rtData}  
-
-  ); 
-};
-
-
-var saveQuestData = function(questionnaire, dataToSave, completionRT) {
-  db.collection(version).doc('mind').collection('minddata').doc(uid).collection('post_task_data').doc('questionnaires').update({
-    [questionnaire]: dataToSave,
-    [questionnaire+'_RT']: completionRT
-  });
-};
-
-
-
-var saveViewTime = function(view_history, rt, condition){
-  db.collection(version).doc('mind').collection('minddata').doc(uid).collection('task_data').doc('viewing_time').update(
-    {view: view_history,
-    rt: rt,
-    condition: condition
-  }  
-  ); 
-};
-
-/*
-
-var getMoodRating = function(){
-
-        var docRef = db.collection(version).doc('mind').collection('minddata').doc(uid).collection('task_data').doc('mood_rating');
-
-        docRef.get().then((doc) => {
-            if (doc.exists) {
-                console.log("Document data:", doc.data());
-                return doc.data();
-            } else {
-                // doc.data() will be undefined in this case
-                console.log("No such document!");
-                return 1;
-            }
-        }).catch((error) => {
-            console.log("Error getting document:", error);
-        });
-  }
-
-*/
-
-export { saveConsent, savePreTaskData, saveProfileRatingsData, saveTaskData, saveQuestData, saveViewTime};
+export { saveConsent, savePreTaskData};
 
