@@ -4,6 +4,46 @@ import { jsPsych } from './task.js';
 import { savePreTaskData} from './saveData.js';
 var image_path = './assets/imgs/'
 
+
+
+var female_names = ['OLIVIA', 'AMELIA', 'ISLA', 'AVA', 'MIA', 'IVY', 'LILY', 'ISABELLA', 'ROSIE', 'SOPHIA', 'GRACE', 'FREYA',
+    'WILLOW', 'FLORENCE', 'EMILY', 'ELLA', 'POPPY', 'EVIE', 'ELSIE', 'CHARLOTTE', 'EVELYN', 'SIENNA', 'SOFIA', 'DAISY', 'PHOEBE',
+    'SOPHIE', 'ALICE', 'HARPER', 'MATILDA', 'RUBY', 'EMILIA', 'MAYA', 'MILLIE', 'ISABELLE', 'EVA', 'LUNA', 'JESSICA', 'ADA',
+    'ARIA', 'ARABELLA', 'MAISIE', 'ESME', 'ELIZA', 'PENELOPE', 'BONNIE', 'CHLOE', 'MILA', 'VIOLET', 'HALLIE', 'SCARLETT', 'LAYLA',
+    'IMOGEN', 'ELEANOR', 'MOLLY', 'HARRIET', 'ELIZABETH', 'THEA', 'ERIN', 'LOTTIE', 'EMMA', 'ROSE', 'DELILAH', 'BELLA', 'AURORA',
+    'LOLA', 'NANCY', 'ELLIE', 'MABEL', 'LUCY', 'AYLA', 'MARIA', 'ORLA', 'ZARA', 'ROBYN', 'HANNAH', 'GRACIE', 'IRIS', 'JASMINE',
+    'DARCIE', 'MARGOT', 'HOLLY', 'AMELIE', 'AMBER', 'GEORGIA', 'EDITH', 'MARYAM', 'ABIGAIL', 'MYLA', 'ANNA', 'CLARA', 'LILLY',
+    'LYRA','SUMMER', 'MAEVE', 'HEIDI', 'ELODIE', 'LYLA', 'EDEN', 'OLIVE', 'AISHA']
+
+
+var male_names = ["LUCA", "EDWARD","ARLO","RORY","TOMMY","ELIJAH","YUSUF","RALPH","OLLIE","MOHAMMAD","JENSON","JAMES","OAKLEY","MAX",
+                 "ALEXANDER","MOHAMMED","ELLIOTT","THOMAS","ELLIOT","ROWAN","ALBIE","BOBBY","CALEB","MILO","REUBEN","SONNY","ISAAC","LEO",
+				"LOGAN","ARCHIE","WILLIAM","TEDDY","LIAM","FELIX","MASON","OLIVER","ROMAN","REGGIE","STANLEY","THEO","JACOB","JACK","MICHAEL",
+				"FINN","ARTHUR","SAMUEL","NOAH","HARRISON","MUHAMMAD","THEODORE","CHESTER","LOUIE","JASPER","HARLEY","LUCAS","HARRY","ETHAN",
+				"SEBASTIAN","DANIEL","HENRY","JAXON","GEORGE","CHARLES","ALFRED","JOSEPH","JOSHUA","JACKSON","OSCAR","OTIS","HUDSON",
+                "LEON","ELLIS","FREDDIE","FINLEY","IBRAHIM","BENJAMIN","ALFIE","ADAM","HARVEY","CHARLIE"]
+
+
+function getRandomItem(arr, items) {
+
+	var final_array = []
+
+	for (let i = 0; i < items; i++) { 
+	// get random index value
+	var randomIndex = Math.floor(Math.random() * arr.length);
+
+	// get random item
+	var item = arr[randomIndex];
+	final_array.push(item)
+	}
+	return final_array
+}
+
+var male_subset = getRandomItem(male_names,5);
+var female_subset = getRandomItem(female_names,5);
+
+var name_options = female_subset.concat(male_subset, ["None of these names"]);
+
 var dur_max = 35000; 
 
 // go into full screen
@@ -94,9 +134,9 @@ var pick_name = {
         },
         {
           type: 'drop-down',
-          prompt: "Pick one of the names below: ", 
+          prompt: "Pick one of the names below (male and female names provided): ", 
           name: 'pick_name_list', 
-          options: ['Ori', "Lana", "Gabalini", "Creek Resident", "None of these names"], 
+          options: name_options, 
           required: true
         }, 
 		{
