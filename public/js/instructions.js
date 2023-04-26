@@ -1,7 +1,7 @@
 // -----------------------------------------------------------------------------
 // INSTRUCTIONS 
 import { jsPsych } from './task.js';
-import { savePreTaskData} from './saveData.js';
+import { savePreTaskData,saveName} from './saveData.js';
 var image_path = './assets/imgs/'
 
 
@@ -136,7 +136,7 @@ var pick_name = {
     },
 	on_finish: function(){
 		var respData = this.type.jsPsych.data.getLastTrialData().trials[0].response;
-		savePreTaskData(respData);
+		saveName(respData);
     }
   };
 
