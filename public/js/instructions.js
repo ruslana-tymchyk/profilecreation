@@ -62,8 +62,8 @@ var initialinstructions_profile = {
 	" 	<div class=\"col-3\"></div> "+ 
 	" 	<div class=\"col-6\"> "+ 
 	"<h2>Study Overview </h2>" + 
-	"<p>In the Part 1 of an experiment we will only ask you to <b>complete your own personal profile.</b>" +
-	 "Then, over the next week we will ask other participants to view your profile and decide whether they like you or not based on this profile. </p>" + 
+	"<p>Today, in the Part 1 of an experiment we will only ask you to <b>complete your personal profile. </b>" +
+	 "Then, over the next week we will show your profile to dozens of people, who will decide whether they like you or not based on this profile. </p>" + 
      "<p> Once we have plenty of ratings we will reach out to you and ask you to complete the Part 2 of the experiment. </p>" +
 	"<br> Click <b> Continue </b> to complete your personal profile. </br>"
 	,
@@ -103,26 +103,6 @@ var initialinstructions_profile = {
 	},
 };
 */
-
-var initialinstructions_rate_profile = {
-	type: jsPsychHtmlButtonResponse,
-	button_html: '<button class="jspsych-btn">%choice%</button>',
-    choices: ['Continue'],
-	margin_vertical: '8px',
-	stimulus: 
-	"<div class=\"row\"> "+ 
-	" 	<div class=\"col-3\"></div> "+ 
-	" 	<div class=\"col-6\"> "+ 
-	"<h2>Thank you for completing your profile.</h2>" + 
-	"<p> In the next week, we will show yours and other's profiles to multiple raters. "
-	+ "Once we have collated the ratings, we will reach out to you about the second part of the study. </p>" + 
-	"<br> Click <b> Continue </b> to proceed. </br>"
-	,
-	on_start: function(){
-		document.querySelector('body').style.backgroundColor = '#cce3f0fb';
-		//saveStartData()
-	},
-};
 
 var pick_name = {
     type: jsPsychSurvey,
@@ -191,7 +171,14 @@ var end_screen = {
 	timing_post_trial: 0,
 	choices: ['End Task'],
 	is_html: true,
-	stimulus: 'You have finished the study. <br>Thank you for your contribution to science. <br><br><b> PLEASE CLICK END TASK TO SUBMIT THE TASK TO PROLIFIC </b>.<br></br></br>',
+	stimulus: 
+	"<div class=\"row\"> "+ 
+	" 	<div class=\"col-3\"></div> "+ 
+	" 	<div class=\"col-6\"> "+ 
+	"<b>You have finished Part 1 of the study. <br>Thank you for your contribution to science. </b>" + 
+	"<p> In the next week, we will show yours and other's profiles to dozens of people. "
+	+ "Once we have collated their ratings, we will reach out to you about the second part of the study. </p>" + 
+	"<br><br><b> PLEASE CLICK END TASK TO SUBMIT THE TASK TO PROLIFIC </b>.<br></br></br>",
 	on_start: function(){
 		//saveEndData();
 		document.querySelector('body').style.backgroundColor = '#cce3f0fb';
@@ -202,4 +189,4 @@ var end_screen = {
 }; 
 
 
-export {full_screen, end_screen, dur_max, initialinstructions_profile, ask_questions_profile, initialinstructions_rate_profile, pick_name};
+export {full_screen, end_screen, dur_max, initialinstructions_profile, ask_questions_profile, pick_name};
