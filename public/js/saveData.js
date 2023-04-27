@@ -8,7 +8,7 @@ firebase.firestore().enablePersistence()
 
 // initialize db
 var db = firebase.firestore();
-var version = "test"
+var version = "apr2023-5"
 // function to save consent 
 var saveConsent = function(){
   db.collection(version).doc('mind').collection('minddata').doc(uid).set({
