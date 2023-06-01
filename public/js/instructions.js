@@ -1,7 +1,7 @@
 // -----------------------------------------------------------------------------
 // INSTRUCTIONS 
 import { jsPsych } from './task.js';
-import { savePreTaskData,saveName} from './saveData.js';
+import { savePreTaskData,saveName, saveProfileRatingsData} from './saveData.js';
 var image_path = './assets/imgs/'
 
 
@@ -62,7 +62,8 @@ var initialinstructions_profile = {
 	" 	<div class=\"col-3\"></div> "+ 
 	" 	<div class=\"col-6\"> "+ 
 	"<h2>Study Overview </h2>" + 
-	"<p>Today, in the Part 1 of an experiment we will only ask you to <b>complete your personal profile. </b>" +
+	"<p>Today, in the Part 1 of an experiment we will only ask you to <b>complete your personal profile </b> and <b>rate other people's profiles. </b>" +
+	"These people would have completed the profile, just like you. Based on information in their profile, we ask you to tell us if you like each person or not." +
 	 "Then, over the next week we will show your profile to dozens of people, who will decide whether they like you or not based on this profile. </p>" + 
      "<p> Once we have plenty of ratings we will reach out to you and ask you to complete the Part 2 of the experiment. </p>" +
 	"<br> Click <b> Continue </b> to complete your personal profile. </br>"
@@ -74,35 +75,7 @@ var initialinstructions_profile = {
 	},
 };
 
-/*
-var initialinstructions_profile = {
-	type: jsPsychHtmlButtonResponse,
-	button_html: '<button class="jspsych-btn">%choice%</button>',
-    choices: ['Continue'],
-	margin_vertical: '8px',
-	stimulus: 
-	"<div class=\"row\"> "+ 
-	" 	<div class=\"col-3\"></div> "+ 
-	" 	<div class=\"col-6\"> "+ 
-	"<h2>Create a personal profile</h2>" + 
-	"<p>We will first ask you to create a personal profile by answering a few questions about yourself </p>" + 
-	"<p> Your profile will be made up of your answers to 5 personal questions. Together they will give others a good idea about who you are. </p>" + 
-    "<p> We will then ask you to rate other people's profiles. While you are rating these profiles we will show your profile to other people taking part in the study. </p>" + 
-    "<p> These people are men and women between the ages of 18 and 65. They will be asked what they think about you. They can choose to like or dislike you.</p>"+ 
-	"<br> <b> When people are rating the profi asked to think about the following when making a decision: </b> </br>"+ 
-    "<br> <span class= 'emphasized'> Do you like this person? Do you think you could be friends with them in real life? </p>" + 
-    "<p> Or do you think this person is boring and are you not interested in getting to know them any better? </p>" + 
-	"<br> <b> They will also be given the following instructions: </b> </br>"+ 
-    "Press the “like” button, if you think you could be friends with this person in real life. Press the “dislike” button if you are not interested in getting to know them. </br> </span>" + 
-	"<br> Click <b> Continue </b> to complete your personal profile. </br>"
-	,
 
-	on_start: function(){
-		document.querySelector('body').style.backgroundColor = '#cce3f0fb';
-		//saveStartData()
-	},
-};
-*/
 
 var pick_name = {
     type: jsPsychSurvey,
@@ -165,6 +138,98 @@ var ask_questions_profile= {
 	}
 };
 
+var initialinstructions_rate_profile = {
+	type: jsPsychHtmlButtonResponse,
+	button_html: '<button class="jspsych-btn">%choice%</button>',
+    choices: ['Continue'],
+	margin_vertical: '8px',
+	stimulus: 
+	"<div class=\"row\"> "+ 
+	" 	<div class=\"col-3\"></div> "+ 
+	" 	<div class=\"col-6\"> "+ 
+	"<h2>Rate other profiles</h2>" + 
+	"<p>Thank you for completing your profile. </p>"+
+	"<p> We will now ask you to read and rate other people's profiles. </p>" + 
+	"<br> Click <b> Continue </b> to proceed. </br>"
+	,
+	on_start: function(){
+		document.querySelector('body').style.backgroundColor = '#cce3f0fb';
+		//saveStartData()
+	},
+};
+
+var questions = [" ", 
+    "The best qualities (according to friends and family): ", 
+    "The worst qualities (according to friends and family): ",
+    "Afraid of: ",
+    "Favourite things: ",
+    "Dislike people who: "
+    ]
+	var responses = [["<div class='prof'><h1>Jay </h1></div>", 
+	"They might say that I'm empathetic and positive.",  
+	"Disorganised and sometimes too relaxed.",
+	"Becoming someone/acting like someone I thought I wasn't.",
+	"Being in nature away from a lot of people, playing/listening to music, climbing, reading.", 
+	"I dislike people who are unkind, selfish, narcissistic."
+	], //Ori
+    ["<div class='prof'><h1>Laura </h1></div>",
+	"According to others, my best qualities are being a compassionate listener, and being someone who stays proactive and optimistic in life.",  
+    "According to others, my worst qualities are not knowing how to keep a work-life balance, and not always knowing when to draw boundaries with others.",
+    "I am afraid to lose my sight.",
+    "My favorite things in life are: spending time pursuing my curiosity and creativity, and spending quality time with my loved ones.", 
+    "I really dislike people who are too scared to communicate their thoughts and feelings, and those who are selfish and egoistic."
+    ],//Heema
+	["<div class='prof'><h1>Ruby </h1></div>",
+	"I am quite driven, sociable and love being around people. They would probably also say that I am a good cook :)",
+    "Probably that I am easily distracted. Also I sometimes talk too much about things I get excited about.",
+    "I am afraid I will not be liked by new people that I meet. Also I am afraid of very very steep slides!",
+    "I enjoy spending time with my friends and having banter with them. I love climbing because it gets me to be active and problem solve at the same time. I also really enjoy Japanese food because it is very wholesome.", 
+    "I do not like people who are very demanding all the time and can not relax and take things easy sometimes. I also find it hard to deal with people who are  ignorant of others feelings."
+    ],//Lana
+	["<div class='prof'><h1>Bella </h1></div>",
+	"Opened minded, kind, genuine.",
+	"Like to rush things, attention to details.",
+	"Losing control over things, things not going as expected.",
+	"Animals, plants, cleaning? (Don’t know if that counts).",
+	"Who have two faces (shit talk about you behind your back)."] //Lily
+]
+
+var rate_profiles_fun = function(profile_count) {
+	var rate_profiles = {
+		type: jsPsychHtmlButtonResponseCA,
+		time_after_choice: 2000,
+		choices: ['f', 'j'], //0,1
+		//prompt: ['<br> press F to respond YES </br> <br> press J to respond NO </br>'],
+		key_answer: '0',
+		correct_text: " ",
+		incorrect_text: " ",
+		//feedback_duration: 0,
+		css_classes: "jspsych-middle",
+		stimulus: "<div class=\"row\"> "+ 
+		" 	<div class=\"col-3\"></div> "+ 
+		" 	<div class=\"col-6\"> "+ 
+		"<h2><p> Do you like this person based on their profile " +
+		"description? </p></h2>"+ 
+		"<p><b>" + questions[0] + "</b><br>" + responses[profile_count][0] + "</br>" +  "</p>" +
+		"<p><b>" + questions[1] + "</b><br>" + responses[profile_count][1] + "</br>" +  "</p>" +
+		"<p><b>" + questions[2] + "</b><br>" + responses[profile_count][2] + "</br>" +  "</p>" +
+		"<p><b>" + questions[3] + "</b><br>" + responses[profile_count][3] + "</br>" +  "</p>" +
+		"<p><b>" + questions[4] + "</b><br>" + responses[profile_count][4] + "</br>" +  "</p>" +
+		"<p><b>" + questions[5] + "</b><br>" + responses[profile_count][5] + "</br>" +  "</p>" +
+		 "<div class=\"row\">" ,
+		on_start: function(){
+			document.querySelector('body').style.backgroundColor = '#cce3f0fb';
+	
+		},
+		on_finish: function(){
+			var respData = this.type.jsPsych.data.getLastTrialData().trials[0].response;
+			var respRT = this.type.jsPsych.data.getLastTrialData().trials[0].rt;
+			saveProfileRatingsData(profile_count, respData, respRT);
+			}
+	}
+	return rate_profiles;
+}
+
 
 var end_screen = {
 	type: jsPsychHtmlButtonResponse,
@@ -178,6 +243,7 @@ var end_screen = {
 	"<b>You have finished Part 1 of the study. <br>Thank you for your contribution to science. </b>" + 
 	"<p> In the next week, we will show yours and other's profiles to dozens of people. "
 	+ "Once we have collated their ratings, we will reach out to you about the second part of the study. </p>" + 
+	"We will also use your feedback to tell others if people liked their profile or not." +
 	"<br><br><b> PLEASE CLICK END TASK TO SUBMIT THE TASK TO PROLIFIC </b>.<br></br></br>",
 	on_start: function(){
 		//saveEndData();
@@ -189,4 +255,4 @@ var end_screen = {
 }; 
 
 
-export {full_screen, end_screen, dur_max, initialinstructions_profile, ask_questions_profile, pick_name};
+export {full_screen, end_screen, dur_max, initialinstructions_profile, ask_questions_profile, pick_name,initialinstructions_rate_profile,rate_profiles_fun};

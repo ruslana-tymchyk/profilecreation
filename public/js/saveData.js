@@ -23,6 +23,7 @@ var saveConsent = function(){
   // initialize data-storage collections
   db.collection(version).doc('mind').collection('minddata').doc(uid).collection('pre_task_data').doc('own_profile').set({init: 1});
   db.collection(version).doc('mind').collection('minddata').doc(uid).collection('pre_task_data').doc('name').set({init: 1});
+  db.collection(version).doc('mind').collection('minddata').doc(uid).collection('pre_task_data').doc('rank_profiles').set({init: 1});
 };
 
 var savePreTaskData = function(response){
@@ -39,5 +40,13 @@ var saveName = function(response){
   }); 
 };
 
-export { saveConsent, savePreTaskData,saveName};
+var saveProfileRatingsData = function(profile_count, respData, respRT){
+  db.collection(version).doc('mind').collection('minddata').doc(uid).collection('pre_task_data').doc('rank_profiles').update(
+    {[profile_count]: respData,
+      ['rt_' + profile_count]: respRT}  
+
+  ); 
+};
+
+export { saveConsent, savePreTaskData,saveName,saveProfileRatingsData};
 
