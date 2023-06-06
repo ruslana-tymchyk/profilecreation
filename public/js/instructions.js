@@ -3,6 +3,7 @@
 import { jsPsych } from './task.js';
 import { savePreTaskData,saveName, saveProfileRatingsData} from './saveData.js';
 var image_path = './assets/imgs/'
+var responses = ['yes.png ', 'no.png '];
 
 
 
@@ -23,6 +24,34 @@ var male_names = ["LUCA", "EDWARD","ARLO","RORY","TOMMY","ELIJAH","YUSUF","RALPH
 				"SEBASTIAN","DANIEL","HENRY","JAXON","GEORGE","CHARLES","ALFRED","JOSEPH","JOSHUA","JACKSON","OSCAR","OTIS","HUDSON",
                 "LEON","ELLIS","FREDDIE","FINLEY","IBRAHIM","BENJAMIN","ALFIE","ADAM","HARVEY","CHARLIE"]
 
+				var q1 = ["They might say that I'm empathetic and positive.",
+				"According to others, my best qualities are being a compassionate listener, and being someone who stays proactive and optimistic in life.",
+				"I am quite driven, sociable and love being around people. They would probably also say that I am a good cook :)",
+				"Opened minded, kind, genuine."
+				]
+				
+				var q2 = ["Disorganised and sometimes too relaxed.",
+				"According to others, my worst qualities are not knowing how to keep a work-life balance, and not always knowing when to draw boundaries with others.",
+				"Probably that I am easily distracted. Also I sometimes talk too much about things I get excited about.",
+				"Like to rush things, attention to details."
+				]
+				
+				var q3 = ["Becoming someone/acting like someone I thought I wasn't.",
+				"I am afraid to lose my sight.",
+				"I am afraid I will not be liked by new people that I meet. Also I am afraid of very very steep slides!",
+				"Losing control over things, things not going as expected."
+				]
+				
+				var q4 = ["Being in nature away from a lot of people, playing/listening to music, climbing, reading.", 
+				"My favorite things in life are: spending time pursuing my curiosity and creativity, and spending quality time with my loved ones.", 
+				"I enjoy spending time with my friends and having banter with them. I love climbing because it gets me to be active and problem solve at the same time. I also really enjoy Japanese food because it is very wholesome.", 
+				"Animals, plants, cleaning? (Don’t know if that counts)."
+				]
+				
+				var q5 = ["I dislike people who are unkind, selfish, narcissistic.",
+				"I really dislike people who are too scared to communicate their thoughts and feelings, and those who are selfish and egoistic.",
+				"I do not like people who are very demanding all the time and can not relax and take things easy sometimes. I also find it hard to deal with people who are  ignorant of others feelings.",
+				"Who have two faces (shit talk about you behind your back)."]
 
 function getRandomItem(arr, items) {
 
@@ -158,77 +187,114 @@ var initialinstructions_rate_profile = {
 	},
 };
 
-var questions = [" ", 
-    "The best qualities (according to friends and family): ", 
-    "The worst qualities (according to friends and family): ",
-    "Afraid of: ",
-    "Favourite things: ",
-    "Dislike people who: "
-    ]
-	var responses = [["<div class='prof'><h1>Jay </h1></div>", 
-	"They might say that I'm empathetic and positive.",  
-	"Disorganised and sometimes too relaxed.",
-	"Becoming someone/acting like someone I thought I wasn't.",
-	"Being in nature away from a lot of people, playing/listening to music, climbing, reading.", 
-	"I dislike people who are unkind, selfish, narcissistic."
-	], //Ori
-    ["<div class='prof'><h1>Laura </h1></div>",
-	"According to others, my best qualities are being a compassionate listener, and being someone who stays proactive and optimistic in life.",  
-    "According to others, my worst qualities are not knowing how to keep a work-life balance, and not always knowing when to draw boundaries with others.",
-    "I am afraid to lose my sight.",
-    "My favorite things in life are: spending time pursuing my curiosity and creativity, and spending quality time with my loved ones.", 
-    "I really dislike people who are too scared to communicate their thoughts and feelings, and those who are selfish and egoistic."
-    ],//Heema
-	["<div class='prof'><h1>Ruby </h1></div>",
-	"I am quite driven, sociable and love being around people. They would probably also say that I am a good cook :)",
-    "Probably that I am easily distracted. Also I sometimes talk too much about things I get excited about.",
-    "I am afraid I will not be liked by new people that I meet. Also I am afraid of very very steep slides!",
-    "I enjoy spending time with my friends and having banter with them. I love climbing because it gets me to be active and problem solve at the same time. I also really enjoy Japanese food because it is very wholesome.", 
-    "I do not like people who are very demanding all the time and can not relax and take things easy sometimes. I also find it hard to deal with people who are  ignorant of others feelings."
-    ],//Lana
-	["<div class='prof'><h1>Bella </h1></div>",
-	"Opened minded, kind, genuine.",
-	"Like to rush things, attention to details.",
-	"Losing control over things, things not going as expected.",
-	"Animals, plants, cleaning? (Don’t know if that counts).",
-	"Who have two faces (shit talk about you behind your back)."] //Lily
-]
 
-var rate_profiles_fun = function(profile_count) {
-	var rate_profiles = {
-		type: jsPsychHtmlButtonResponseCA,
-		time_after_choice: 2000,
-		choices: ['f', 'j'], //0,1
-		//prompt: ['<br> press F to respond YES </br> <br> press J to respond NO </br>'],
-		key_answer: '0',
-		correct_text: " ",
-		incorrect_text: " ",
-		//feedback_duration: 0,
-		css_classes: "jspsych-middle",
-		stimulus: "<div class=\"row\"> "+ 
-		" 	<div class=\"col-3\"></div> "+ 
-		" 	<div class=\"col-6\"> "+ 
-		"<h2><p> Do you like this person based on their profile " +
-		"description? </p></h2>"+ 
-		"<p><b>" + questions[0] + "</b><br>" + responses[profile_count][0] + "</br>" +  "</p>" +
-		"<p><b>" + questions[1] + "</b><br>" + responses[profile_count][1] + "</br>" +  "</p>" +
-		"<p><b>" + questions[2] + "</b><br>" + responses[profile_count][2] + "</br>" +  "</p>" +
-		"<p><b>" + questions[3] + "</b><br>" + responses[profile_count][3] + "</br>" +  "</p>" +
-		"<p><b>" + questions[4] + "</b><br>" + responses[profile_count][4] + "</br>" +  "</p>" +
-		"<p><b>" + questions[5] + "</b><br>" + responses[profile_count][5] + "</br>" +  "</p>" +
-		 "<div class=\"row\">" ,
-		on_start: function(){
-			document.querySelector('body').style.backgroundColor = '#cce3f0fb';
-	
-		},
-		on_finish: function(){
-			var respData = this.type.jsPsych.data.getLastTrialData().trials[0].response;
-			var respRT = this.type.jsPsych.data.getLastTrialData().trials[0].rt;
-			saveProfileRatingsData(profile_count, respData, respRT);
-			}
-	}
-	return rate_profiles;
-}
+//////RATE PROFILES
+
+// define trial stimuli and choice array for use as a timeline variable 
+var nTrials = 4;
+var name_order = ['Jay', 'Laura', 'Ruby', 'Bella']
+var events_causes_learning = [];
+for ( var i = 0; i < nTrials; i++ ) {
+    events_causes_learning[i] = { 
+                trialIndex: i,
+                name: name_order[i],
+				qq1: q1[i],
+				qq2: q2[i],
+				qq3: q3[i],
+				qq4: q4[i],
+                qq5: q5[i]};
+
+};
+console.log(events_causes_learning)
+
+    var learning_trial = {
+        // jsPsych plugin to use
+        type: jsPsychHtmlButtonResponseCA,
+        // trial info
+        choices: ['They liked me', 'They did not like me'],
+        stimulus: function () {
+            var stim = "<div class=\"row\"> "+ 
+            "<h1>Did this person like you?</h1>"+ 
+			"<div class=\"prof-name\"> "+
+            "<h2>" + jsPsych.timelineVariable('name') +"</h2>" +
+			'</div>'+
+			"<div class=\"prof\"> "+
+            '<p><b> The best qualities: </b></p>' +
+            '<p style = "font-family:Raleway, sans-serif; weight:300">' + jsPsych.timelineVariable('qq1') + '</p>' + 
+            '</div>'+
+			"<div class=\"prof\"> "+
+            '<p><b> The worst qualities: </b></p>' +
+            '<p style = "font-family:Raleway, sans-serif; weight:300">' + jsPsych.timelineVariable('qq2') + '</p>' + 
+            '</div>'+
+            "<div class=\"prof\"> "+
+            '<p><b> Afraid of: </b></p>' +
+            '<p style = "font-family:Raleway, sans-serif; weight:300">' + jsPsych.timelineVariable('qq3') + '</p>' + 
+            '</div>'+
+			"<div class=\"prof\"> "+
+            '<p><b> Favourite things: </b></p>' +
+            '<p style = "font-family:Raleway, sans-serif; weight:300">' + jsPsych.timelineVariable('qq4') + '</p>' + 
+            '</div>'+
+			"<div class=\"prof\"> "+
+            '<p><b> Dislike people who: </b></p>' +
+            '<p style = "font-family:Raleway, sans-serif; weight:300">' + jsPsych.timelineVariable('qq5') + '</p>' + 
+            '</div>'
+            return stim;
+        },
+        prompt: null,  
+        save_trial_parameters: {
+            choices: true
+        },
+        // trial timing
+        stimulus_duration: null,                // stim text remains on screen indefinitely
+        response_ends_trial: true,              // trial ends only when response entered
+        time_after_choice: 750,                 // time in ms to leave trial info on screen following choice
+        post_trial_gap: 0,                     
+        // styling
+        margin_vertical: '0px',                 // vertical margin of the button (px)
+        margin_horizontal: '20px',              // horizontal margin of the button (px)
+        button_html: function() {
+            var cloud_button =  "<div class='thought'>%choice%</div>";  // our custom 'thought cloud' css button
+            return cloud_button;
+        },
+        // at end of each trial
+    on_finish: function(data) {
+        var respData = this.type.jsPsych.data.getLastTrialData().trials[0].response;
+        var rtData = this.type.jsPsych.data.getLastTrialData().trials[0].rt;
+        saveTaskData(jsPsych.timelineVariable('trialIndex'), respData, rtData)
+        //was the chosen response correct
+        data.chosen_resp = data.choices[data.response];
+        if ( data.chosen_resp == jsPsych.timelineVariable('correct_answer')) {
+            data.correct = 1;
+        } else {
+            data.correct = 0;
+        };
+  
+    }
+
+};
+
+
+    // if trial timed out, loop trial and feedback again until participant responds
+var learning_trial_node = {
+    timeline: [ learning_trial],
+    loop_function: function () {
+        var prev_trial_to = jsPsych.data.getLastTimelineData().trials[0].timedout;
+        if ( prev_trial_to == true ) {
+            return true; 
+        } else {
+            return false; 
+        }
+    }
+};
+
+
+///////////////////////////////////////////// CONCAT ////////////////////////////////////////////////////////
+
+var rating_trials = {
+    timeline: [learning_trial_node],
+    timeline_variables: events_causes_learning         
+};
+
 
 
 var end_screen = {
@@ -255,4 +321,4 @@ var end_screen = {
 }; 
 
 
-export {full_screen, end_screen, dur_max, initialinstructions_profile, ask_questions_profile, pick_name,initialinstructions_rate_profile,rate_profiles_fun};
+export {full_screen, end_screen, dur_max, initialinstructions_profile, ask_questions_profile, pick_name,initialinstructions_rate_profile,rating_trials};
