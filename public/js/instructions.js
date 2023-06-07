@@ -209,12 +209,12 @@ console.log(events_causes_learning)
 
     var learning_trial = {
         // jsPsych plugin to use
-        type: jsPsychHtmlButtonResponseCA,
+        type: jsPsychHtmlButtonResponse,
         // trial info
         choices: ['They liked me', 'They did not like me'],
         stimulus: function () {
             var stim = "<div class=\"row\"> "+ 
-            "<h1>Did this person like you?</h1>"+ 
+            "<h1>Do you like this person?</h1>"+ 
 			"<div class=\"prof-name\"> "+
             "<h2>" + jsPsych.timelineVariable('name') +"</h2>" +
 			'</div>'+
@@ -235,7 +235,7 @@ console.log(events_causes_learning)
             '<p style = "font-family:Raleway, sans-serif; weight:300">' + jsPsych.timelineVariable('qq4') + '</p>' + 
             '</div>'+
 			"<div class=\"prof\"> "+
-            '<p><b> Dislike people who: </b></p>' +
+            '<p><b> Dislikes people who: </b></p>' +
             '<p style = "font-family:Raleway, sans-serif; weight:300">' + jsPsych.timelineVariable('qq5') + '</p>' + 
             '</div>'
             return stim;
@@ -252,22 +252,12 @@ console.log(events_causes_learning)
         // styling
         margin_vertical: '0px',                 // vertical margin of the button (px)
         margin_horizontal: '20px',              // horizontal margin of the button (px)
-        button_html: function() {
-            var cloud_button =  "<div class='thought'>%choice%</div>";  // our custom 'thought cloud' css button
-            return cloud_button;
-        },
+		button_html: ["<button class='jspsych-btn-img'><img src='./assets/imgs/yes.png' width='100' height = '100' >%choice%</button>",
+		"<button class='jspsych-btn-img'><img src='./assets/imgs/no.png' width='100' height = '100' >%choice%</button>"],  // button without background to insert image
         // at end of each trial
     on_finish: function(data) {
         var respData = this.type.jsPsych.data.getLastTrialData().trials[0].response;
-        var rtData = this.type.jsPsych.data.getLastTrialData().trials[0].rt;
-        saveTaskData(jsPsych.timelineVariable('trialIndex'), respData, rtData)
-        //was the chosen response correct
-        data.chosen_resp = data.choices[data.response];
-        if ( data.chosen_resp == jsPsych.timelineVariable('correct_answer')) {
-            data.correct = 1;
-        } else {
-            data.correct = 0;
-        };
+        savePreTaskData(respData);
   
     }
 

@@ -23,6 +23,28 @@
     background-color: #fff;
     border-color: #ccc;
     }
+
+    .jspsych-btn-img {
+      display: inline-block;
+      padding: 6px 6px;
+      margin-left: 0px;
+      font-size: 14px;
+      font-weight: 400;
+      width: 100px;
+      height: 100px;
+      font-family: 'Open Sans', 'Arial', sans-serif;
+      cursor: pointer;
+      line-height: 1.4;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      background-image: none;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      color: #cce3f0fb;
+      background-color: #cce3f0fb;
+      border-color: #cce3f0fb;
+      }
     
 /* Slider width fix */
 .jspsych-slider {
@@ -82,4 +104,9 @@
 
   .answer {
     font-family: 'Raleway', sans-serif;
+}
+
+.rail_font {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
 }
