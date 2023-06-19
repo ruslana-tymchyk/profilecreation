@@ -13,11 +13,11 @@ var timeline = [];  /* list of things to run */
 if (dofullscreen==true) {
     timeline.push(full_screen);
 }
-timeline.push(rating_trials);
 timeline.push(initialinstructions_profile);
 timeline.push(pick_name)
 timeline.push(ask_questions_profile)
 timeline.push(initialinstructions_rate_profile);
+timeline.push(rating_trials);
 
 
 timeline.push(end_screen);

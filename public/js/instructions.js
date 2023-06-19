@@ -89,7 +89,7 @@ var initialinstructions_profile = {
 	stimulus: 
 	"<div class=\"row\"> "+ 
 	" 	<div class=\"col-3\"></div> "+ 
-	" 	<div class=\"col-6\"> "+ 
+	" 	<div class=\"prof-inst\"> "+ 
 	"<h2>Study Overview </h2>" + 
 	"<p>Today, in the Part 1 of an experiment we will only ask you to <b>complete your personal profile </b> and <b>rate other people's profiles. </b>" +
 	"These people would have completed the profile, just like you. Based on information in their profile, we ask you to tell us if you like each person or not." +
@@ -133,6 +133,7 @@ var pick_name = {
     ],
     show_question_numbers: 'onPage',
     button_label_finish: 'submit',
+	css_classes: ['mini-margin'],
     on_start: function(){
       document.querySelector('body').style.backgroundColor = '#cce3f0fb';
     },
@@ -175,11 +176,11 @@ var initialinstructions_rate_profile = {
 	stimulus: 
 	"<div class=\"row\"> "+ 
 	" 	<div class=\"col-3\"></div> "+ 
-	" 	<div class=\"col-6\"> "+ 
+	" 	<div class=\"prof\"> "+ 
 	"<h2>Rate other profiles</h2>" + 
 	"<p>Thank you for completing your profile. </p>"+
 	"<p> We will now ask you to read and rate other people's profiles. </p>" + 
-	"<br> Click <b> Continue </b> to proceed. </br>"
+	"<p> Click <b> Continue </b> to proceed. </p>"
 	,
 	on_start: function(){
 		document.querySelector('body').style.backgroundColor = '#cce3f0fb';
@@ -295,8 +296,8 @@ var end_screen = {
 	stimulus: 
 	"<div class=\"row\"> "+ 
 	" 	<div class=\"col-3\"></div> "+ 
-	" 	<div class=\"col-6\"> "+ 
-	"<b>You have finished Part 1 of the study. <br>Thank you for your contribution to science. </b>" + 
+	" 	<div class=\"prof-inst\"> "+ 
+	"<p><b>You have finished Part 1 of the study. </b></p> <p><b>Thank you for your contribution to science. </b></p>" + 
 	"<p> In the next week, we will show yours and other's profiles to dozens of people. "
 	+ "Once we have collated their ratings, we will reach out to you about the second part of the study. </p>" + 
 	"We will also use your feedback to tell others if people liked their profile or not." +

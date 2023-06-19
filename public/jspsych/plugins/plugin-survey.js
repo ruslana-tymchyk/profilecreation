@@ -7525,7 +7525,7 @@ var jsPsychSurvey = (function (jspsych) {
 
 	var defaultBootstrapCss = {
 	    root: "sv_main sv_bootstrap_css",
-	    container: "sv_container",
+	    container: "prof",
 	    header: "panel-heading card-header",
 	    body: "panel-body card-block mt-4",
 	    bodyEmpty: "panel-body card-block mt-4 sv_body_empty",
@@ -7538,12 +7538,12 @@ var jsPsychSurvey = (function (jspsych) {
 	    navigationButton: "",
 	    completedPage: "",
 	    navigation: {
-	        complete: "btn sv_complete_btn",
-	        prev: "btn sv_prev_btn",
-	        next: "btn sv_next_btn",
-	        start: "btn sv_start_btn",
-	        preview: "btn sv_preview_btn",
-	        edit: "btn sv_edit_btn",
+	        complete: "btn jspsych-btn",
+	        prev: "btn jspsych-btn",
+	        next: "btn jspsych-btn",
+	        start: "btn jspsych-btn",
+	        preview: "btn jspsych-btn",
+	        edit: "btn jspsych-btn",
 	    },
 	    progress: "progress center-block mx-auto mb-4",
 	    progressBar: "progress-bar",
@@ -7567,7 +7567,7 @@ var jsPsychSurvey = (function (jspsych) {
 	    },
 	    pageTitle: "",
 	    pageDescription: "small",
-	    row: "sv_row",
+	    row: "prof",
 	    question: {
 	        mainRoot: "sv_qstn",
 	        flowRoot: "sv_q_flow sv_qstn",
@@ -7850,7 +7850,7 @@ var jsPsychSurvey = (function (jspsych) {
 
 	var defaultBootstrapMaterialCss = {
 	    root: "sv_main sv_bootstrapmaterial_css",
-	    container: "sv_container",
+	    container: "prof",
 	    header: "card-heading",
 	    body: "card-body",
 	    bodyEmpty: "card-body sv_body_empty",
@@ -7863,7 +7863,7 @@ var jsPsychSurvey = (function (jspsych) {
 	    navigationButton: "",
 	    completedPage: "",
 	    navigation: {
-	        complete: "btn sv_complete_btn btn-primary",
+	        complete: "btn jspsych-btn btn-primary",
 	        prev: "btn sv_prev_btn btn-primary",
 	        next: "btn sv_next_btn btn-primary",
 	        start: "btn sv_start_btn btn-primary",
@@ -8563,11 +8563,11 @@ var jsPsychSurvey = (function (jspsych) {
 	    }
 	};
 	var defaultStandardCss = {
-	    root: "sv_main sv_default_css",
-	    container: "sv_container",
+	    root: "prof",
+	    container: "prof",
 	    header: "sv_header",
-	    body: "sv_body",
-	    bodyEmpty: "sv_body sv_body_empty",
+	    body: "prof",
+	    bodyEmpty: "prof",
 	    footer: "sv_nav",
 	    title: "",
 	    description: "",
@@ -8577,12 +8577,12 @@ var jsPsychSurvey = (function (jspsych) {
 	    navigationButton: "",
 	    completedPage: "sv_completed_page",
 	    navigation: {
-	        complete: "sv_complete_btn",
-	        prev: "sv_prev_btn",
-	        next: "sv_next_btn",
-	        start: "sv_start_btn",
-	        preview: "sv_preview_btn",
-	        edit: "sv_edit_btn",
+	        complete: "jspsych-btn",
+	        prev: "jspsych-btn",
+	        next: "jspsych-btn",
+	        start: "jspsych-btn",
+	        preview: "jspsych-btn",
+	        edit: "jspsych-btn",
 	    },
 	    progress: "sv_progress",
 	    progressBar: "sv_progress_bar",
@@ -8600,14 +8600,14 @@ var jsPsychSurvey = (function (jspsych) {
 	    progressButtonsPageTitle: "sv_progress-buttons__page-title",
 	    progressButtonsPageDescription: "sv_progress-buttons__page-description",
 	    page: {
-	        root: "sv_p_root",
+	        root: "prof",
 	        title: "sv_page_title",
 	        description: "",
 	    },
 	    // TODO: move to the page object
 	    pageTitle: "sv_page_title",
 	    pageDescription: "",
-	    row: "sv_row",
+	    row: "prof",
 	    question: {
 	        mainRoot: "sv_q sv_qstn",
 	        flowRoot: "sv_q_flow sv_qstn",
@@ -8620,7 +8620,7 @@ var jsPsychSurvey = (function (jspsych) {
 	        title: "sv_q_title",
 	        titleExpandable: "sv_q_title_expandable",
 	        number: "sv_q_num",
-	        description: "sv_q_description",
+	        description: "prof",
 	        comment: "",
 	        required: "",
 	        titleRequired: "",
@@ -8707,7 +8707,7 @@ var jsPsychSurvey = (function (jspsych) {
 	    dropdown: {
 	        root: "",
 	        control: "sv_q_dropdown_control",
-	        selectWrapper: "sv_select_wrapper",
+	        selectWrapper: "prof",
 	        other: "sv_q_dd_other",
 	    },
 	    html: { root: "" },
@@ -31804,7 +31804,7 @@ var jsPsychSurvey = (function (jspsych) {
 	    popupViewModel.initializePopupContainer();
 	    return popupViewModel;
 	}
-	var FOCUS_INPUT_SELECTOR = "input:not(:disabled):not([readonly]):not([type=hidden]),select:not(:disabled):not([readonly]),textarea:not(:disabled):not([readonly]), button:not(:disabled):not([readonly]), [tabindex]:not([tabindex^=\"-\"])";
+	var FOCUS_INPUT_SELECTOR = "input:not(:disabled):not([readonly]):not([type=hidden]),select:not(:disabled):not([readonly]),textarea:not(:disabled):not([readonly]), button:not(:disabled):not([readonly]), []:not([tabindex^=\"-\"])";
 	var PopupBaseViewModel = /** @class */ (function (_super) {
 	    __extends(PopupBaseViewModel, _super);
 	    function PopupBaseViewModel(model, targetElement) {
@@ -51695,7 +51695,7 @@ var jsPsychSurvey = (function (jspsych) {
 	        '.sv_default_css .sv_container .sv_body .sv_p_root .sv_q input[type="radio"]:focus, .sv_default_css .sv_container .sv_body .sv_p_root .sv_q input[type="checkbox"]:focus': "outline: 1px dotted $main-color;",
 	        ".sv_default_css select:focus": "border-color: $main-color;",
 	        ".sv_default_css textarea:focus": "border-color: $main-color;",
-	        ".sv_default_css .sv_select_wrapper": "background-color: $body-background-color;",
+	        ".sv_default_css .": "background-color: $body-background-color;",
 	        ".sv_default_css .sv_select_wrapper::before": "background-color: $main-color;",
 	        ".sv_default_css .sv_q_rating_item.active .sv_q_rating_item_text": "background-color: $main-hover-color; border-color: $main-hover-color; color: $body-background-color;",
 	        ".sv_default_css .sv_q_rating_item .sv_q_rating_item_text": "border-color: $border-color;",

@@ -78,6 +78,14 @@
   margin-bottom: 10px;
   }
 
+  .prof-inst {
+    border-radius: 25px;
+    border: 10px solid #F0FFFF;
+    background-color: #F0FFFF; 
+    text-align: middle;
+    margin-bottom: 10px;
+    }
+
   .prof-name {
     border-radius: 25px;
     border: 3px solid rgb(3, 109, 136);
@@ -109,4 +117,8 @@
 .rail_font {
   font-family: 'Raleway', sans-serif;
   font-weight: 300;
+}
+
+.mini-margin {
+  margin-top: 10px
 }
