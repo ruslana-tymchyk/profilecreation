@@ -1,7 +1,7 @@
 // -----------------------------------------------------------------------------
 // INSTRUCTIONS 
 import { jsPsych } from './task.js';
-import { savePreTaskData,saveName, saveProfileRatingsData} from './saveData.js';
+import { savePreTaskData,saveName} from './saveData.js';
 var image_path = './assets/imgs/'
 var responses = ['yes.png ', 'no.png '];
 
@@ -27,31 +27,36 @@ var male_names = ["LUCA", "EDWARD","ARLO","RORY","TOMMY","ELIJAH","YUSUF","RALPH
 				var q1 = ["They might say that I'm empathetic and positive.",
 				"According to others, my best qualities are being a compassionate listener, and being someone who stays proactive and optimistic in life.",
 				"I am quite driven, sociable and love being around people. They would probably also say that I am a good cook :)",
-				"Opened minded, kind, genuine."
+				"Opened minded, kind, genuine.",
+				"Very funny, I enjoy telling a good joke"
 				]
 				
 				var q2 = ["Disorganised and sometimes too relaxed.",
 				"According to others, my worst qualities are not knowing how to keep a work-life balance, and not always knowing when to draw boundaries with others.",
 				"Probably that I am easily distracted. Also I sometimes talk too much about things I get excited about.",
-				"Like to rush things, attention to details."
+				"Like to rush things, attention to details.",
+				"I spend too much time playing video games sometimes"
 				]
 				
 				var q3 = ["Becoming someone/acting like someone I thought I wasn't.",
 				"I am afraid to lose my sight.",
 				"I am afraid I will not be liked by new people that I meet. Also I am afraid of very very steep slides!",
-				"Losing control over things, things not going as expected."
+				"Losing control over things, things not going as expected.",
+				"My history teacher"
 				]
 				
 				var q4 = ["Being in nature away from a lot of people, playing/listening to music, climbing, reading.", 
 				"My favorite things in life are: spending time pursuing my curiosity and creativity, and spending quality time with my loved ones.", 
 				"I enjoy spending time with my friends and having banter with them. I love climbing because it gets me to be active and problem solve at the same time. I also really enjoy Japanese food because it is very wholesome.", 
-				"Animals, plants, cleaning? (Don’t know if that counts)."
+				"Animals, plants, cleaning? (Don’t know if that counts).",
+				"Video games of course, and volleyball"
 				]
 				
 				var q5 = ["I dislike people who are unkind, selfish, narcissistic.",
 				"I really dislike people who are too scared to communicate their thoughts and feelings, and those who are selfish and egoistic.",
 				"I do not like people who are very demanding all the time and can not relax and take things easy sometimes. I also find it hard to deal with people who are  ignorant of others feelings.",
-				"Who have two faces (shit talk about you behind your back)."]
+				"Who have two faces (shit talk about you behind your back).",
+			    "Very demanding, but don't do anything themselves"]
 
 function getRandomItem(arr, items) {
 
@@ -92,9 +97,9 @@ var initialinstructions_profile = {
 	" 	<div class=\"prof-inst\"> "+ 
 	"<h2>Study Overview </h2>" + 
 	"<p>Today, in the Part 1 of an experiment we will only ask you to <b>complete your personal profile </b> and <b>rate other people's profiles. </b>" +
-	"These people would have completed the profile, just like you. Based on information in their profile, we ask you to tell us if you like each person or not." +
-	 "Then, over the next week we will show your profile to dozens of people, who will decide whether they like you or not based on this profile. </p>" + 
-     "<p> Once we have plenty of ratings we will reach out to you and ask you to complete the Part 2 of the experiment. </p>" +
+	"These people would have completed the profile, just like you. Based on information in their profile, we ask you to tell us if you like each person or not.</p>" +
+	 "<p>Then, over the next week we will show your profile to dozens of people, who will decide whether they like you or not based on your profile. " + 
+     "Once we have plenty of ratings we will reach out to you and ask you to complete the Part 2 of the experiment. </p>" +
 	"<br> Click <b> Continue </b> to complete your personal profile. </br>"
 	,
 
@@ -112,7 +117,7 @@ var pick_name = {
       [
         {
           type: 'html',
-          prompt: "<b>Since we want to maximise the validity of our study, while ensuring your anonimity, we ask you to choose an alias that will be associated with your personal profile. </b>",
+          prompt: "<b>Since we want to maximise the validity of our study, while ensuring your anonimity, we ask you to choose an <b> alias </b> that will be associated with your personal profile. </b>",
         },
         {
           type: 'drop-down',
@@ -164,6 +169,8 @@ var ask_questions_profile= {
 	},
 	on_finish: function(){
 	var respData = this.type.jsPsych.data.getLastTrialData().trials[0].response;
+	console.log('Participant responses');
+	console.log(respData);
     savePreTaskData(respData);
 	}
 };
@@ -178,8 +185,8 @@ var initialinstructions_rate_profile = {
 	" 	<div class=\"col-3\"></div> "+ 
 	" 	<div class=\"prof\"> "+ 
 	"<h2>Rate other profiles</h2>" + 
-	"<p>Thank you for completing your profile. </p>"+
-	"<p> We will now ask you to read and rate other people's profiles. </p>" + 
+	"<p>Thank you for completing your profile. We will now ask you to read and rate other people's profiles. </p>"+
+	"<p> Click on green 'Thumbs Up' button if you like this person. Click on red 'Thumbs Down' button if you dislike this person.</p>" + 
 	"<p> Click <b> Continue </b> to proceed. </p>"
 	,
 	on_start: function(){
@@ -192,8 +199,8 @@ var initialinstructions_rate_profile = {
 //////RATE PROFILES
 
 // define trial stimuli and choice array for use as a timeline variable 
-var nTrials = 4;
-var name_order = ['Jay', 'Laura', 'Ruby', 'Bella']
+var nTrials = 5;
+var name_order = ['Jay', 'Laura', 'Ruby', 'Bella', 'Gordon']
 var events_causes_learning = [];
 for ( var i = 0; i < nTrials; i++ ) {
     events_causes_learning[i] = { 
@@ -256,10 +263,8 @@ console.log(events_causes_learning)
 		button_html: ["<button class='jspsych-btn-img'><img src='./assets/imgs/yes.png' width='100' height = '100' >%choice%</button>",
 		"<button class='jspsych-btn-img'><img src='./assets/imgs/no.png' width='100' height = '100' >%choice%</button>"],  // button without background to insert image
         // at end of each trial
-    on_finish: function(data) {
-        var respData = this.type.jsPsych.data.getLastTrialData().trials[0].response;
-        savePreTaskData(respData);
-  
+    on_finish: function() {
+
     }
 
 };

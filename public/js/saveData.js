@@ -8,7 +8,7 @@ firebase.firestore().enablePersistence()
 
 // initialize db
 var db = firebase.firestore();
-var version = "apr2023-5"
+var version = "aug2023-4"
 // function to save consent 
 var saveConsent = function(){
   db.collection(version).doc('mind').collection('minddata').doc(uid).set({
@@ -40,13 +40,14 @@ var saveName = function(response){
   }); 
 };
 
-var saveProfileRatingsData = function(profile_count, respData, respRT){
+/*
+var saveProfileRatingsData = function(profile_count, respData){
   db.collection(version).doc('mind').collection('minddata').doc(uid).collection('pre_task_data').doc('rank_profiles').update(
-    {[profile_count]: respData,
-      ['rt_' + profile_count]: respRT}  
+    {[profile_count]: respData}  
 
   ); 
 };
+*/
 
-export { saveConsent, savePreTaskData,saveName,saveProfileRatingsData};
+export { saveConsent, savePreTaskData,saveName};
 

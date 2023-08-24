@@ -19,10 +19,10 @@ const preInstructions = "<div class=\"row\"> "+
 	"</p>" + 
 	"<p>" + 
 	"Everyone who successfully completes the study will also earn a <b>bonus payment</b>. "+
-	"The exact amount will depend on the options you choose during the game. "+
-	"Specifically, you will earn an extra 1 pence for every time you "+
+	"The exact amount will depend on the options you choose during Part 2. "+
+	"Specifically, you will earn an extra 0.8 pence for every time you "+
 	" correctly predict how someone responded to your profile (the maximum possible bonus you can earn during this study is "+
-	"<b>£1.60</b>). Your bonus will be calculated at the end of task "+
+	"<b>£0.96</b>). Your bonus will be calculated at the end of task "+
 	"and added to your payment from Prolific."+
 	"</p>" + 
 	"<p>" + 
